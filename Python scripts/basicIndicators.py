@@ -20,7 +20,7 @@ import itertools
 # Define folder paths relative to the script location
 folder = Path(__file__).resolve().parent.parent / "input data/IFs/Basic Indicators"
 out_folder = Path(__file__).resolve().parent.parent / "output data"
-conversion_table_path = Path(__file__).resolve().parent.parent / "input data/conversion_table.csv"
+conversion_table_path = Path(__file__).resolve().parent.parent / "input data/conversion_table_scenarios.csv"
 
 # Create the new folder if it does not exist
 out_folder.mkdir(parents=True, exist_ok=True)
@@ -247,108 +247,99 @@ for scenario in abs_df['Scenario'].unique():
 diff_file_path = out_folder / 'BasicIndicators_dif.csv'
 diff_df.to_csv(diff_file_path, index=False)
 
-# # Combine abs_df and diff_df
-# combined_df = pd.concat([abs_df, diff_df], ignore_index=True)
-
-# # Update the units according to the formula
-# combined_df['Values_updatedUnits'] = combined_df.apply(lambda row: adjust_scale_based_on_unit(row['Value'], row['Indicator']), axis=1)
-
-# # Export the combined DataFrame as a new CSV
-# combined_file_path = out_folder / 'Combined_BasicIndicators.csv'
-# combined_df.to_csv(combined_file_path, index=False)
-
 #%% Calculate change needed
 
-# Define WATSAN_names list
-WATSAN_names = [
- 'Sanitation Services, Access, percent of population',
- 'Sanitation Services, Access, Number of people',
- 'Water Services, Access, percent of population',
- 'Water Services, Access, Number of people'
-]
+# # Define WATSAN_names list
+# WATSAN_names = [
+#  'Sanitation Services, Access, percent of population',
+#  'Sanitation Services, Access, Number of people',
+#  'Water Services, Access, percent of population',
+#  'Water Services, Access, Number of people'
+# ]
 
-# Filtering rows where 'Indicator' column matches one of the values in WATSAN_names
-watsan_access_df = abs_df[abs_df['Indicator'].isin(WATSAN_names)]
+# # Filtering rows where 'Indicator' column matches one of the values in WATSAN_names
+# watsan_access_df = abs_df[abs_df['Indicator'].isin(WATSAN_names)]
 
-# Calculate the increase needed to reach full WASH in 2030 or 2050
+# # Calculate the increase needed to reach full WASH in 2030 or 2050
 
-# Set starting parameters
-start = 2024
-horizon_2030 = 2030
-horizon_2050 = 2050
+# # Set starting parameters
+# start = 2024
+# horizon_2030 = 2030
+# horizon_2050 = 2050
 
-# Calculate years left to horizon
-years_left_2030 = horizon_2030 - start
-years_left_2050 = horizon_2050 - start
+# # Calculate years left to horizon
+# years_left_2030 = horizon_2030 - start
+# years_left_2050 = horizon_2050 - start
 
-# Select full WASH at 2030 & 2050
-fullAccess_scenarios = [
-    "FullWat_2030", 
-    "FullWat_2050", 
-    "FullSan_2030", 
-    "FullSan_2050", 
-]
+# # Select full WASH at 2030 & 2050
+# fullAccess_scenarios = [
+#     "FullWat_2030", 
+#     "FullWat_2050", 
+#     "FullSan_2030", 
+#     "FullSan_2050", 
+#     "WaterFull_20"
+# ]
 
-# Only focus on full WASH at 2030 & 2050
-final_filtered_df = watsan_access_df[watsan_access_df['Scenario'].isin(fullAccess_scenarios)]
+# # Only focus on full WASH at 2030 & 2050
+# final_filtered_df = watsan_access_df[watsan_access_df['Scenario'].isin(fullAccess_scenarios)]
 
-# Ensure 'Value' column is numeric
-final_filtered_df['Value'] = pd.to_numeric(final_filtered_df['Value'], errors='coerce')
+# # Ensure 'Value' column is numeric
+# final_filtered_df['Value'] = pd.to_numeric(final_filtered_df['Value'], errors='coerce')
 
-# Filter data for the years 2020 and 2030
-data_2020 = final_filtered_df[final_filtered_df['Year'] == 2020]
-data_2030 = final_filtered_df[final_filtered_df['Year'] == 2030]
+# # Filter data for the years 2020 and 2030
+# data_2020 = final_filtered_df[final_filtered_df['Year'] == 2020]
+# data_2030 = final_filtered_df[final_filtered_df['Year'] == 2030]
 
-# Merge data for 2020 and 2030
-merged_data_2020_2030 = pd.merge(data_2020, data_2030, on=['Country', 'Type', 'Scenario'], suffixes=('_2020', '_2030'))
+# # Merge data for 2020 and 2030
+# merged_data_2020_2030 = pd.merge(data_2020, data_2030, on=['Country', 'Type', 'Scenario'], suffixes=('_2020', '_2030'))
 
-# Calculate the average annual difference between 2020 and 2030
-merged_data_2020_2030['Average_Annual_Difference'] = (merged_data_2020_2030['Value_2030'] - merged_data_2020_2030['Value_2020']) / 10
+# # Calculate the average annual difference between 2020 and 2030
+# merged_data_2020_2030['Average_Annual_Difference'] = (merged_data_2020_2030['Value_2030'] - merged_data_2020_2030['Value_2020']) / 10
 
-# Get the value at the start year (2024)
-start_values = final_filtered_df[final_filtered_df['Year'] == start]
-start_values = start_values[['Country', 'Type', 'Scenario', 'Value']]
-start_values.rename(columns={'Value': 'Value_Start_2024'}, inplace=True)
+# # Get the value at the start year (2024)
+# start_values = final_filtered_df[final_filtered_df['Year'] == start]
+# start_values = start_values[['Country', 'Type', 'Scenario', 'Value']]
+# start_values.rename(columns={'Value': 'Value_Start_2024'}, inplace=True)
 
-# Calculate the access gap (100 - value at start year 2024)
-access_gap = start_values.copy()
-access_gap['Access_Gap'] = 100 - access_gap['Value_Start_2024']
+# # Calculate the access gap (100 - value at start year 2024)
+# access_gap = start_values.copy()
+# access_gap['Access_Gap'] = 100 - access_gap['Value_Start_2024']
 
-# Merge the access gap with the average annual difference
-merged_data = pd.merge(access_gap, merged_data_2020_2030[['Country', 'Type', 'Scenario', 'Average_Annual_Difference']], on=['Country', 'Type', 'Scenario'])
+# # Merge the access gap with the average annual difference
+# merged_data = pd.merge(access_gap, merged_data_2020_2030[['Country', 'Type', 'Scenario', 'Average_Annual_Difference']], on=['Country', 'Type', 'Scenario'])
 
-# Calculate the years needed for full access
-merged_data['Years_Needed_For_Full_Access'] = merged_data['Access_Gap'] / merged_data['Average_Annual_Difference']
+# # Calculate the years needed for full access
+# merged_data['Years_Needed_For_Full_Access'] = merged_data['Access_Gap'] / merged_data['Average_Annual_Difference']
 
-# Calculate the factor increase needed for 2030 and 2050
-merged_data['Factor_Increase_2030'] = merged_data['Years_Needed_For_Full_Access'] / years_left_2030
-merged_data['Factor_Increase_2050'] = merged_data['Years_Needed_For_Full_Access'] / years_left_2050
+# # Calculate the factor increase needed for 2030 and 2050
+# merged_data['Factor_Increase_2030'] = merged_data['Years_Needed_For_Full_Access'] / years_left_2030
+# merged_data['Factor_Increase_2050'] = merged_data['Years_Needed_For_Full_Access'] / years_left_2050
 
-# Determine the final increase needed for 2030 and 2050
-merged_data['Final_Increase_2030'] = merged_data.apply(
-    lambda row: 'there\'s been a deterioration of WASH access over the last years' if row['Average_Annual_Difference'] < 0 
-    else 'no extra increase needed' if row['Factor_Increase_2030'] <= 1 
-    else row['Factor_Increase_2030'], 
-    axis=1
-)
+# # Determine the final increase needed for 2030 and 2050
+# merged_data['Final_Increase_2030'] = merged_data.apply(
+#     lambda row: 'there\'s been a deterioration of WASH access over the last years' if row['Average_Annual_Difference'] < 0 
+#     else 'no extra increase needed' if row['Factor_Increase_2030'] <= 1 
+#     else row['Factor_Increase_2030'], 
+#     axis=1
+# )
 
-merged_data['Final_Increase_2050'] = merged_data.apply(
-    lambda row: 'there\'s been a deterioration of WASH access over the last years' if row['Average_Annual_Difference'] < 0 
-    else 'no extra increase needed' if row['Factor_Increase_2050'] <= 1 
-    else row['Factor_Increase_2050'], 
-    axis=1
-)
+# merged_data['Final_Increase_2050'] = merged_data.apply(
+#     lambda row: 'there\'s been a deterioration of WASH access over the last years' if row['Average_Annual_Difference'] < 0 
+#     else 'no extra increase needed' if row['Factor_Increase_2050'] <= 1 
+#     else row['Factor_Increase_2050'], 
+#     axis=1
+# )
 
-# Create the changeNeeded dataframe
-changeNeeded = merged_data[['Country', 'Type', 'Scenario', 'Final_Increase_2030', 'Final_Increase_2050']]
+# # Create the changeNeeded dataframe
+# changeNeeded = merged_data[['Country', 'Type', 'Scenario', 'Final_Increase_2030', 'Final_Increase_2050']]
 
-# Round numeric values to 2 decimals
-changeNeeded['Change_Needed_2030'] = pd.to_numeric(changeNeeded['Final_Increase_2030'], errors='coerce').round(2).fillna(changeNeeded['Final_Increase_2030'])
-changeNeeded['Change_Needed_2050'] = pd.to_numeric(changeNeeded['Final_Increase_2050'], errors='coerce').round(2).fillna(changeNeeded['Final_Increase_2050'])
+# # Round numeric values to 2 decimals
+# changeNeeded['Change_Needed_2030'] = pd.to_numeric(changeNeeded['Final_Increase_2030'], errors='coerce').round(2).fillna(changeNeeded['Final_Increase_2030'])
+# changeNeeded['Change_Needed_2050'] = pd.to_numeric(changeNeeded['Final_Increase_2050'], errors='coerce').round(2).fillna(changeNeeded['Final_Increase_2050'])
 
-# Drop the old columns and keep the renamed ones
-changeNeeded = changeNeeded[['Country', 'Type', 'Scenario', 'Change_Needed_2030', 'Change_Needed_2050']]
+# # Drop the old columns and keep the renamed ones
+# changeNeeded = changeNeeded[['Country', 'Type', 'Scenario', 'Change_Needed_2030', 'Change_Needed_2050']]
 
-# Export the changeNeeded DataFrame as a new CSV
-change_needed_file_path = Path(out_folder) / 'ChangeNeeded.csv'
-changeNeeded.to_csv(change_needed_file_path, index=False)
+# # Export the changeNeeded DataFrame as a new CSV
+# change_needed_file_path = Path(out_folder) / 'ChangeNeeded.csv'
+# changeNeeded.to_csv(change_needed_file_path, index=False)
