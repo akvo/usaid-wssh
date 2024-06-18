@@ -261,8 +261,10 @@ def get_difference_values(abs_df, out_folder):
 
             # Rename 'Difference' column to 'Value' and reorder columns
             filtered_dfb = merged_df[['Difference', 'Year', 'Indicator', 'Unit', 'Status', 'Country', 'Scenario', 'Type']]
-
             filtered_dfb.rename(columns={'Difference': 'Value'}, inplace=True)
+
+            # Ensure the Value column has a maximum of 5 digits
+            filtered_dfb['Value'] = filtered_dfb['Value'].apply(lambda x: round(x, 5))
 
             # Append to the difference DataFrame
             diff_df = pd.concat([diff_df, filtered_dfb], ignore_index=True)
