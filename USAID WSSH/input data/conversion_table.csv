@@ -1,0 +1,20 @@
+Indicator,New_Indicator
+SANITHHPOP,"Sanitation Services, Access, Number of people"
+SANITHH,"Sanitation Services, Access, percent of population"
+SANITHHINVESTCAP,"Sanitation Services, Expenditure, Capital"
+SANITHHINVESTMAINT,"Sanitation Services, Expenditure, Maintenance"
+WATERHHPOP,"Water Services, Access, Number of people"
+WATERHH,"Water Services, Access, percent of population"
+WATERHHINVESTCAP,"Water Services, Expenditure, Capital"
+WATERHHINVESTMAINT,"Water Services, Expenditure, Maintenance"
+DEATHCAT,Deaths by Category of Cause - Millions
+EDYRSAG15TO24,"Education Years, Mean, 15 to 24 Age Group - Years of Education"
+GDP,GDP (MER) 
+GDPPCP,GDP per Capita (PPP)
+InfraInvTot,"Infrastructure Spending by Destination, Total"
+MALNCHP,Malnourished Children - Percent of children
+POP,Population - Millions
+PovPerc190HF,"Poverty inferior to $1.90 per day, Log Normal - Percent of Population"
+SAM National Burden (millions),"SAM National Burden, Total Cases "
+SFINSTABALL,State Failure Instability Event - IFs Index
+HLSTUNTCHL,Stunting Rate of Children - Percent of age 0-5
