@@ -18,9 +18,9 @@ import itertools
 from functions import transform_IFs_data, get_year_full_values, get_difference_values
 
 # Initialize the file path, and define the filter conditions
-folder = Path(__file__).resolve().parent.parent / "input data/IFs/Basic Indicators"
+folder = Path(__file__).resolve().parent.parent / "input data/IFs"
 out_folder = Path(__file__).resolve().parent.parent / "output data"
-conversion_table_path = Path(__file__).resolve().parent.parent / "input data/conversion_table_scenarios.csv"
+conversion_table_path = Path(__file__).resolve().parent.parent / "input data"
 
 out_folder.mkdir(parents=True, exist_ok=True)
 
@@ -33,6 +33,9 @@ abs_df = transform_IFs_data(folder, out_folder, conversion_table_path, filter_co
 
 # Get the "Year Full" values (to be updated, so that YearFull.py can be removed)
 year_full_access = get_year_full_values(abs_df, filter_countries, out_folder)
+
+# Filter years to 2019-2050 for the diff_df (to keep below 100MB)
+abs_df = abs_df[abs_df['Year'] <= 2050]
 
 # Get difference values between each Scenario and the Base scenario
 diff_df = get_difference_values(abs_df, out_folder)

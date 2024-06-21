@@ -35,9 +35,9 @@ def determine_type(scenario):
     Returns:
     - str: 'Water', 'Sanitation', or 'Base' based on the scenario.
     """
-    if 'ater' in scenario:
+    if 'Wat' in scenario:
         return 'Water'
-    elif 'anit' in scenario:
+    elif 'San' in scenario:
         return 'Sanitation'
     else:
         return 'Base'
@@ -136,9 +136,6 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
         melted['Status'] = status * len(file_years)
         melted['Country'] = file_countries * len(file_years)
         melted['Scenario'] = file_scenario * len(file_years)
-        
-        # Apply the function to the 'Scenario' column to create a new 'Type' column
-        melted['Type'] = melted['Scenario'].apply(determine_type)
                 
         # Filter the DataFrame for the specified countries and years
         filtered_df = melted[(melted['Country'].isin(filter_countries))]
@@ -146,12 +143,19 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
         # Append the filtered data to the final DataFrame
         abs_df = pd.concat([abs_df, filtered_df], ignore_index=True)
 
-    # Load conversion table from CSV and change the Indicator names
-    conversion_table = pd.read_csv(conversion_table_path)
-    conversion_dict = dict(zip(conversion_table['Indicator'], conversion_table['New_Indicator']))
+    # Apply the function to the 'Scenario' column to create a new 'Type' column
+    abs_df['Type'] = abs_df['Scenario'].apply(determine_type)
+
+    # Load conversion table from CSV and change the Indicator and Scenario names
+    conversion_table = pd.read_csv(conversion_table_path / 'conversion_table_indicators.csv')
+    conversion_dict_indicator = dict(zip(conversion_table['Indicator'], conversion_table['New_Indicator']))
+    
+    conversion_table = pd.read_csv(conversion_table_path / 'conversion_table_scenarios.csv')
+    conversion_dict_scenario = dict(zip(conversion_table['Scenario'], conversion_table['New_Scenario']))
 
     # Apply the conversion to change indicator names
-    abs_df['Indicator'] = abs_df['Indicator'].map(conversion_dict).fillna(abs_df['Indicator'])
+    abs_df['Indicator'] = abs_df['Indicator'].map(conversion_dict_indicator).fillna(abs_df['Indicator'])
+    abs_df['Scenario'] = abs_df['Scenario'].map(conversion_dict_scenario).fillna(abs_df['Scenario'])
 
     # Apply the remove_WASH_false_doubles function to filter the DataFrame
     abs_df = remove_WASH_false_doubles(abs_df)
