@@ -273,7 +273,7 @@ def get_difference_values(abs_df, out_folder):
             # Append to the difference DataFrame
             diff_df = pd.concat([diff_df, filtered_dfb], ignore_index=True)
 
-    # Export CSV: difference
+    
     diff_file_path = out_folder / 'BasicIndicators_dif.csv'
     diff_df.to_csv(diff_file_path, index=False)
 
