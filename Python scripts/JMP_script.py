@@ -19,7 +19,8 @@ file_path = main_folder / 'input data' / 'JMP' / 'JMP_2023_WLD.xlsx'
 sheets = ['Water', 'Sanitation']
 combined_df = pd.DataFrame()
 
-filter_column_names = ['TOTAL - Safely managed', 'TOTAL - At least basic']
+filter_column_names = ['TOTAL - Safely managed', 'TOTAL - At least basic', 'TOTAL - Annual rate of change in \nat least basic',
+                       'TOTAL - Annual rate of change in safely managed']
 
 for sheet_name in sheets:
     df = pd.read_excel(file_path, sheet_name=sheet_name, header=None)
@@ -29,7 +30,7 @@ for sheet_name in sheets:
 
     # Remove < or > symbols from all values, keeping only numbers
     df = df.replace(to_replace=[r'^<', r'^>'], value='', regex=True)
-
+    
     # Manually set the first row as headers, combining with the second row if necessary.
     headers = []
     for col in range(len(df.columns)):
@@ -38,7 +39,7 @@ for sheet_name in sheets:
 
     # Drop the rows used for headers.
     df = df.drop(index=[0, 1])
-    
+        
     # Set the new headers.
     df.columns = headers
     
