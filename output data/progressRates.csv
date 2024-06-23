@@ -1,0 +1,379 @@
+Country,Indicator,Scenario,AAGR,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030
+Ethiopia,"Sanitation Services, Access, percent of population",0.5x,4.51,17.35,18.19,19.13,20.08,20.64,21.09,22.17,23.31,24.48,25.7,26.96
+Ethiopia,"Sanitation Services, Access, percent of population",0.95x,5.69,17.73,18.96,20.39,21.87,23.03,24.16,25.41,26.71,28.05,29.42,30.81
+Ethiopia,"Sanitation Services, Access, percent of population",0.9x,5.57,17.69,18.88,20.26,21.68,22.77,23.84,25.07,26.35,27.67,29.03,30.4
+Ethiopia,"Sanitation Services, Access, percent of population",1.05x,5.91,17.81,19.12,20.66,22.25,23.53,24.8,26.09,27.41,28.78,30.18,31.6
+Ethiopia,"Sanitation Services, Access, percent of population",1.1x,6.01,17.86,19.21,20.79,22.43,23.77,25.11,26.42,27.76,29.16,30.56,32.0
+Ethiopia,"Sanitation Services, Access, percent of population",2x,7.52,18.6,20.73,23.09,25.62,27.94,30.26,31.89,33.46,35.05,36.66,38.26
+Ethiopia,"Sanitation Services, Access, percent of population",Base,5.8,17.77,19.04,20.52,22.06,23.28,24.48,25.76,27.06,28.42,29.79,31.21
+Ethiopia,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,15.25,24.74,32.97,41.11,49.28,56.98,64.47,71.87,79.17,86.3,93.25,100.0
+Ethiopia,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,10.32,19.89,23.37,26.86,30.59,33.86,36.99,40.15,43.36,46.54,49.7,52.83
+Ethiopia,"Water Services, Access, percent of population",0.5x,0.53,73.85,74.33,74.79,75.29,75.55,75.73,76.15,76.56,77.01,77.44,77.87
+Ethiopia,"Water Services, Access, percent of population",0.95x,0.71,73.91,74.57,75.21,75.92,76.4,76.83,77.31,77.81,78.31,78.81,79.31
+Ethiopia,"Water Services, Access, percent of population",0.9x,0.69,73.91,74.54,75.17,75.85,76.31,76.72,77.2,77.68,78.17,78.66,79.16
+Ethiopia,"Water Services, Access, percent of population",1.05x,0.74,73.95,74.63,75.3,76.06,76.58,77.06,77.56,78.06,78.57,79.09,79.61
+Ethiopia,"Water Services, Access, percent of population",1.1x,0.75,73.98,74.65,75.36,76.12,76.67,77.18,77.68,78.19,78.71,79.23,79.75
+Ethiopia,"Water Services, Access, percent of population",2x,1.0,74.24,75.14,76.13,77.26,78.16,79.02,79.62,80.23,80.83,81.43,82.03
+Ethiopia,"Water Services, Access, percent of population",Base,0.73,73.92,74.6,75.27,75.99,76.5,76.96,77.44,77.94,78.44,78.95,79.46
+Ethiopia,"Water Services, Access, percent of population",Full water access in 2030,2.76,76.17,78.86,81.49,84.11,86.54,88.91,91.24,93.52,95.74,97.89,100.0
+Ethiopia,"Water Services, Access, percent of population",Full water access in 2050,1.35,74.63,75.83,77.05,78.26,79.31,80.35,81.37,82.37,83.37,84.34,85.3
+Ghana,"Sanitation Services, Access, percent of population",0.5x,0.58,70.2,70.06,70.48,70.65,70.75,70.86,71.52,72.35,73.06,73.73,74.39
+Ghana,"Sanitation Services, Access, percent of population",0.95x,0.87,70.49,70.72,71.47,72.01,72.53,73.1,73.88,74.72,75.49,76.19,76.89
+Ghana,"Sanitation Services, Access, percent of population",0.9x,0.84,70.47,70.66,71.36,71.87,72.34,72.88,73.64,74.48,75.23,75.94,76.63
+Ghana,"Sanitation Services, Access, percent of population",1.05x,0.93,70.58,70.88,71.7,72.32,72.92,73.59,74.37,75.21,75.98,76.71,77.41
+Ghana,"Sanitation Services, Access, percent of population",1.1x,0.95,70.62,70.95,71.85,72.5,73.15,73.86,74.6,75.46,76.24,76.95,77.65
+Ghana,"Sanitation Services, Access, percent of population",2x,1.35,71.23,72.21,73.75,75.0,76.21,77.52,78.37,79.24,80.02,80.77,81.47
+Ghana,"Sanitation Services, Access, percent of population",Base,0.9,70.51,70.79,71.57,72.16,72.7,73.33,74.12,74.97,75.72,76.45,77.15
+Ghana,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,3.19,73.03,75.65,78.78,81.73,84.53,87.25,90.01,92.71,95.25,97.68,100.0
+Ghana,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,1.64,71.28,72.14,73.65,75.01,76.21,77.41,78.77,80.18,81.46,82.68,83.85
+Ghana,"Water Services, Access, percent of population",0.5x,0.21,91.41,91.31,91.57,91.76,91.84,91.92,92.17,92.54,92.85,93.12,93.36
+Ghana,"Water Services, Access, percent of population",0.95x,0.28,91.52,91.57,91.9,92.16,92.39,92.6,92.92,93.28,93.59,93.85,94.1
+Ghana,"Water Services, Access, percent of population",0.9x,0.27,91.53,91.54,91.87,92.13,92.33,92.54,92.84,93.21,93.5,93.76,94.02
+Ghana,"Water Services, Access, percent of population",1.05x,0.29,91.57,91.62,92.0,92.29,92.54,92.79,93.08,93.44,93.74,94.01,94.25
+Ghana,"Water Services, Access, percent of population",1.1x,0.3,91.58,91.65,92.08,92.38,92.63,92.9,93.17,93.53,93.82,94.08,94.33
+Ghana,"Water Services, Access, percent of population",2x,0.37,91.82,92.1,92.73,93.23,93.59,93.98,94.23,94.57,94.84,95.09,95.32
+Ghana,"Water Services, Access, percent of population",Base,0.29,91.51,91.58,91.92,92.22,92.44,92.68,93.01,93.35,93.65,93.93,94.17
+Ghana,"Water Services, Access, percent of population",Full water access in 2030,0.8,92.31,93.11,94.11,95.03,95.84,96.62,97.4,98.13,98.8,99.43,100.0
+Ghana,"Water Services, Access, percent of population",Full water access in 2050,0.45,91.82,92.12,92.68,93.19,93.61,94.02,94.47,94.93,95.34,95.7,96.04
+Guatemala,"Sanitation Services, Access, percent of population",0.5x,0.17,77.22,77.01,77.02,76.8,76.5,76.13,76.6,77.1,77.58,78.05,78.53
+Guatemala,"Sanitation Services, Access, percent of population",0.95x,0.57,77.76,78.13,78.76,79.19,79.57,79.96,80.42,80.93,81.4,81.86,82.33
+Guatemala,"Sanitation Services, Access, percent of population",0.9x,0.54,77.69,78.01,78.59,78.94,79.28,79.61,80.06,80.56,81.04,81.5,81.98
+Guatemala,"Sanitation Services, Access, percent of population",1.05x,0.64,77.87,78.36,79.12,79.65,80.18,80.67,81.12,81.61,82.08,82.54,83.01
+Guatemala,"Sanitation Services, Access, percent of population",1.1x,0.67,77.93,78.46,79.28,79.88,80.44,81.0,81.45,81.95,82.4,82.87,83.33
+Guatemala,"Sanitation Services, Access, percent of population",2x,1.05,78.91,80.38,81.95,83.22,84.38,85.45,85.9,86.34,86.77,87.2,87.59
+Guatemala,"Sanitation Services, Access, percent of population",Base,0.61,77.81,78.24,78.92,79.41,79.86,80.29,80.78,81.27,81.75,82.2,82.67
+Guatemala,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,2.27,79.9,81.79,84.22,86.42,88.53,90.55,92.55,94.51,96.4,98.23,100.0
+Guatemala,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,1.1,78.6,79.18,80.41,81.42,82.35,83.25,84.15,85.07,85.95,86.81,87.64
+Guatemala,"Water Services, Access, percent of population",0.5x,0.03,94.16,94.02,94.07,93.98,93.84,93.65,93.8,93.98,94.14,94.3,94.44
+Guatemala,"Water Services, Access, percent of population",0.95x,0.15,94.38,94.46,94.72,94.9,95.03,95.14,95.27,95.42,95.56,95.7,95.83
+Guatemala,"Water Services, Access, percent of population",0.9x,0.14,94.35,94.41,94.68,94.82,94.93,95.02,95.14,95.3,95.45,95.58,95.72
+Guatemala,"Water Services, Access, percent of population",1.05x,0.17,94.42,94.56,94.88,95.09,95.25,95.39,95.51,95.66,95.8,95.92,96.05
+Guatemala,"Water Services, Access, percent of population",1.1x,0.18,94.44,94.59,94.95,95.17,95.36,95.53,95.62,95.78,95.91,96.04,96.17
+Guatemala,"Water Services, Access, percent of population",2x,0.25,94.81,95.27,95.85,96.19,96.49,96.75,96.85,96.96,97.05,97.1,97.17
+Guatemala,"Water Services, Access, percent of population",Base,0.16,94.39,94.5,94.79,94.97,95.12,95.24,95.39,95.54,95.68,95.81,95.94
+Guatemala,"Water Services, Access, percent of population",Full water access in 2030,0.51,95.0,95.49,96.13,96.7,97.22,97.74,98.22,98.69,99.15,99.59,100.0
+Guatemala,"Water Services, Access, percent of population",Full water access in 2050,0.25,94.68,94.84,95.2,95.48,95.74,95.98,96.22,96.46,96.67,96.86,97.04
+Haiti,"Sanitation Services, Access, percent of population",0.5x,0.37,65.35,64.47,64.51,64.48,64.43,64.63,65.3,66.0,66.61,67.19,67.76
+Haiti,"Sanitation Services, Access, percent of population",0.95x,0.7,65.72,65.23,65.67,66.08,66.47,67.16,67.85,68.6,69.27,69.88,70.49
+Haiti,"Sanitation Services, Access, percent of population",0.9x,0.67,65.68,65.15,65.55,65.91,66.26,66.9,67.6,68.34,69.0,69.61,70.22
+Haiti,"Sanitation Services, Access, percent of population",1.05x,0.77,65.8,65.39,65.92,66.4,66.89,67.67,68.37,69.12,69.79,70.41,71.03
+Haiti,"Sanitation Services, Access, percent of population",1.1x,0.8,65.84,65.48,66.04,66.57,67.1,67.92,68.61,69.37,70.06,70.68,71.29
+Haiti,"Sanitation Services, Access, percent of population",2x,1.24,66.57,66.88,68.11,69.25,70.39,71.79,72.5,73.29,74.0,74.65,75.28
+Haiti,"Sanitation Services, Access, percent of population",Base,0.74,65.76,65.3,65.8,66.24,66.68,67.41,68.12,68.86,69.53,70.16,70.77
+Haiti,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,3.8,68.87,71.51,74.97,78.35,81.64,84.99,88.24,91.4,94.42,97.33,100.0
+Haiti,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,1.86,66.79,67.39,68.86,70.31,71.66,73.21,74.71,76.22,77.64,78.99,80.32
+Haiti,"Water Services, Access, percent of population",0.5x,0.2,76.25,75.62,75.55,75.47,75.3,75.28,75.81,76.36,76.86,77.34,77.8
+Haiti,"Water Services, Access, percent of population",0.95x,0.49,76.66,76.43,76.79,77.14,77.45,77.95,78.46,79.02,79.53,80.0,80.46
+Haiti,"Water Services, Access, percent of population",0.9x,0.46,76.62,76.34,76.66,76.97,77.23,77.69,78.22,78.78,79.28,79.75,80.22
+Haiti,"Water Services, Access, percent of population",1.05x,0.53,76.76,76.6,77.04,77.47,77.84,78.42,78.94,79.5,80.0,80.47,80.94
+Haiti,"Water Services, Access, percent of population",1.1x,0.55,76.81,76.69,77.16,77.62,78.04,78.66,79.17,79.72,80.22,80.7,81.16
+Haiti,"Water Services, Access, percent of population",2x,0.82,77.59,78.06,79.08,80.01,80.85,81.82,82.28,82.81,83.29,83.72,84.16
+Haiti,"Water Services, Access, percent of population",Base,0.51,76.72,76.52,76.92,77.3,77.65,78.18,78.71,79.27,79.77,80.23,80.71
+Haiti,"Water Services, Access, percent of population",Full water access in 2030,2.39,78.93,81.18,83.62,85.98,88.22,90.42,92.53,94.54,96.48,98.32,100.0
+Haiti,"Water Services, Access, percent of population",Full water access in 2050,1.25,77.51,78.45,79.62,80.77,81.82,82.91,83.96,84.97,85.93,86.84,87.73
+India,"Sanitation Services, Access, percent of population",0.5x,0.63,79.13,78.75,79.4,79.45,79.78,79.91,80.95,81.84,82.62,83.39,84.21
+India,"Sanitation Services, Access, percent of population",0.95x,0.98,79.87,80.24,81.69,82.57,83.68,84.6,85.4,86.13,86.77,87.4,88.06
+India,"Sanitation Services, Access, percent of population",0.9x,0.95,79.79,80.09,81.48,82.28,83.33,84.19,85.0,85.75,86.41,87.05,87.73
+India,"Sanitation Services, Access, percent of population",1.05x,1.03,80.03,80.53,82.12,83.12,84.32,85.33,86.11,86.81,87.43,88.04,88.68
+India,"Sanitation Services, Access, percent of population",1.1x,1.05,80.11,80.69,82.32,83.39,84.63,85.68,86.44,87.13,87.73,88.32,88.96
+India,"Sanitation Services, Access, percent of population",2x,1.26,81.26,82.94,85.34,86.99,88.62,89.83,90.38,90.85,91.26,91.66,92.11
+India,"Sanitation Services, Access, percent of population",Base,1.01,79.95,80.38,81.91,82.85,84.01,84.98,85.75,86.48,87.11,87.73,88.38
+India,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,2.01,81.95,83.6,86.28,88.47,90.69,92.66,94.43,96.01,97.45,98.77,100.0
+India,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,1.26,80.86,81.39,83.13,84.39,85.87,87.11,88.19,89.16,90.01,90.82,91.66
+India,"Water Services, Access, percent of population",0.5x,0.21,94.48,94.03,94.41,94.46,94.68,94.81,95.29,95.62,95.91,96.19,96.51
+India,"Water Services, Access, percent of population",0.95x,0.31,94.75,94.6,95.24,95.62,96.12,96.55,96.91,97.15,97.35,97.56,97.77
+India,"Water Services, Access, percent of population",0.9x,0.31,94.72,94.54,95.16,95.51,96.0,96.42,96.78,97.03,97.25,97.46,97.69
+India,"Water Services, Access, percent of population",1.05x,0.33,94.81,94.72,95.39,95.81,96.34,96.78,97.12,97.34,97.54,97.72,97.94
+India,"Water Services, Access, percent of population",1.1x,0.33,94.83,94.78,95.47,95.88,96.42,96.85,97.19,97.4,97.59,97.77,97.98
+India,"Water Services, Access, percent of population",2x,0.32,95.2,95.4,96.21,96.71,97.1,97.4,97.65,97.81,97.96,98.11,98.25
+India,"Water Services, Access, percent of population",Base,0.32,94.77,94.66,95.32,95.72,96.23,96.68,97.02,97.25,97.45,97.66,97.85
+India,"Water Services, Access, percent of population",Full water access in 2030,0.46,95.56,95.8,96.52,97.12,97.75,98.27,98.72,99.08,99.42,99.72,100.0
+India,"Water Services, Access, percent of population",Full water access in 2050,0.3,95.27,95.19,95.68,96.07,96.53,96.94,97.27,97.51,97.72,97.93,98.14
+Indonesia,"Sanitation Services, Access, percent of population",0.5x,0.09,90.22,89.92,89.91,89.73,89.52,89.21,89.5,89.91,90.27,90.67,91.03
+Indonesia,"Sanitation Services, Access, percent of population",0.95x,0.34,90.69,90.88,91.32,91.66,92.04,92.36,92.66,92.96,93.23,93.52,93.79
+Indonesia,"Sanitation Services, Access, percent of population",0.9x,0.32,90.64,90.8,91.2,91.49,91.82,92.12,92.41,92.71,93.0,93.29,93.57
+Indonesia,"Sanitation Services, Access, percent of population",1.05x,0.37,90.8,91.08,91.61,92.02,92.46,92.85,93.11,93.4,93.66,93.93,94.18
+Indonesia,"Sanitation Services, Access, percent of population",1.1x,0.38,90.84,91.2,91.76,92.2,92.67,93.08,93.34,93.6,93.85,94.12,94.38
+Indonesia,"Sanitation Services, Access, percent of population",2x,0.4,91.63,92.61,93.64,93.89,94.18,94.43,94.63,94.83,95.01,95.22,95.4
+Indonesia,"Sanitation Services, Access, percent of population",Base,0.35,90.74,90.97,91.46,91.83,92.25,92.6,92.89,93.18,93.45,93.73,93.98
+Indonesia,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,0.86,91.75,92.63,93.7,94.71,95.65,96.52,97.31,98.05,98.74,99.38,100.0
+Indonesia,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,0.47,91.22,91.58,92.09,92.67,93.22,93.7,94.14,94.52,94.89,95.27,95.63
+Indonesia,"Water Services, Access, percent of population",0.5x,0.11,92.15,92.08,92.15,92.1,92.06,91.92,92.08,92.38,92.66,92.94,93.2
+Indonesia,"Water Services, Access, percent of population",0.95x,0.28,92.46,92.64,93.0,93.3,93.61,93.89,94.15,94.38,94.61,94.85,95.06
+Indonesia,"Water Services, Access, percent of population",0.9x,0.27,92.42,92.6,92.9,93.17,93.48,93.72,93.98,94.23,94.45,94.7,94.91
+Indonesia,"Water Services, Access, percent of population",1.05x,0.3,92.51,92.78,93.18,93.52,93.9,94.22,94.46,94.68,94.9,95.14,95.35
+Indonesia,"Water Services, Access, percent of population",1.1x,0.31,92.55,92.85,93.28,93.64,94.04,94.38,94.6,94.84,95.04,95.27,95.47
+Indonesia,"Water Services, Access, percent of population",2x,0.36,93.06,93.71,94.36,94.91,95.43,95.78,95.94,96.07,96.22,96.37,96.5
+Indonesia,"Water Services, Access, percent of population",Base,0.29,92.48,92.71,93.09,93.41,93.76,94.06,94.31,94.54,94.76,95.0,95.21
+Indonesia,"Water Services, Access, percent of population",Full water access in 2030,0.69,93.34,94.14,94.87,95.6,96.32,96.96,97.61,98.21,98.8,99.41,99.98
+Indonesia,"Water Services, Access, percent of population",Full water access in 2050,0.33,92.92,93.29,93.55,93.88,94.23,94.54,94.89,95.18,95.46,95.77,96.05
+Kenya,"Sanitation Services, Access, percent of population",0.5x,0.75,56.65,55.82,56.33,56.36,56.1,55.73,56.77,57.77,58.8,59.87,61.01
+Kenya,"Sanitation Services, Access, percent of population",0.95x,1.62,57.59,57.79,59.33,60.5,61.48,62.42,63.45,64.47,65.49,66.56,67.64
+Kenya,"Sanitation Services, Access, percent of population",0.9x,1.55,57.48,57.58,59.03,60.09,60.95,61.78,62.8,63.83,64.87,65.93,67.03
+Kenya,"Sanitation Services, Access, percent of population",1.05x,1.77,57.77,58.2,59.95,61.32,62.49,63.64,64.66,65.68,66.7,67.74,68.83
+Kenya,"Sanitation Services, Access, percent of population",1.1x,1.83,57.87,58.4,60.24,61.72,62.98,64.21,65.23,66.26,67.27,68.32,69.38
+Kenya,"Sanitation Services, Access, percent of population",2x,2.59,59.59,61.76,65.0,67.67,70.02,72.2,73.13,74.07,74.99,75.92,76.85
+Kenya,"Sanitation Services, Access, percent of population",Base,1.7,57.69,58.0,59.64,60.91,61.98,63.03,64.06,65.09,66.11,67.17,68.24
+Kenya,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,5.01,61.37,65.07,69.72,74.02,78.07,81.98,85.83,89.56,93.17,96.65,100.0
+Kenya,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,2.69,58.89,60.06,62.39,64.44,66.27,68.06,69.85,71.6,73.33,75.06,76.77
+Kenya,"Water Services, Access, percent of population",0.5x,0.32,69.8,69.25,69.53,69.6,69.43,69.23,69.78,70.3,70.86,71.43,72.04
+Kenya,"Water Services, Access, percent of population",0.95x,0.78,70.29,70.29,71.08,71.9,72.42,72.96,73.56,74.12,74.69,75.3,75.93
+Kenya,"Water Services, Access, percent of population",0.9x,0.73,70.24,70.19,70.92,71.66,72.12,72.59,73.19,73.75,74.33,74.93,75.57
+Kenya,"Water Services, Access, percent of population",1.05x,0.85,70.41,70.53,71.42,72.37,73.0,73.66,74.26,74.82,75.4,76.01,76.65
+Kenya,"Water Services, Access, percent of population",1.1x,0.89,70.49,70.66,71.6,72.61,73.3,74.0,74.59,75.16,75.74,76.35,76.98
+Kenya,"Water Services, Access, percent of population",2x,1.29,71.6,72.54,74.32,76.15,77.36,78.57,79.1,79.65,80.2,80.79,81.4
+Kenya,"Water Services, Access, percent of population",Base,0.81,70.35,70.41,71.25,72.13,72.71,73.31,73.92,74.48,75.05,75.67,76.29
+Kenya,"Water Services, Access, percent of population",Full water access in 2030,3.16,73.26,75.86,78.85,81.95,84.73,87.44,90.1,92.67,95.19,97.63,100.0
+Kenya,"Water Services, Access, percent of population",Full water access in 2050,1.54,71.5,72.41,73.72,75.24,76.44,77.66,78.86,79.98,81.1,82.21,83.3
+Liberia,"Sanitation Services, Access, percent of population",0.5x,-0.6,47.16,46.24,46.67,46.72,46.41,45.9,45.71,44.65,44.24,44.18,44.37
+Liberia,"Sanitation Services, Access, percent of population",0.95x,-0.14,47.32,46.69,47.42,47.77,47.85,47.74,47.63,46.64,46.26,46.31,46.63
+Liberia,"Sanitation Services, Access, percent of population",0.9x,-0.19,47.3,46.64,47.34,47.66,47.7,47.54,47.43,46.43,46.05,46.09,46.39
+Liberia,"Sanitation Services, Access, percent of population",1.05x,-0.05,47.37,46.82,47.6,48.02,48.15,48.12,48.04,47.05,46.69,46.77,47.11
+Liberia,"Sanitation Services, Access, percent of population",1.1x,-0.01,47.42,46.89,47.69,48.15,48.31,48.31,48.23,47.26,46.91,46.99,47.36
+Liberia,"Sanitation Services, Access, percent of population",2x,0.64,48.12,47.8,49.11,50.13,50.89,51.45,51.58,50.69,50.39,50.65,51.25
+Liberia,"Sanitation Services, Access, percent of population",Base,-0.09,47.34,46.76,47.5,47.88,48.01,47.93,47.84,46.86,46.48,46.54,46.88
+Liberia,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,6.73,52.15,56.15,61.29,66.21,70.96,75.62,80.4,85.05,89.97,94.98,100.0
+Liberia,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,2.76,49.06,49.86,51.93,53.77,55.34,56.76,58.29,59.39,60.87,62.57,64.39
+Liberia,"Water Services, Access, percent of population",0.5x,-0.29,83.4,82.81,82.92,82.8,82.45,81.93,81.88,81.2,80.83,80.8,81.02
+Liberia,"Water Services, Access, percent of population",0.95x,-0.1,83.64,83.34,83.81,84.0,84.0,83.82,83.74,83.06,82.68,82.63,82.84
+Liberia,"Water Services, Access, percent of population",0.9x,-0.12,83.63,83.28,83.73,83.88,83.85,83.64,83.55,82.88,82.49,82.45,82.66
+Liberia,"Water Services, Access, percent of population",1.05x,-0.06,83.75,83.54,84.01,84.27,84.3,84.18,84.09,83.41,83.04,83.0,83.21
+Liberia,"Water Services, Access, percent of population",1.1x,-0.05,83.85,83.64,84.11,84.39,84.44,84.35,84.26,83.58,83.23,83.19,83.4
+Liberia,"Water Services, Access, percent of population",2x,0.15,84.69,84.69,85.58,86.25,86.66,86.87,86.8,86.14,85.78,85.76,85.99
+Liberia,"Water Services, Access, percent of population",Base,-0.08,83.66,83.45,83.89,84.1,84.15,84.0,83.93,83.23,82.85,82.82,83.02
+Liberia,"Water Services, Access, percent of population",Full water access in 2030,1.58,85.52,86.68,88.41,89.98,91.43,92.82,94.24,95.56,97.0,98.5,100.0
+Liberia,"Water Services, Access, percent of population",Full water access in 2050,0.57,84.6,84.77,85.6,86.29,86.82,87.25,87.75,87.93,88.28,88.83,89.51
+Madagascar,"Sanitation Services, Access, percent of population",0.5x,0.83,31.11,30.42,30.85,31.0,30.98,30.94,31.54,32.06,32.58,33.16,33.76
+Madagascar,"Sanitation Services, Access, percent of population",0.95x,1.77,31.6,31.38,32.33,33.08,33.72,34.38,35.08,35.7,36.3,36.95,37.65
+Madagascar,"Sanitation Services, Access, percent of population",0.9x,1.68,31.55,31.28,32.17,32.86,33.43,34.01,34.71,35.31,35.9,36.56,37.24
+Madagascar,"Sanitation Services, Access, percent of population",1.05x,1.95,31.71,31.59,32.65,33.52,34.29,35.08,35.81,36.44,37.06,37.73,38.45
+Madagascar,"Sanitation Services, Access, percent of population",1.1x,2.03,31.77,31.7,32.8,33.74,34.57,35.42,36.17,36.8,37.43,38.11,38.84
+Madagascar,"Sanitation Services, Access, percent of population",2x,3.26,32.75,33.44,35.48,37.38,39.26,41.17,42.03,42.77,43.47,44.24,45.08
+Madagascar,"Sanitation Services, Access, percent of population",Base,1.86,31.65,31.49,32.48,33.31,34.0,34.73,35.44,36.07,36.67,37.35,38.04
+Madagascar,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,10.27,37.79,43.94,50.57,57.07,63.46,69.77,75.98,82.09,88.14,94.1,100.0
+Madagascar,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,5.64,33.78,35.91,38.61,41.24,43.82,46.36,48.87,51.29,53.68,56.06,58.42
+Madagascar,"Water Services, Access, percent of population",0.5x,0.25,54.8,54.0,54.16,54.21,54.12,54.02,54.48,54.87,55.28,55.72,56.2
+Madagascar,"Water Services, Access, percent of population",0.95x,0.69,55.21,54.89,55.51,56.01,56.43,56.88,57.36,57.76,58.18,58.64,59.12
+Madagascar,"Water Services, Access, percent of population",0.9x,0.65,55.17,54.79,55.38,55.84,56.21,56.6,57.08,57.47,57.89,58.34,58.83
+Madagascar,"Water Services, Access, percent of population",1.05x,0.76,55.33,55.06,55.76,56.37,56.88,57.4,57.91,58.32,58.75,59.2,59.68
+Madagascar,"Water Services, Access, percent of population",1.1x,0.8,55.38,55.14,55.88,56.52,57.08,57.68,58.18,58.6,59.02,59.46,59.96
+Madagascar,"Water Services, Access, percent of population",2x,1.34,56.22,56.59,58.08,59.46,60.74,61.98,62.48,62.89,63.29,63.71,64.17
+Madagascar,"Water Services, Access, percent of population",Base,0.73,55.23,54.97,55.63,56.19,56.65,57.14,57.63,58.05,58.46,58.92,59.41
+Madagascar,"Water Services, Access, percent of population",Full water access in 2030,5.35,59.4,63.23,67.72,72.08,76.32,80.49,84.55,88.52,92.42,96.24,100.0
+Madagascar,"Water Services, Access, percent of population",Full water access in 2050,2.63,56.78,57.96,59.91,61.78,63.6,65.37,67.1,68.76,70.39,72.0,73.6
+Malawi,"Sanitation Services, Access, percent of population",0.5x,-2.44,38.57,36.87,35.81,33.8,31.78,29.86,29.65,29.67,29.78,29.94,30.02
+Malawi,"Sanitation Services, Access, percent of population",0.95x,-0.61,39.7,39.1,39.22,38.51,37.73,37.11,36.84,36.85,36.99,37.18,37.32
+Malawi,"Sanitation Services, Access, percent of population",0.9x,-0.78,39.58,38.86,38.87,38.01,37.12,36.38,36.11,36.12,36.26,36.46,36.59
+Malawi,"Sanitation Services, Access, percent of population",1.05x,-0.29,39.92,39.56,39.92,39.45,38.92,38.5,38.23,38.25,38.38,38.6,38.75
+Malawi,"Sanitation Services, Access, percent of population",1.1x,-0.14,40.0,39.79,40.26,39.91,39.49,39.17,38.91,38.91,39.07,39.28,39.44
+Malawi,"Sanitation Services, Access, percent of population",2x,1.72,41.91,43.7,45.81,47.23,48.26,49.3,48.98,48.96,49.14,49.38,49.61
+Malawi,"Sanitation Services, Access, percent of population",Base,-0.45,39.82,39.33,39.57,39.0,38.34,37.81,37.54,37.55,37.7,37.89,38.05
+Malawi,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,8.31,45.09,50.43,55.96,61.34,66.68,72.12,77.62,83.18,88.79,94.4,100.0
+Malawi,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,3.8,41.55,43.33,45.31,47.08,48.77,50.52,52.35,54.33,56.39,58.41,60.35
+Malawi,"Water Services, Access, percent of population",0.5x,-0.49,90.18,89.83,89.61,88.8,87.72,86.77,86.24,85.89,85.77,85.79,85.83
+Malawi,"Water Services, Access, percent of population",0.95x,-0.34,90.29,90.16,90.12,89.5,88.69,88.02,87.53,87.21,87.13,87.18,87.22
+Malawi,"Water Services, Access, percent of population",0.9x,-0.36,90.28,90.12,90.07,89.42,88.61,87.89,87.4,87.09,87.0,87.04,87.09
+Malawi,"Water Services, Access, percent of population",1.05x,-0.32,90.34,90.23,90.22,89.63,88.9,88.26,87.78,87.48,87.4,87.44,87.5
+Malawi,"Water Services, Access, percent of population",1.1x,-0.31,90.37,90.25,90.27,89.73,88.99,88.37,87.9,87.61,87.53,87.57,87.62
+Malawi,"Water Services, Access, percent of population",2x,-0.16,90.98,90.83,91.1,90.86,90.44,90.14,89.72,89.49,89.42,89.48,89.54
+Malawi,"Water Services, Access, percent of population",Base,-0.33,90.3,90.18,90.16,89.57,88.79,88.14,87.65,87.35,87.27,87.31,87.36
+Malawi,"Water Services, Access, percent of population",Full water access in 2030,0.89,91.49,91.97,92.82,93.38,93.9,94.64,95.53,96.56,97.69,98.85,100.0
+Malawi,"Water Services, Access, percent of population",Full water access in 2050,0.11,90.88,90.81,91.1,90.95,90.64,90.49,90.48,90.68,91.03,91.46,91.89
+Mali,"Sanitation Services, Access, percent of population",0.5x,0.79,60.55,59.76,60.28,60.53,60.85,61.03,62.11,62.93,63.66,64.53,65.5
+Mali,"Sanitation Services, Access, percent of population",0.95x,1.32,61.26,61.21,62.47,63.51,64.61,65.6,66.58,67.36,68.08,68.91,69.82
+Mali,"Sanitation Services, Access, percent of population",0.9x,1.27,61.18,61.06,62.25,63.21,64.23,65.15,66.15,66.92,67.66,68.48,69.4
+Mali,"Sanitation Services, Access, percent of population",1.05x,1.41,61.41,61.52,62.91,64.09,65.35,66.46,67.42,68.2,68.91,69.72,70.62
+Mali,"Sanitation Services, Access, percent of population",1.1x,1.45,61.49,61.68,63.13,64.38,65.7,66.87,67.82,68.6,69.31,70.11,71.01
+Mali,"Sanitation Services, Access, percent of population",2x,1.99,62.85,64.24,66.65,68.79,70.9,72.82,73.65,74.35,74.99,75.72,76.51
+Mali,"Sanitation Services, Access, percent of population",Base,1.37,61.33,61.36,62.7,63.8,64.98,66.03,67.01,67.79,68.5,69.31,70.23
+Mali,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,4.43,64.88,68.2,72.38,76.4,80.3,83.99,87.5,90.8,93.99,97.08,100.0
+Mali,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,2.47,62.61,63.65,65.87,67.91,70.0,71.96,73.76,75.33,76.84,78.36,79.91
+Mali,"Water Services, Access, percent of population",0.5x,0.21,84.5,84.1,84.31,84.43,84.55,84.6,85.04,85.35,85.63,85.96,86.32
+Mali,"Water Services, Access, percent of population",0.95x,0.39,84.7,84.68,85.21,85.65,86.11,86.5,86.89,87.17,87.42,87.71,88.05
+Mali,"Water Services, Access, percent of population",0.9x,0.37,84.68,84.62,85.11,85.53,85.95,86.31,86.71,87.0,87.24,87.54,87.88
+Mali,"Water Services, Access, percent of population",1.05x,0.41,84.79,84.81,85.39,85.89,86.41,86.85,87.24,87.52,87.76,88.04,88.37
+Mali,"Water Services, Access, percent of population",1.1x,0.42,84.86,84.88,85.47,86.0,86.55,87.03,87.41,87.68,87.91,88.2,88.53
+Mali,"Water Services, Access, percent of population",2x,0.59,85.54,85.94,86.89,87.77,88.66,89.43,89.8,90.02,90.21,90.45,90.74
+Mali,"Water Services, Access, percent of population",Base,0.41,84.72,84.74,85.3,85.78,86.27,86.68,87.06,87.34,87.59,87.88,88.22
+Mali,"Water Services, Access, percent of population",Full water access in 2030,1.49,86.3,87.66,89.31,90.89,92.4,93.82,95.18,96.45,97.67,98.86,100.0
+Mali,"Water Services, Access, percent of population",Full water access in 2050,0.77,85.42,85.91,86.78,87.59,88.41,89.16,89.86,90.47,91.08,91.67,92.26
+Mozambique,"Sanitation Services, Access, percent of population",0.5x,-1.38,39.24,38.3,37.63,36.59,35.11,33.1,32.54,32.72,33.02,33.38,34.04
+Mozambique,"Sanitation Services, Access, percent of population",0.95x,-0.07,40.15,40.15,40.42,40.4,39.92,38.81,38.14,38.36,38.7,39.1,39.85
+Mozambique,"Sanitation Services, Access, percent of population",0.9x,-0.19,40.05,39.94,40.13,40.01,39.43,38.22,37.56,37.78,38.12,38.5,39.25
+Mozambique,"Sanitation Services, Access, percent of population",1.05x,0.17,40.34,40.54,41.0,41.19,40.9,39.94,39.26,39.49,39.84,40.23,41.0
+Mozambique,"Sanitation Services, Access, percent of population",1.1x,0.28,40.44,40.74,41.28,41.58,41.37,40.49,39.81,40.04,40.39,40.8,41.57
+Mozambique,"Sanitation Services, Access, percent of population",2x,1.75,42.21,44.08,46.08,47.78,48.79,48.92,48.14,48.45,48.84,49.28,50.14
+Mozambique,"Sanitation Services, Access, percent of population",Base,0.05,40.25,40.34,40.7,40.79,40.42,39.38,38.7,38.93,39.27,39.67,40.43
+Mozambique,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,8.14,45.82,51.38,57.0,62.48,67.8,72.97,78.29,83.75,89.21,94.62,100.0
+Mozambique,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,3.9,42.33,44.42,46.59,48.65,50.49,52.05,53.77,55.78,57.85,59.9,62.04
+Mozambique,"Water Services, Access, percent of population",0.5x,-0.13,70.58,70.4,70.37,70.02,69.07,67.84,67.25,67.48,68.02,68.71,69.66
+Mozambique,"Water Services, Access, percent of population",0.95x,0.13,70.88,71.08,71.47,71.39,70.9,70.11,69.5,69.69,70.22,70.89,71.8
+Mozambique,"Water Services, Access, percent of population",0.9x,0.1,70.86,71.01,71.35,71.27,70.73,69.9,69.26,69.44,69.98,70.65,71.57
+Mozambique,"Water Services, Access, percent of population",1.05x,0.18,70.99,71.28,71.7,71.68,71.3,70.59,69.99,70.16,70.69,71.34,72.26
+Mozambique,"Water Services, Access, percent of population",1.1x,0.2,71.07,71.39,71.8,71.85,71.51,70.83,70.22,70.39,70.93,71.57,72.48
+Mozambique,"Water Services, Access, percent of population",2x,0.53,71.93,72.75,73.72,74.43,74.67,74.3,73.84,74.01,74.49,75.07,75.83
+Mozambique,"Water Services, Access, percent of population",Base,0.16,70.92,71.17,71.59,71.52,71.09,70.35,69.75,69.93,70.45,71.11,72.03
+Mozambique,"Water Services, Access, percent of population",Full water access in 2030,3.09,73.77,76.52,79.36,82.04,84.49,86.76,89.29,92.08,94.79,97.44,100.0
+Mozambique,"Water Services, Access, percent of population",Full water access in 2050,1.33,72.08,73.15,74.36,75.41,76.14,76.51,77.19,78.38,79.68,80.89,82.23
+Nepal,"Sanitation Services, Access, percent of population",0.5x,0.02,83.71,83.01,83.23,82.85,82.5,82.16,82.48,82.81,83.11,83.48,83.88
+Nepal,"Sanitation Services, Access, percent of population",0.95x,0.37,84.29,84.2,85.02,85.29,85.64,86.04,86.3,86.58,86.85,87.15,87.48
+Nepal,"Sanitation Services, Access, percent of population",0.9x,0.34,84.22,84.08,84.84,85.05,85.35,85.7,85.97,86.25,86.52,86.82,87.16
+Nepal,"Sanitation Services, Access, percent of population",1.05x,0.43,84.4,84.45,85.36,85.73,86.19,86.69,86.94,87.2,87.46,87.75,88.07
+Nepal,"Sanitation Services, Access, percent of population",1.1x,0.45,84.47,84.57,85.53,85.95,86.45,86.98,87.22,87.49,87.74,88.02,88.34
+Nepal,"Sanitation Services, Access, percent of population",2x,0.72,85.41,86.45,88.0,88.94,89.88,90.74,90.9,91.1,91.29,91.51,91.75
+Nepal,"Sanitation Services, Access, percent of population",Base,0.4,84.35,84.33,85.19,85.51,85.92,86.37,86.63,86.9,87.16,87.45,87.78
+Nepal,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,1.53,85.88,87.22,89.21,90.79,92.28,93.75,95.1,96.4,97.66,98.88,100.0
+Nepal,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,0.79,85.02,85.36,86.58,87.38,88.11,88.89,89.52,90.13,90.73,91.34,91.95
+Nepal,"Water Services, Access, percent of population",0.5x,0.0,93.26,92.98,93.12,93.13,93.05,93.01,93.07,93.13,93.16,93.22,93.3
+Nepal,"Water Services, Access, percent of population",0.95x,0.08,93.35,93.19,93.45,93.58,93.65,93.77,93.83,93.9,93.96,94.04,94.13
+Nepal,"Water Services, Access, percent of population",0.9x,0.08,93.35,93.17,93.42,93.53,93.58,93.69,93.76,93.82,93.89,93.96,94.06
+Nepal,"Water Services, Access, percent of population",1.05x,0.1,93.37,93.24,93.52,93.67,93.77,93.9,93.98,94.05,94.11,94.2,94.29
+Nepal,"Water Services, Access, percent of population",1.1x,0.1,93.4,93.25,93.56,93.71,93.83,93.97,94.05,94.12,94.18,94.27,94.36
+Nepal,"Water Services, Access, percent of population",2x,0.2,93.57,93.64,94.12,94.42,94.69,94.99,95.07,95.15,95.22,95.32,95.42
+Nepal,"Water Services, Access, percent of population",Base,0.09,93.37,93.21,93.48,93.62,93.7,93.83,93.91,93.97,94.03,94.11,94.21
+Nepal,"Water Services, Access, percent of population",Full water access in 2030,0.63,93.92,94.4,95.18,95.83,96.45,97.07,97.68,98.28,98.87,99.45,100.0
+Nepal,"Water Services, Access, percent of population",Full water access in 2050,0.25,93.55,93.61,93.99,94.3,94.53,94.79,95.04,95.26,95.49,95.72,95.96
+Nigeria,"Sanitation Services, Access, percent of population",0.5x,0.09,60.93,59.46,59.1,58.78,58.28,57.68,58.27,59.02,59.82,60.65,61.43
+Nigeria,"Sanitation Services, Access, percent of population",0.95x,0.82,61.74,61.13,61.73,62.33,62.85,63.32,63.94,64.67,65.45,66.23,67.01
+Nigeria,"Sanitation Services, Access, percent of population",0.9x,0.76,61.65,60.95,61.46,61.97,62.39,62.77,63.39,64.13,64.9,65.7,66.46
+Nigeria,"Sanitation Services, Access, percent of population",1.05x,0.95,61.9,61.48,62.28,63.06,63.75,64.39,65.01,65.73,66.49,67.28,68.05
+Nigeria,"Sanitation Services, Access, percent of population",1.1x,1.01,61.98,61.65,62.55,63.44,64.2,64.93,65.52,66.25,67.0,67.78,68.54
+Nigeria,"Sanitation Services, Access, percent of population",2x,1.76,63.42,64.56,66.73,68.74,70.52,72.16,72.76,73.41,74.1,74.8,75.48
+Nigeria,"Sanitation Services, Access, percent of population",Base,0.89,61.82,61.3,61.99,62.68,63.29,63.84,64.48,65.2,65.98,66.76,67.52
+Nigeria,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,4.37,65.24,68.22,72.08,75.9,79.58,83.16,86.7,90.19,93.57,96.85,100.0
+Nigeria,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,2.16,63.0,63.66,65.32,67.03,68.6,70.13,71.7,73.32,74.91,76.5,78.02
+Nigeria,"Water Services, Access, percent of population",0.5x,0.21,81.08,80.45,80.6,80.82,80.9,80.91,81.18,81.58,81.98,82.41,82.8
+Nigeria,"Water Services, Access, percent of population",0.95x,0.37,81.33,80.95,81.36,81.74,82.07,82.36,82.7,83.11,83.55,83.98,84.38
+Nigeria,"Water Services, Access, percent of population",0.9x,0.35,81.31,80.9,81.3,81.64,81.95,82.22,82.55,82.95,83.38,83.81,84.22
+Nigeria,"Water Services, Access, percent of population",1.05x,0.4,81.38,81.05,81.52,81.96,82.34,82.69,83.03,83.44,83.87,84.3,84.7
+Nigeria,"Water Services, Access, percent of population",1.1x,0.42,81.41,81.12,81.62,82.09,82.49,82.86,83.2,83.6,84.02,84.46,84.87
+Nigeria,"Water Services, Access, percent of population",2x,0.64,81.89,82.02,82.94,83.88,84.66,85.39,85.62,86.03,86.47,86.9,87.3
+Nigeria,"Water Services, Access, percent of population",Base,0.39,81.36,81.0,81.43,81.83,82.2,82.51,82.87,83.28,83.71,84.14,84.55
+Nigeria,"Water Services, Access, percent of population",Full water access in 2030,1.87,83.06,84.66,86.63,88.57,90.37,92.12,93.81,95.47,97.04,98.55,100.0
+Nigeria,"Water Services, Access, percent of population",Full water access in 2050,0.91,82.0,82.47,83.4,84.35,85.21,86.03,86.82,87.56,88.33,89.07,89.79
+Philippines,"Sanitation Services, Access, percent of population",0.5x,-0.05,91.6,90.86,90.99,90.72,90.47,90.19,90.33,90.5,90.68,90.91,91.17
+Philippines,"Sanitation Services, Access, percent of population",0.95x,0.19,91.97,91.7,92.27,92.47,92.7,92.94,93.07,93.2,93.36,93.54,93.74
+Philippines,"Sanitation Services, Access, percent of population",0.9x,0.17,91.94,91.62,92.15,92.33,92.53,92.72,92.85,92.97,93.13,93.32,93.53
+Philippines,"Sanitation Services, Access, percent of population",1.05x,0.22,92.05,91.86,92.51,92.79,93.09,93.39,93.48,93.59,93.75,93.93,94.13
+Philippines,"Sanitation Services, Access, percent of population",1.1x,0.24,92.08,91.94,92.63,92.94,93.31,93.6,93.67,93.79,93.94,94.11,94.31
+Philippines,"Sanitation Services, Access, percent of population",2x,0.3,92.74,93.17,94.21,94.57,94.87,95.05,95.14,95.18,95.29,95.42,95.55
+Philippines,"Sanitation Services, Access, percent of population",Base,0.21,92.0,91.78,92.39,92.62,92.89,93.15,93.28,93.39,93.55,93.73,93.93
+Philippines,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,0.72,93.07,93.35,94.37,95.22,96.05,96.84,97.53,98.19,98.81,99.41,100.0
+Philippines,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,0.35,92.63,92.39,93.01,93.46,93.94,94.39,94.75,95.01,95.3,95.63,95.91
+Philippines,"Water Services, Access, percent of population",0.5x,0.03,96.07,95.71,95.96,96.01,96.1,96.08,96.04,96.06,96.13,96.23,96.32
+Philippines,"Water Services, Access, percent of population",0.95x,0.09,96.16,95.92,96.3,96.45,96.61,96.72,96.75,96.78,96.84,96.95,97.04
+Philippines,"Water Services, Access, percent of population",0.9x,0.09,96.15,95.91,96.27,96.41,96.56,96.67,96.69,96.7,96.79,96.88,96.98
+Philippines,"Water Services, Access, percent of population",1.05x,0.1,96.18,95.97,96.37,96.56,96.74,96.86,96.88,96.9,96.98,97.07,97.17
+Philippines,"Water Services, Access, percent of population",1.1x,0.11,96.2,96.0,96.4,96.61,96.8,96.94,96.94,96.96,97.04,97.13,97.23
+Philippines,"Water Services, Access, percent of population",2x,0.16,96.4,96.37,96.92,97.2,97.51,97.75,97.67,97.7,97.76,97.85,97.93
+Philippines,"Water Services, Access, percent of population",Base,0.1,96.17,95.95,96.31,96.49,96.66,96.78,96.83,96.84,96.92,97.0,97.11
+Philippines,"Water Services, Access, percent of population",Full water access in 2030,0.34,96.64,96.83,97.34,97.76,98.16,98.5,98.83,99.12,99.43,99.72,100.0
+Philippines,"Water Services, Access, percent of population",Full water access in 2050,0.16,96.41,96.37,96.7,96.92,97.16,97.3,97.42,97.48,97.61,97.77,97.92
+Rwanda,"Sanitation Services, Access, percent of population",0.5x,0.53,82.88,81.41,82.27,83.18,83.54,83.81,84.85,85.35,85.88,86.54,87.36
+Rwanda,"Sanitation Services, Access, percent of population",0.95x,0.82,83.48,82.79,84.14,85.51,86.82,87.74,88.57,88.97,89.41,89.95,90.59
+Rwanda,"Sanitation Services, Access, percent of population",0.9x,0.8,83.43,82.66,83.96,85.31,86.53,87.41,88.25,88.67,89.11,89.67,90.31
+Rwanda,"Sanitation Services, Access, percent of population",1.05x,0.86,83.62,83.07,84.51,85.97,87.37,88.37,89.15,89.54,89.96,90.47,91.09
+Rwanda,"Sanitation Services, Access, percent of population",1.1x,0.88,83.7,83.21,84.7,86.2,87.63,88.65,89.41,89.8,90.21,90.71,91.32
+Rwanda,"Sanitation Services, Access, percent of population",2x,0.98,84.87,85.33,87.55,89.53,90.83,91.52,92.07,92.37,92.68,93.05,93.5
+Rwanda,"Sanitation Services, Access, percent of population",Base,0.85,83.53,82.94,84.3,85.73,87.11,88.07,88.86,89.26,89.69,90.22,90.85
+Rwanda,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,1.61,85.26,86.18,88.61,90.92,92.66,94.26,95.68,96.88,98.0,99.05,100.0
+Rwanda,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,1.05,84.31,84.2,85.81,87.35,88.76,89.88,90.84,91.51,92.16,92.86,93.6
+Rwanda,"Water Services, Access, percent of population",0.5x,0.53,82.18,81.37,82.31,83.15,83.99,84.39,84.92,85.27,85.66,86.1,86.64
+Rwanda,"Water Services, Access, percent of population",0.95x,0.64,82.26,81.59,82.41,83.37,84.71,85.3,85.84,86.23,86.64,87.12,87.69
+Rwanda,"Water Services, Access, percent of population",0.9x,0.63,82.26,81.57,82.4,83.36,84.64,85.2,85.75,86.14,86.55,87.03,87.59
+Rwanda,"Water Services, Access, percent of population",1.05x,0.66,82.3,81.63,82.46,83.47,84.86,85.47,86.02,86.41,86.84,87.32,87.88
+Rwanda,"Water Services, Access, percent of population",1.1x,0.67,82.33,81.65,82.51,83.53,84.92,85.55,86.09,86.5,86.94,87.42,87.99
+Rwanda,"Water Services, Access, percent of population",2x,0.77,82.78,82.05,83.24,84.55,85.95,86.79,87.39,87.83,88.28,88.78,89.36
+Rwanda,"Water Services, Access, percent of population",Base,0.65,82.26,81.61,82.43,83.42,84.78,85.38,85.93,86.33,86.74,87.24,87.79
+Rwanda,"Water Services, Access, percent of population",Full water access in 2030,1.75,84.12,84.99,87.36,89.65,91.4,93.05,94.6,96.05,97.45,98.79,100.0
+Rwanda,"Water Services, Access, percent of population",Full water access in 2050,0.97,83.1,82.84,84.3,85.62,86.83,87.7,88.57,89.32,90.03,90.78,91.54
+Senegal,"Sanitation Services, Access, percent of population",0.5x,0.51,72.36,72.47,72.71,72.75,72.87,73.3,74.07,74.46,74.95,75.48,76.13
+Senegal,"Sanitation Services, Access, percent of population",0.95x,0.83,72.83,73.47,74.21,74.74,75.39,76.35,77.04,77.47,77.94,78.48,79.1
+Senegal,"Sanitation Services, Access, percent of population",0.9x,0.8,72.77,73.36,74.05,74.54,75.13,76.05,76.74,77.16,77.64,78.2,78.81
+Senegal,"Sanitation Services, Access, percent of population",1.05x,0.89,72.93,73.67,74.51,75.14,75.9,76.95,77.62,78.03,78.52,79.07,79.67
+Senegal,"Sanitation Services, Access, percent of population",1.1x,0.91,72.99,73.78,74.66,75.36,76.16,77.25,77.91,78.33,78.8,79.33,79.93
+Senegal,"Sanitation Services, Access, percent of population",2x,1.25,74.01,75.53,77.09,78.46,79.88,81.43,81.97,82.36,82.81,83.27,83.78
+Senegal,"Sanitation Services, Access, percent of population",Base,0.86,72.86,73.58,74.35,74.93,75.62,76.63,77.33,77.75,78.23,78.78,79.38
+Senegal,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,2.86,75.41,78.22,81.13,83.85,86.45,89.1,91.54,93.74,95.91,97.99,100.0
+Senegal,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,1.55,73.83,75.1,76.57,77.91,79.17,80.68,81.99,82.96,83.99,85.02,86.08
+Senegal,"Water Services, Access, percent of population",0.5x,0.08,86.01,85.84,85.81,85.63,85.41,85.31,85.7,85.89,86.14,86.42,86.72
+Senegal,"Water Services, Access, percent of population",0.95x,0.32,86.21,86.54,86.87,87.1,87.28,87.66,88.02,88.22,88.42,88.71,89.0
+Senegal,"Water Services, Access, percent of population",0.9x,0.3,86.19,86.47,86.77,86.98,87.13,87.47,87.81,88.01,88.22,88.5,88.78
+Senegal,"Water Services, Access, percent of population",1.05x,0.35,86.31,86.69,87.08,87.39,87.68,88.12,88.45,88.64,88.85,89.12,89.39
+Senegal,"Water Services, Access, percent of population",1.1x,0.36,86.4,86.76,87.18,87.53,87.86,88.34,88.66,88.85,89.05,89.3,89.57
+Senegal,"Water Services, Access, percent of population",2x,0.54,87.11,87.94,88.8,89.57,90.19,90.88,91.17,91.3,91.48,91.67,91.89
+Senegal,"Water Services, Access, percent of population",Base,0.34,86.24,86.62,86.98,87.21,87.45,87.86,88.23,88.42,88.64,88.92,89.2
+Senegal,"Water Services, Access, percent of population",Full water access in 2030,1.33,87.64,89.02,90.43,91.78,93.04,94.31,95.56,96.72,97.84,98.94,100.0
+Senegal,"Water Services, Access, percent of population",Full water access in 2050,0.64,86.84,87.44,88.12,88.76,89.3,89.91,90.56,91.05,91.57,92.09,92.61
+Sudan South,"Sanitation Services, Access, percent of population",0.5x,6.56,24.46,24.72,27.15,30.42,33.5,36.58,38.65,40.37,42.49,44.58,45.95
+Sudan South,"Sanitation Services, Access, percent of population",0.95x,7.1,24.73,25.3,28.35,32.3,36.04,39.67,41.74,43.41,45.42,47.4,48.75
+Sudan South,"Sanitation Services, Access, percent of population",0.9x,7.05,24.7,25.24,28.21,32.1,35.78,39.35,41.42,43.08,45.12,47.1,48.45
+Sudan South,"Sanitation Services, Access, percent of population",1.05x,7.21,24.78,25.43,28.6,32.72,36.6,40.32,42.4,44.04,46.04,47.99,49.32
+Sudan South,"Sanitation Services, Access, percent of population",1.1x,7.26,24.81,25.49,28.74,32.93,36.88,40.65,42.71,44.35,46.34,48.28,49.61
+Sudan South,"Sanitation Services, Access, percent of population",2x,8.07,25.28,26.58,31.05,36.56,41.51,45.92,47.89,49.41,51.22,52.97,54.2
+Sudan South,"Sanitation Services, Access, percent of population",Base,7.16,24.75,25.36,28.47,32.5,36.32,40.0,42.07,43.72,45.74,47.7,49.04
+Sudan South,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,12.52,31.19,38.21,46.44,54.87,63.06,70.86,77.36,83.44,89.3,94.83,100.0
+Sudan South,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,9.24,26.82,29.49,33.48,38.12,43.14,48.31,51.82,55.07,58.52,61.85,64.57
+Sudan South,"Water Services, Access, percent of population",0.5x,2.35,77.87,77.94,81.13,85.63,90.33,94.2,95.83,97.03,97.86,97.96,98.05
+Sudan South,"Water Services, Access, percent of population",0.95x,2.37,78.12,78.43,81.86,86.36,91.1,94.96,96.57,97.63,98.34,98.44,98.52
+Sudan South,"Water Services, Access, percent of population",0.9x,2.37,78.1,78.38,81.78,86.28,91.03,94.89,96.51,97.58,98.31,98.4,98.47
+Sudan South,"Water Services, Access, percent of population",1.05x,2.37,78.17,78.53,82.01,86.53,91.28,95.12,96.7,97.73,98.44,98.52,98.59
+Sudan South,"Water Services, Access, percent of population",1.1x,2.37,78.19,78.57,82.09,86.62,91.38,95.21,96.75,97.77,98.47,98.55,98.62
+Sudan South,"Water Services, Access, percent of population",2x,2.36,78.62,79.44,83.33,88.11,92.82,96.36,97.54,98.37,98.93,98.99,99.03
+Sudan South,"Water Services, Access, percent of population",Base,2.37,78.14,78.47,81.93,86.43,91.18,95.04,96.64,97.69,98.38,98.49,98.56
+Sudan South,"Water Services, Access, percent of population",Full water access in 2030,2.27,80.05,82.25,86.51,90.94,94.76,97.42,98.51,99.22,99.63,99.82,100.0
+Sudan South,"Water Services, Access, percent of population",Full water access in 2050,2.3,78.82,79.77,83.25,87.45,91.79,95.32,96.83,97.86,98.54,98.66,98.78
+Tanzania,"Sanitation Services, Access, percent of population",0.5x,1.49,49.56,49.49,49.91,50.16,50.33,50.53,51.91,53.26,54.6,55.98,57.42
+Tanzania,"Sanitation Services, Access, percent of population",0.95x,2.28,50.4,51.17,52.47,53.82,55.08,56.37,57.75,59.09,60.41,61.77,63.16
+Tanzania,"Sanitation Services, Access, percent of population",0.9x,2.21,50.32,50.99,52.22,53.44,54.61,55.79,57.18,58.52,59.85,61.2,62.59
+Tanzania,"Sanitation Services, Access, percent of population",1.05x,2.42,50.59,51.51,53.0,54.58,56.02,57.49,58.87,60.21,61.51,62.85,64.23
+Tanzania,"Sanitation Services, Access, percent of population",1.1x,2.48,50.69,51.69,53.26,54.96,56.48,58.04,59.41,60.74,62.04,63.38,64.76
+Tanzania,"Sanitation Services, Access, percent of population",2x,3.26,52.34,54.74,57.73,60.66,63.31,65.84,67.13,68.37,69.58,70.81,72.05
+Tanzania,"Sanitation Services, Access, percent of population",Base,2.35,50.49,51.34,52.75,54.19,55.55,56.93,58.32,59.65,60.96,62.31,63.7
+Tanzania,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,6.22,54.79,59.77,64.96,70.03,74.84,79.48,83.97,88.25,92.36,96.27,100.0
+Tanzania,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,3.66,51.88,54.01,56.48,58.98,61.32,63.61,65.88,68.05,70.17,72.25,74.31
+Tanzania,"Water Services, Access, percent of population",0.5x,0.59,71.52,71.49,71.88,72.22,72.44,72.69,73.32,73.95,74.56,75.2,75.86
+Tanzania,"Water Services, Access, percent of population",0.95x,0.84,71.77,72.05,72.76,73.47,74.05,74.69,75.4,76.05,76.69,77.34,78.02
+Tanzania,"Water Services, Access, percent of population",0.9x,0.81,71.75,71.99,72.67,73.35,73.89,74.5,75.18,75.83,76.46,77.12,77.8
+Tanzania,"Water Services, Access, percent of population",1.05x,0.88,71.86,72.18,72.94,73.76,74.42,75.15,75.84,76.49,77.12,77.78,78.46
+Tanzania,"Water Services, Access, percent of population",1.1x,0.9,71.93,72.24,73.04,73.94,74.64,75.39,76.05,76.71,77.33,77.99,78.69
+Tanzania,"Water Services, Access, percent of population",2x,1.2,72.54,73.36,74.71,76.13,77.32,78.49,79.14,79.79,80.4,81.04,81.7
+Tanzania,"Water Services, Access, percent of population",Base,0.86,71.8,72.12,72.85,73.57,74.22,74.9,75.62,76.27,76.9,77.56,78.25
+Tanzania,"Water Services, Access, percent of population",Full water access in 2030,3.0,74.41,77.15,80.12,83.03,85.75,88.39,90.92,93.34,95.67,97.89,100.0
+Tanzania,"Water Services, Access, percent of population",Full water access in 2050,1.61,72.76,73.87,75.31,76.77,78.1,79.41,80.69,81.92,83.08,84.23,85.35
+Uganda,"Sanitation Services, Access, percent of population",0.5x,1.28,36.63,36.06,36.2,36.37,36.22,36.23,37.6,38.54,39.55,40.5,41.56
+Uganda,"Sanitation Services, Access, percent of population",0.95x,2.38,37.39,37.51,38.59,39.63,40.44,41.49,42.92,43.98,45.1,46.16,47.31
+Uganda,"Sanitation Services, Access, percent of population",0.9x,2.28,37.3,37.36,38.33,39.3,40.01,40.95,42.39,43.44,44.54,45.58,46.74
+Uganda,"Sanitation Services, Access, percent of population",1.05x,2.58,37.55,37.81,39.08,40.31,41.3,42.54,43.97,45.07,46.18,47.26,48.43
+Uganda,"Sanitation Services, Access, percent of population",1.1x,2.67,37.63,37.95,39.35,40.64,41.72,43.05,44.49,45.59,46.71,47.79,48.97
+Uganda,"Sanitation Services, Access, percent of population",2x,3.89,39.04,40.49,43.47,45.9,48.38,50.89,52.32,53.51,54.71,55.86,57.1
+Uganda,"Sanitation Services, Access, percent of population",Base,2.48,37.47,37.66,38.84,39.97,40.87,42.02,43.45,44.53,45.65,46.72,47.88
+Uganda,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,8.89,42.79,48.27,54.32,60.4,66.3,72.19,78.17,83.91,89.39,94.8,100.0
+Uganda,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,5.01,39.1,40.91,44.0,46.46,49.01,51.48,54.16,56.59,59.02,61.37,63.73
+Uganda,"Water Services, Access, percent of population",0.5x,0.24,81.74,81.31,81.47,81.74,81.79,81.93,82.56,82.88,83.18,83.44,83.76
+Uganda,"Water Services, Access, percent of population",0.95x,0.39,81.84,81.62,81.96,82.43,82.7,83.06,83.72,84.08,84.42,84.73,85.08
+Uganda,"Water Services, Access, percent of population",0.9x,0.37,81.84,81.59,81.9,82.36,82.61,82.95,83.61,83.96,84.29,84.59,84.95
+Uganda,"Water Services, Access, percent of population",1.05x,0.41,81.89,81.68,82.06,82.57,82.86,83.28,83.95,84.31,84.65,84.96,85.32
+Uganda,"Water Services, Access, percent of population",1.1x,0.42,81.91,81.71,82.11,82.63,82.96,83.38,84.06,84.42,84.76,85.08,85.43
+Uganda,"Water Services, Access, percent of population",2x,0.58,82.29,82.21,82.95,83.72,84.3,84.99,85.66,86.08,86.44,86.8,87.18
+Uganda,"Water Services, Access, percent of population",Base,0.4,81.86,81.65,82.01,82.5,82.78,83.17,83.83,84.19,84.54,84.85,85.19
+Uganda,"Water Services, Access, percent of population",Full water access in 2030,1.81,83.58,84.88,86.71,88.57,90.31,92.08,93.88,95.52,97.06,98.57,100.0
+Uganda,"Water Services, Access, percent of population",Full water access in 2050,0.87,82.52,82.74,83.7,84.57,85.35,86.13,87.1,87.85,88.58,89.27,89.96
+Zambia,"Sanitation Services, Access, percent of population",0.5x,0.96,49.73,49.6,49.66,49.55,49.58,49.45,50.46,51.52,52.46,53.49,54.69
+Zambia,"Sanitation Services, Access, percent of population",0.95x,1.88,50.55,51.28,52.27,53.17,54.29,55.33,56.47,57.59,58.59,59.67,60.9
+Zambia,"Sanitation Services, Access, percent of population",0.9x,1.8,50.47,51.09,51.99,52.8,53.82,54.76,55.88,56.99,57.99,59.07,60.31
+Zambia,"Sanitation Services, Access, percent of population",1.05x,2.04,50.73,51.63,52.8,53.9,55.21,56.44,57.62,58.75,59.75,60.83,62.07
+Zambia,"Sanitation Services, Access, percent of population",1.1x,2.11,50.84,51.8,53.07,54.25,55.66,56.99,58.18,59.31,60.31,61.39,62.62
+Zambia,"Sanitation Services, Access, percent of population",2x,3.01,52.4,54.8,57.41,59.88,62.52,64.94,66.12,67.27,68.25,69.28,70.45
+Zambia,"Sanitation Services, Access, percent of population",Base,1.96,50.64,51.44,52.54,53.54,54.75,55.89,57.04,58.17,59.17,60.26,61.5
+Zambia,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,6.14,55.16,59.98,64.82,69.58,74.32,78.91,83.38,87.74,91.94,96.04,100.0
+Zambia,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,3.31,52.26,54.25,56.3,58.38,60.51,62.6,64.64,66.66,68.56,70.46,72.39
+Zambia,"Water Services, Access, percent of population",0.5x,0.66,70.53,70.84,71.2,71.54,71.97,72.26,72.86,73.48,73.99,74.59,75.31
+Zambia,"Water Services, Access, percent of population",0.95x,0.92,70.74,71.26,71.92,72.6,73.41,74.13,74.83,75.46,76.06,76.71,77.49
+Zambia,"Water Services, Access, percent of population",0.9x,0.89,70.71,71.23,71.85,72.5,73.28,73.97,74.66,75.27,75.85,76.51,77.29
+Zambia,"Water Services, Access, percent of population",1.05x,0.96,70.81,71.35,72.06,72.8,73.66,74.47,75.19,75.84,76.46,77.12,77.91
+Zambia,"Water Services, Access, percent of population",1.1x,0.98,70.84,71.4,72.13,72.9,73.78,74.63,75.39,76.04,76.64,77.32,78.11
+Zambia,"Water Services, Access, percent of population",2x,1.22,71.28,72.22,73.32,74.47,75.76,76.83,77.64,78.43,79.04,79.72,80.5
+Zambia,"Water Services, Access, percent of population",Base,0.94,70.74,71.31,71.99,72.71,73.54,74.3,75.0,75.65,76.26,76.92,77.7
+Zambia,"Water Services, Access, percent of population",Full water access in 2030,3.13,73.5,76.46,79.41,82.36,85.24,87.98,90.59,93.09,95.48,97.78,100.0
+Zambia,"Water Services, Access, percent of population",Full water access in 2050,1.66,71.78,73.08,74.44,75.86,77.31,78.66,79.96,81.23,82.36,83.5,84.65

@@ -166,6 +166,72 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
 
     return abs_df
 
+def calculate_progress_rates(df, start_year, end_year, out_folder):
+    """
+    Calculates the Average Annual Growth Rate (AAGR) for each Indicator, Country, and Scenario in the given DataFrame,
+    keeps only scenarios with "Access, percent of population" in them, sums 'Limited' and 'Basic' values from the 'Status' column,
+    and exports the results as a CSV file with all values rounded to 2 decimal places.
+
+    Parameters:
+    - df (DataFrame): The DataFrame containing the transformed data.
+    - start_year (int): The starting year for calculating progress rates.
+    - end_year (int): The ending year for calculating progress rates.
+    - out_folder (Path): The directory to save the output CSV file.
+
+    Returns:
+    - DataFrame: A DataFrame with columns ['Country', 'Indicator', 'Scenario', 'AAGR', '2020', '2021', ..., '2030'] containing the progress rates and values for each year.
+    """
+    # Filter the DataFrame for the specified year range and scenarios with "Access, percent of population"
+    df = df[(df['Year'] >= start_year) & (df['Year'] <= end_year)]
+    df = df[df['Indicator'].str.contains("Access, percent of population")]
+
+    # Sum 'Limited' and 'Basic' values from the 'Status' column
+    df = df[df['Status'].isin(['Limited', 'Basic', 'SafelyManaged'])]
+    df = df.groupby(['Country', 'Indicator', 'Scenario', 'Year'])['Value'].sum().reset_index()
+
+    # Initialize an empty list to store the results
+    results = []
+
+    # Group the DataFrame by 'Country', 'Indicator', and 'Scenario'
+    grouped = df.groupby(['Country', 'Indicator', 'Scenario'])
+
+    for (country, indicator, scenario), group in grouped:
+        # Sort the group by year
+        group = group.sort_values(by='Year')
+
+        # Calculate the growth rates for each consecutive year
+        growth_rates = group['Value'].pct_change().dropna()  # Drop the first NaN value
+
+        # Calculate the Average Annual Growth Rate (AAGR)
+        aagr = growth_rates.mean() * 100  # Convert to percentage
+
+        # Round AAGR to 2 decimal places
+        aagr = round(aagr, 2)
+
+        # Extract values for each year from 2020 to 2030 and round to 2 decimal places
+        year_values = {str(year): round(group[group['Year'] == year]['Value'].values[0], 2) if not group[group['Year'] == year]['Value'].empty else None for year in range(2020, 2031)}
+
+        # Append the result to the list
+        result = {
+            'Country': country,
+            'Indicator': indicator,
+            'Scenario': scenario,
+            'AAGR': aagr
+        }
+        result.update(year_values)
+        results.append(result)
+
+    # Convert the results list to a DataFrame
+    progress_rates_df = pd.DataFrame(results)
+
+    # Export the DataFrame to a CSV file
+    progressRates_file_path = out_folder / 'progressRates.csv'
+    progress_rates_df.to_csv(progressRates_file_path, index=False)
+
+    return progress_rates_df
+
+
+
 def get_year_full_values(abs_df, filter_countries, out_folder):
     """
     Calculates the "Year Full" values for each country and indicator and saves the result to 'YearFull_access.csv'.
