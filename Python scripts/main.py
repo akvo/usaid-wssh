@@ -36,7 +36,7 @@ year_full_access = get_year_full_values(abs_df, filter_countries, out_folder)
 
 # Progress rates 
 start_year, end_year = 2020, 2030
-progress_rates = calculate_progress_rates(abs_df, start_year, end_year, out_folder)
+progress_rates, progress_rates_diff = calculate_progress_rates(abs_df, start_year, end_year, out_folder)
 
 # Filter years to 2019-2050 for the diff_df (to keep below 100MB)
 abs_df = abs_df[abs_df['Year'] <= 2050]

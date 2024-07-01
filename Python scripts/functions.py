@@ -171,6 +171,7 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
     Calculates the Average Annual Growth Rate (AAGR) for each Indicator, Country, and Scenario in the given DataFrame,
     keeps only scenarios with "Access, percent of population" in them, sums 'Limited' and 'Basic' values from the 'Status' column,
     and exports the results as a CSV file with all values rounded to 2 decimal places.
+    Additionally, calculates the difference in progress rates between each scenario and the Base scenario and exports this as a separate CSV file.
 
     Parameters:
     - df (DataFrame): The DataFrame containing the transformed data.
@@ -206,7 +207,7 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
         aagr = growth_rates.mean() * 100  # Convert to percentage
 
         # Round AAGR to 2 decimal places
-        aagr = round(aagr, 2)
+        aagr = round(aagr, 3)
 
         # Extract values for each year from 2020 to 2030 and round to 2 decimal places
         year_values = {str(year): round(group[group['Year'] == year]['Value'].values[0], 2) if not group[group['Year'] == year]['Value'].empty else None for year in range(2020, 2031)}
@@ -225,10 +226,39 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
     progress_rates_df = pd.DataFrame(results)
 
     # Export the DataFrame to a CSV file
-    progressRates_file_path = out_folder / 'progressRates.csv'
+    progressRates_file_path = out_folder / 'progressRates_abs.csv'
     progress_rates_df.to_csv(progressRates_file_path, index=False)
 
-    return progress_rates_df
+    # Calculate the difference in progress rates between each scenario and the Base scenario
+    base_df = progress_rates_df[progress_rates_df['Scenario'] == 'Base']
+
+    diff_results = []
+
+    for _, row in progress_rates_df.iterrows():
+        if row['Scenario'] != 'Base':
+            base_aagr = base_df[(base_df['Country'] == row['Country']) & (base_df['Indicator'] == row['Indicator'])]['AAGR'].values
+            if len(base_aagr) > 0:
+                base_aagr = base_aagr[0]
+                aagr_diff = ((row['AAGR'] - base_aagr) / base_aagr) * 100  # Calculate the difference percentage
+                aagr_diff = round(aagr_diff, 2)  # Round to 2 decimal places
+
+                diff_result = {
+                    'Country': row['Country'],
+                    'Indicator': row['Indicator'],
+                    'Scenario': row['Scenario'],
+                    'AAGR_Difference': aagr_diff
+                }
+                diff_results.append(diff_result)
+
+    # Convert the difference results list to a DataFrame
+    progress_rates_diff_df = pd.DataFrame(diff_results)
+
+    # Export the difference DataFrame to a CSV file
+    progressRates_diff_file_path = out_folder / 'progressRates_dif.csv'
+    progress_rates_diff_df.to_csv(progressRates_diff_file_path, index=False)
+
+    return progress_rates_df, progress_rates_diff_df
+
 
 
 
