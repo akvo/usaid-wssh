@@ -188,15 +188,15 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
 
     # Sum 'Limited' and 'Basic' values from the 'Status' column
     df = df[df['Status'].isin(['Limited', 'Basic', 'SafelyManaged'])]
-    df = df.groupby(['Country', 'Indicator', 'Scenario', 'Year'])['Value'].sum().reset_index()
+    df = df.groupby(['Country', 'Indicator', 'Scenario', 'Year', 'Type'])['Value'].sum().reset_index()
 
     # Initialize an empty list to store the results
     results = []
 
-    # Group the DataFrame by 'Country', 'Indicator', and 'Scenario'
-    grouped = df.groupby(['Country', 'Indicator', 'Scenario'])
+    # Group the DataFrame by 'Country', 'Indicator', 'Scenario', and 'Type'
+    grouped = df.groupby(['Country', 'Indicator', 'Scenario', 'Type'])
 
-    for (country, indicator, scenario), group in grouped:
+    for (country, indicator, scenario, type_), group in grouped:
         # Sort the group by year
         group = group.sort_values(by='Year')
 
@@ -217,6 +217,7 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
             'Country': country,
             'Indicator': indicator,
             'Scenario': scenario,
+            'Type': type_,
             'AAGR': aagr
         }
         result.update(year_values)
@@ -246,6 +247,7 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
                     'Country': row['Country'],
                     'Indicator': row['Indicator'],
                     'Scenario': row['Scenario'],
+                    'Type': row['Type'],
                     'AAGR_Difference': aagr_diff
                 }
                 diff_results.append(diff_result)
@@ -258,7 +260,6 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
     progress_rates_diff_df.to_csv(progressRates_diff_file_path, index=False)
 
     return progress_rates_df, progress_rates_diff_df
-
 
 
 
