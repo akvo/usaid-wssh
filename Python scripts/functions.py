@@ -186,8 +186,8 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
     df = df[(df['Year'] >= start_year) & (df['Year'] <= end_year)]
     df = df[df['Indicator'].str.contains("Access, percent of population")]
 
-    # Sum 'Limited' and 'Basic' values from the 'Status' column
-    df = df[df['Status'].isin(['Limited', 'Basic', 'SafelyManaged'])]
+    # Focus only on Safely Managed
+    df = df[df['Status'].isin(['SafelyManaged'])]
     df = df.groupby(['Country', 'Indicator', 'Scenario', 'Year', 'Type'])['Value'].sum().reset_index()
 
     # Initialize an empty list to store the results
