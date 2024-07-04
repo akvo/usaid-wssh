@@ -344,7 +344,7 @@ def get_difference_values(abs_df, out_folder):
             print(scenario)
 
             scen_df = abs_df[abs_df['Scenario'] == scenario]
-            merged_df = pd.merge(scen_df, ref_df, on=['Year', 'Indicator', 'Country'], suffixes=('', '_ref'))
+            merged_df = pd.merge(scen_df, ref_df, on=['Year', 'Indicator', 'Country', 'Status'], suffixes=('', '_ref'))
 
             # Initialize 'Difference' column to avoid KeyError
             merged_df['Difference'] = np.nan
