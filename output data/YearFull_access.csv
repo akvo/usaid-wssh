@@ -1,45 +1,45 @@
-Country,Indicator,YearOf99PctAccess
-Congo; Dem. Republic of the,"Sanitation Services, Access, percent of population",after 2100
-Congo; Dem. Republic of the,"Water Services, Access, percent of population",after 2100
-Ethiopia,"Sanitation Services, Access, percent of population",after 2100
-Ethiopia,"Water Services, Access, percent of population",after 2100
-Ghana,"Sanitation Services, Access, percent of population",2089.0
-Ghana,"Water Services, Access, percent of population",2069.0
-Guatemala,"Sanitation Services, Access, percent of population",after 2100
-Guatemala,"Water Services, Access, percent of population",2049.0
-Haiti,"Sanitation Services, Access, percent of population",after 2100
-Haiti,"Water Services, Access, percent of population",2099.0
-India,"Sanitation Services, Access, percent of population",2078.0
-India,"Water Services, Access, percent of population",2059.0
-Indonesia,"Sanitation Services, Access, percent of population",2087.0
-Indonesia,"Water Services, Access, percent of population",2062.0
-Kenya,"Sanitation Services, Access, percent of population",2091.0
-Kenya,"Water Services, Access, percent of population",2074.0
-Liberia,"Sanitation Services, Access, percent of population",after 2100
-Liberia,"Water Services, Access, percent of population",after 2100
-Madagascar,"Sanitation Services, Access, percent of population",after 2100
-Madagascar,"Water Services, Access, percent of population",after 2100
-Malawi,"Sanitation Services, Access, percent of population",after 2100
-Malawi,"Water Services, Access, percent of population",after 2100
-Mali,"Sanitation Services, Access, percent of population",after 2100
-Mali,"Water Services, Access, percent of population",after 2100
-Mozambique,"Sanitation Services, Access, percent of population",after 2100
-Mozambique,"Water Services, Access, percent of population",2089.0
-Nepal,"Sanitation Services, Access, percent of population",after 2100
-Nepal,"Water Services, Access, percent of population",2091.0
-Nigeria,"Sanitation Services, Access, percent of population",after 2100
-Nigeria,"Water Services, Access, percent of population",2097.0
-Philippines,"Sanitation Services, Access, percent of population",2085.0
-Philippines,"Water Services, Access, percent of population",2062.0
-Rwanda,"Sanitation Services, Access, percent of population",after 2100
-Rwanda,"Water Services, Access, percent of population",2082.0
-Senegal,"Sanitation Services, Access, percent of population",after 2100
-Senegal,"Water Services, Access, percent of population",2089.0
-Sudan South,"Sanitation Services, Access, percent of population",after 2100
-Sudan South,"Water Services, Access, percent of population",after 2100
-Tanzania,"Sanitation Services, Access, percent of population",after 2100
-Tanzania,"Water Services, Access, percent of population",2088.0
-Uganda,"Sanitation Services, Access, percent of population",2099.0
-Uganda,"Water Services, Access, percent of population",2079.0
-Zambia,"Sanitation Services, Access, percent of population",after 2100
-Zambia,"Water Services, Access, percent of population",2094.0
+Country,Indicator,YearOf99PctAccess,Type
+Congo; Dem. Republic of the,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Congo; Dem. Republic of the,"Water Services, Access, percent of population",after 2100,Water
+Ethiopia,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Ethiopia,"Water Services, Access, percent of population",after 2100,Water
+Ghana,"Sanitation Services, Access, percent of population",2089.0,Sanitation
+Ghana,"Water Services, Access, percent of population",2069.0,Water
+Guatemala,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Guatemala,"Water Services, Access, percent of population",2049.0,Water
+Haiti,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Haiti,"Water Services, Access, percent of population",2099.0,Water
+India,"Sanitation Services, Access, percent of population",2078.0,Sanitation
+India,"Water Services, Access, percent of population",2059.0,Water
+Indonesia,"Sanitation Services, Access, percent of population",2087.0,Sanitation
+Indonesia,"Water Services, Access, percent of population",2062.0,Water
+Kenya,"Sanitation Services, Access, percent of population",2091.0,Sanitation
+Kenya,"Water Services, Access, percent of population",2074.0,Water
+Liberia,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Liberia,"Water Services, Access, percent of population",after 2100,Water
+Madagascar,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Madagascar,"Water Services, Access, percent of population",after 2100,Water
+Malawi,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Malawi,"Water Services, Access, percent of population",after 2100,Water
+Mali,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Mali,"Water Services, Access, percent of population",after 2100,Water
+Mozambique,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Mozambique,"Water Services, Access, percent of population",2089.0,Water
+Nepal,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Nepal,"Water Services, Access, percent of population",2091.0,Water
+Nigeria,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Nigeria,"Water Services, Access, percent of population",2097.0,Water
+Philippines,"Sanitation Services, Access, percent of population",2085.0,Sanitation
+Philippines,"Water Services, Access, percent of population",2062.0,Water
+Rwanda,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Rwanda,"Water Services, Access, percent of population",2082.0,Water
+Senegal,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Senegal,"Water Services, Access, percent of population",2089.0,Water
+Sudan South,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Sudan South,"Water Services, Access, percent of population",after 2100,Water
+Tanzania,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Tanzania,"Water Services, Access, percent of population",2088.0,Water
+Uganda,"Sanitation Services, Access, percent of population",2099.0,Sanitation
+Uganda,"Water Services, Access, percent of population",2079.0,Water
+Zambia,"Sanitation Services, Access, percent of population",after 2100,Sanitation
+Zambia,"Water Services, Access, percent of population",2094.0,Water

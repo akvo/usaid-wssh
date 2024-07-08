@@ -307,12 +307,16 @@ def get_year_full_values(abs_df, filter_countries, out_folder):
 
     # Keep only the necessary columns: 'Country', 'Indicator', and 'YearOf99PctAccess'
     year_full_access = all_countries_access[['Country', 'Indicator', 'YearOf99PctAccess']]
+    
+    # Add Type column based on Indicator name
+    year_full_access['Type'] = year_full_access['Indicator'].apply(determine_type)
 
     # Export CSV: yearFull
     fullAccess_file_path = out_folder / 'YearFull_access.csv'
     year_full_access.to_csv(fullAccess_file_path, index=False)
 
     return year_full_access
+
 
 def get_difference_values(abs_df, out_folder):
     """
