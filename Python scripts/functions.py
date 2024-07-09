@@ -41,6 +41,23 @@ def determine_type(scenario):
         return 'Sanitation'
     else:
         return 'Base'
+    
+def determine_2030_2050(scenario):
+    """
+    Determines whether the scenario is related to '2030' or '2050' or is a 'Base' scenario.
+    
+    Parameters:
+    - scenario (str): The scenario description.
+    
+    Returns:
+    - str: 'Water', 'Sanitation', or 'Base' based on the scenario.
+    """
+    if '2050' in scenario:
+        return 2050
+    elif '2030' in scenario:
+        return 2030
+    else:
+        return ''
 
 def remove_WASH_false_doubles(df):
     """
@@ -168,10 +185,11 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
 
 def calculate_progress_rates(df, start_year, end_year, out_folder):
     """
-    Calculates the Average Annual Growth Rate (AAGR) for each Indicator, Country, and Scenario in the given DataFrame,
-    keeps only scenarios with "Access, percent of population" in them, sums 'Limited' and 'Basic' values from the 'Status' column,
+    Calculates the progress rate as the average of simple differences between consecutive years for each Indicator, 
+    Country, and Scenario in the given DataFrame, keeps only scenarios with "Access, percent of population" in them, 
     and exports the results as a CSV file with all values rounded to 2 decimal places.
-    Additionally, calculates the difference in progress rates between each scenario and the Base scenario and exports this as a separate CSV file.
+    Additionally, calculates the difference in progress rates between each scenario and the Base scenario and exports 
+    this as a separate CSV file.
 
     Parameters:
     - df (DataFrame): The DataFrame containing the transformed data.
@@ -180,7 +198,8 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
     - out_folder (Path): The directory to save the output CSV file.
 
     Returns:
-    - DataFrame: A DataFrame with columns ['Country', 'Indicator', 'Scenario', 'AAGR', '2020', '2021', ..., '2030'] containing the progress rates and values for each year.
+    - DataFrame: A DataFrame with columns ['Country', 'Indicator', 'Scenario', 'ProgressRate', '2020', '2021', ..., '2030'] 
+                 containing the progress rates and values for each year.
     """
     # Filter the DataFrame for the specified year range and scenarios with "Access, percent of population"
     df = df[(df['Year'] >= start_year) & (df['Year'] <= end_year)]
@@ -200,14 +219,14 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
         # Sort the group by year
         group = group.sort_values(by='Year')
 
-        # Calculate the growth rates for each consecutive year
-        growth_rates = group['Value'].pct_change().dropna()  # Drop the first NaN value
+        # Calculate the simple differences between consecutive years
+        differences = group['Value'].diff().dropna()  # Drop the first NaN value
 
-        # Calculate the Average Annual Growth Rate (AAGR)
-        aagr = growth_rates.mean() * 100  # Convert to percentage
+        # Calculate the average progress rate
+        progress_rate = differences.mean()  # Simple average of differences
 
-        # Round AAGR to 2 decimal places
-        aagr = round(aagr, 3)
+        # Round progress rate to 2 decimal places
+        progress_rate = round(progress_rate, 2)
 
         # Extract values for each year from 2020 to 2030 and round to 2 decimal places
         year_values = {str(year): round(group[group['Year'] == year]['Value'].values[0], 2) if not group[group['Year'] == year]['Value'].empty else None for year in range(2020, 2031)}
@@ -218,13 +237,16 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
             'Indicator': indicator,
             'Scenario': scenario,
             'Type': type_,
-            'AAGR': aagr
+            'ProgressRate': progress_rate
         }
         result.update(year_values)
         results.append(result)
 
     # Convert the results list to a DataFrame
     progress_rates_df = pd.DataFrame(results)
+    
+    # Match the scenarios to the 2030 or 2050 cases
+    progress_rates_df['Year_filter'] = progress_rates_df['Scenario'].apply(determine_2030_2050)
 
     # Export the DataFrame to a CSV file
     progressRates_file_path = out_folder / 'progressRates_abs.csv'
@@ -237,18 +259,19 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
 
     for _, row in progress_rates_df.iterrows():
         if row['Scenario'] != 'Base':
-            base_aagr = base_df[(base_df['Country'] == row['Country']) & (base_df['Indicator'] == row['Indicator'])]['AAGR'].values
-            if len(base_aagr) > 0:
-                base_aagr = base_aagr[0]
-                aagr_diff = ((row['AAGR'] - base_aagr) / base_aagr) * 100  # Calculate the difference percentage
-                aagr_diff = round(aagr_diff, 2)  # Round to 2 decimal places
+            base_progress_rate = base_df[(base_df['Country'] == row['Country']) & (base_df['Indicator'] == row['Indicator'])]['ProgressRate'].values
+            if len(base_progress_rate) > 0:
+                base_progress_rate = base_progress_rate[0]
+                progress_rate_diff = ((row['ProgressRate'] - base_progress_rate) / base_progress_rate) * 100  # Calculate the difference percentage
+                progress_rate_diff = round(progress_rate_diff, 2)  # Round to 2 decimal places
 
                 diff_result = {
                     'Country': row['Country'],
                     'Indicator': row['Indicator'],
                     'Scenario': row['Scenario'],
                     'Type': row['Type'],
-                    'AAGR_Difference': aagr_diff
+                    'Year_Filter': row['Year_filter'],
+                    'ProgressRate_Difference': progress_rate_diff
                 }
                 diff_results.append(diff_result)
 
@@ -260,7 +283,6 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
     progress_rates_diff_df.to_csv(progressRates_diff_file_path, index=False)
 
     return progress_rates_df, progress_rates_diff_df
-
 
 
 def get_year_full_values(abs_df, filter_countries, out_folder):
