@@ -169,13 +169,20 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
     conversion_table = pd.read_csv(conversion_table_path / 'conversion_table_scenarios.csv')
     conversion_dict_scenario = dict(zip(conversion_table['Scenario'], conversion_table['New_Scenario']))
 
+    conversion_table = pd.read_csv(conversion_table_path / 'conversion_table_countries.csv')
+    conversion_dict_country = dict(zip(conversion_table['old_name'], conversion_table['new_name']))
+    
     # Apply the conversion to change indicator names
     abs_df['Indicator'] = abs_df['Indicator'].map(conversion_dict_indicator).fillna(abs_df['Indicator'])
     abs_df['Scenario'] = abs_df['Scenario'].map(conversion_dict_scenario).fillna(abs_df['Scenario'])
+    abs_df['Country'] = abs_df['Country'].map(conversion_dict_country).fillna(abs_df['Country'])
+    
+    abs_df.replace(';', '', regex=True, inplace=True)
+
 
     # Apply the remove_WASH_false_doubles function to filter the DataFrame
     abs_df = remove_WASH_false_doubles(abs_df)
-
+    
     # Export CSV: absolute values
     abs_file_path = out_folder / 'BasicIndicators_abs.csv'
     abs_df.to_csv(abs_file_path, index=False)
