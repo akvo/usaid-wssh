@@ -101,7 +101,6 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
         
         # read CSV and remove the erroneously imported ';' icons
         csv = pd.read_csv(file, header=None)
-        csv.replace(';', '', regex=True, inplace=True)
         
         # create empty dataframe
         melted = pd.DataFrame()
