@@ -177,7 +177,11 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
     abs_df['Scenario'] = abs_df['Scenario'].map(conversion_dict_scenario).fillna(abs_df['Scenario'])
     abs_df['Country'] = abs_df['Country'].map(conversion_dict_country).fillna(abs_df['Country'])
     
+    # If still there, remove ';' symbols from text
     abs_df.replace(';', '', regex=True, inplace=True)
+    
+    # Match the scenarios to the 2030 or 2050 cases
+    abs_df['Year_filter'] = abs_df['Scenario'].apply(determine_2030_2050)
 
 
     # Apply the remove_WASH_false_doubles function to filter the DataFrame
@@ -276,7 +280,7 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
                     'Indicator': row['Indicator'],
                     'Scenario': row['Scenario'],
                     'Type': row['Type'],
-                    'Year_Filter': row['Year_filter'],
+                    'Year_filter': row['Year_filter'],
                     'ProgressRate_Difference': progress_rate_diff
                 }
                 diff_results.append(diff_result)
@@ -376,7 +380,7 @@ def get_difference_values(abs_df, out_folder):
             print(scenario)
 
             scen_df = abs_df[abs_df['Scenario'] == scenario]
-            merged_df = pd.merge(scen_df, ref_df, on=['Year', 'Indicator', 'Country', 'Status'], suffixes=('', '_ref'))
+            merged_df = pd.merge(scen_df, ref_df, on=['Year', 'Indicator', 'Country', 'Status', 'Year_filter'], suffixes=('', '_ref'))
 
             # Initialize 'Difference' column to avoid KeyError
             merged_df['Difference'] = np.nan
@@ -393,7 +397,7 @@ def get_difference_values(abs_df, out_folder):
                         merged_df['Value'] - merged_df['Value_ref']
 
             # Rename 'Difference' column to 'Value' and reorder columns
-            filtered_dfb = merged_df[['Difference', 'Year', 'Indicator', 'Unit', 'Status', 'Country', 'Scenario', 'Type']]
+            filtered_dfb = merged_df[['Difference', 'Year', 'Indicator', 'Unit', 'Status', 'Country', 'Scenario', 'Type', 'Year_filter']]
             filtered_dfb.rename(columns={'Difference': 'Value'}, inplace=True)
 
             # Ensure the Value column has a maximum of 5 digits
