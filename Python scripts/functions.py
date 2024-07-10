@@ -193,13 +193,14 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
 
     return abs_df
 
+
 def calculate_progress_rates(df, start_year, end_year, out_folder):
     """
     Calculates the progress rate as the average of simple differences between consecutive years for each Indicator, 
     Country, and Scenario in the given DataFrame, keeps only scenarios with "Access, percent of population" in them, 
     and exports the results as a CSV file with all values rounded to 2 decimal places.
-    Additionally, calculates the difference in progress rates between each scenario and the Base scenario and exports 
-    this as a separate CSV file.
+    Additionally, calculates the factor difference in progress rates between each scenario and the Base scenario and 
+    exports this as a separate CSV file.
 
     Parameters:
     - df (DataFrame): The DataFrame containing the transformed data.
@@ -262,7 +263,7 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
     progressRates_file_path = out_folder / 'progressRates_abs.csv'
     progress_rates_df.to_csv(progressRates_file_path, index=False)
 
-    # Calculate the difference in progress rates between each scenario and the Base scenario
+    # Calculate the factor difference in progress rates between each scenario and the Base scenario
     base_df = progress_rates_df[progress_rates_df['Scenario'] == 'Base']
 
     diff_results = []
@@ -272,8 +273,11 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
             base_progress_rate = base_df[(base_df['Country'] == row['Country']) & (base_df['Indicator'] == row['Indicator'])]['ProgressRate'].values
             if len(base_progress_rate) > 0:
                 base_progress_rate = base_progress_rate[0]
-                progress_rate_diff = ((row['ProgressRate'] - base_progress_rate) / base_progress_rate) * 100  # Calculate the difference percentage
-                progress_rate_diff = round(progress_rate_diff, 2)  # Round to 2 decimal places
+                if base_progress_rate == 0:
+                    factor_diff = float('inf') if row['ProgressRate'] > 0 else float('-inf')
+                else:
+                    factor_diff = (row['ProgressRate'] / base_progress_rate)
+                factor_diff = round(factor_diff, 2)  # Round to 2 decimal places
 
                 diff_result = {
                     'Country': row['Country'],
@@ -281,7 +285,7 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
                     'Scenario': row['Scenario'],
                     'Type': row['Type'],
                     'Year_filter': row['Year_filter'],
-                    'ProgressRate_Difference': progress_rate_diff
+                    'ProgressRate_Difference': factor_diff
                 }
                 diff_results.append(diff_result)
 
