@@ -384,21 +384,28 @@ def get_difference_values(abs_df, out_folder):
             print(scenario)
 
             scen_df = abs_df[abs_df['Scenario'] == scenario]
-            merged_df = pd.merge(scen_df, ref_df, on=['Year', 'Indicator', 'Country', 'Status', 'Year_filter'], suffixes=('', '_ref'))
+            merged_df = pd.merge(scen_df, ref_df, on=['Year', 'Indicator', 'Country', 'Status'], suffixes=('', '_ref'))
 
             # Initialize 'Difference' column to avoid KeyError
             merged_df['Difference'] = np.nan
 
+            # # Calculate differences
+            # for indicator in merged_df['Indicator'].unique():
+            #     print(indicator)
+            #     condition = merged_df['Indicator'] == indicator
+            #     if indicator in relative_indicators:
+            #         merged_df.loc[condition, 'Difference'] = \
+            #             ((merged_df['Value'] - merged_df['Value_ref']) / merged_df['Value_ref']) * 100
+            #     else:
+            #         merged_df.loc[condition, 'Difference'] = \
+            #             merged_df['Value'] - merged_df['Value_ref']
+                        
             # Calculate differences
             for indicator in merged_df['Indicator'].unique():
                 print(indicator)
                 condition = merged_df['Indicator'] == indicator
-                if indicator in relative_indicators:
-                    merged_df.loc[condition, 'Difference'] = \
-                        ((merged_df['Value'] - merged_df['Value_ref']) / merged_df['Value_ref']) * 100
-                else:
-                    merged_df.loc[condition, 'Difference'] = \
-                        merged_df['Value'] - merged_df['Value_ref']
+                merged_df.loc[condition, 'Difference'] = \
+                    ((merged_df['Value'] - merged_df['Value_ref']) / merged_df['Value_ref']) * 100
 
             # Rename 'Difference' column to 'Value' and reorder columns
             filtered_dfb = merged_df[['Difference', 'Year', 'Indicator', 'Unit', 'Status', 'Country', 'Scenario', 'Type', 'Year_filter']]

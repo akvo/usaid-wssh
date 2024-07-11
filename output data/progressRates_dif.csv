@@ -1,4 +1,4 @@
-Country,Indicator,Scenario,Type,Year_filter,Factor_Difference
+Country,Indicator,Scenario,Type,Year_filter,ProgressRate_Difference
 Democratic Repulic of the Congo,"Sanitation Services, Access, percent of population",0.5x,Sanitation,,-0.15
 Democratic Repulic of the Congo,"Sanitation Services, Access, percent of population",0.95x,Sanitation,,0.9
 Democratic Repulic of the Congo,"Sanitation Services, Access, percent of population",0.9x,Sanitation,,0.79
