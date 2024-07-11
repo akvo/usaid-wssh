@@ -1,4 +1,4 @@
-Country,Indicator,Scenario,Type,Year_filter,ProgressRate_Difference
+Country,Indicator,Scenario,Type,Year_filter,Factor_Difference
 Democratic Repulic of the Congo,"Sanitation Services, Access, percent of population",0.5x,Sanitation,,-0.15
 Democratic Repulic of the Congo,"Sanitation Services, Access, percent of population",0.95x,Sanitation,,0.9
 Democratic Repulic of the Congo,"Sanitation Services, Access, percent of population",0.9x,Sanitation,,0.79
@@ -135,14 +135,14 @@ Liberia,"Sanitation Services, Access, percent of population",1.1x,Sanitation,,1.
 Liberia,"Sanitation Services, Access, percent of population",2x,Sanitation,,2.97
 Liberia,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,Sanitation,2030,22.97
 Liberia,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,Sanitation,2050,8.19
-Liberia,"Water Services, Access, percent of population",0.5x,Water,,10.08
-Liberia,"Water Services, Access, percent of population",0.95x,Water,,1.75
-Liberia,"Water Services, Access, percent of population",0.9x,Water,,2.5
-Liberia,"Water Services, Access, percent of population",1.05x,Water,,0.33
-Liberia,"Water Services, Access, percent of population",1.1x,Water,,-0.33
-Liberia,"Water Services, Access, percent of population",2x,Water,,-8.58
-Liberia,"Water Services, Access, percent of population",Full water access in 2030,Water,2030,-49.17
-Liberia,"Water Services, Access, percent of population",Full water access in 2050,Water,2050,-17.75
+Liberia,"Water Services, Access, percent of population",0.5x,Water,,-12.1
+Liberia,"Water Services, Access, percent of population",0.95x,Water,,-2.1
+Liberia,"Water Services, Access, percent of population",0.9x,Water,,-3.0
+Liberia,"Water Services, Access, percent of population",1.05x,Water,,-0.4
+Liberia,"Water Services, Access, percent of population",1.1x,Water,,0.4
+Liberia,"Water Services, Access, percent of population",2x,Water,,10.3
+Liberia,"Water Services, Access, percent of population",Full water access in 2030,Water,2030,59.0
+Liberia,"Water Services, Access, percent of population",Full water access in 2050,Water,2050,21.3
 Madagascar,"Sanitation Services, Access, percent of population",0.5x,Sanitation,,-0.54
 Madagascar,"Sanitation Services, Access, percent of population",0.95x,Sanitation,,0.84
 Madagascar,"Sanitation Services, Access, percent of population",0.9x,Sanitation,,0.7
@@ -159,22 +159,22 @@ Madagascar,"Water Services, Access, percent of population",1.1x,Water,,1.44
 Madagascar,"Water Services, Access, percent of population",2x,Water,,4.59
 Madagascar,"Water Services, Access, percent of population",Full water access in 2030,Water,2030,27.0
 Madagascar,"Water Services, Access, percent of population",Full water access in 2050,Water,2050,10.04
-Malawi,"Sanitation Services, Access, percent of population",0.5x,Sanitation,,8.73
-Malawi,"Sanitation Services, Access, percent of population",0.95x,Sanitation,,1.64
-Malawi,"Sanitation Services, Access, percent of population",0.9x,Sanitation,,2.36
-Malawi,"Sanitation Services, Access, percent of population",1.05x,Sanitation,,0.27
-Malawi,"Sanitation Services, Access, percent of population",1.1x,Sanitation,,-0.36
-Malawi,"Sanitation Services, Access, percent of population",2x,Sanitation,,-9.64
-Malawi,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,Sanitation,2030,-62.82
-Malawi,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,Sanitation,2050,-22.36
-Malawi,"Water Services, Access, percent of population",0.5x,Water,,-13.67
-Malawi,"Water Services, Access, percent of population",0.95x,Water,,-0.33
-Malawi,"Water Services, Access, percent of population",0.9x,Water,,-1.5
-Malawi,"Water Services, Access, percent of population",1.05x,Water,,2.17
-Malawi,"Water Services, Access, percent of population",1.1x,Water,,3.33
-Malawi,"Water Services, Access, percent of population",2x,Water,,19.17
-Malawi,"Water Services, Access, percent of population",Full water access in 2030,Water,2030,113.83
-Malawi,"Water Services, Access, percent of population",Full water access in 2050,Water,2050,41.5
+Malawi,"Sanitation Services, Access, percent of population",0.5x,Sanitation,,-9.6
+Malawi,"Sanitation Services, Access, percent of population",0.95x,Sanitation,,-1.8
+Malawi,"Sanitation Services, Access, percent of population",0.9x,Sanitation,,-2.6
+Malawi,"Sanitation Services, Access, percent of population",1.05x,Sanitation,,-0.3
+Malawi,"Sanitation Services, Access, percent of population",1.1x,Sanitation,,0.4
+Malawi,"Sanitation Services, Access, percent of population",2x,Sanitation,,10.6
+Malawi,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,Sanitation,2030,69.1
+Malawi,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,Sanitation,2050,24.6
+Malawi,"Water Services, Access, percent of population",0.5x,Water,,-8.2
+Malawi,"Water Services, Access, percent of population",0.95x,Water,,-0.2
+Malawi,"Water Services, Access, percent of population",0.9x,Water,,-0.9
+Malawi,"Water Services, Access, percent of population",1.05x,Water,,1.3
+Malawi,"Water Services, Access, percent of population",1.1x,Water,,2.0
+Malawi,"Water Services, Access, percent of population",2x,Water,,11.5
+Malawi,"Water Services, Access, percent of population",Full water access in 2030,Water,2030,68.3
+Malawi,"Water Services, Access, percent of population",Full water access in 2050,Water,2050,24.9
 Mali,"Sanitation Services, Access, percent of population",0.5x,Sanitation,,-1.48
 Mali,"Sanitation Services, Access, percent of population",0.95x,Sanitation,,0.76
 Mali,"Sanitation Services, Access, percent of population",0.9x,Sanitation,,0.55
@@ -191,14 +191,14 @@ Mali,"Water Services, Access, percent of population",1.1x,Water,,1.38
 Mali,"Water Services, Access, percent of population",2x,Water,,3.49
 Mali,"Water Services, Access, percent of population",Full water access in 2030,Water,2030,12.34
 Mali,"Water Services, Access, percent of population",Full water access in 2050,Water,2050,4.74
-Mozambique,"Sanitation Services, Access, percent of population",0.5x,Sanitation,,26.33
-Mozambique,"Sanitation Services, Access, percent of population",0.95x,Sanitation,,3.33
-Mozambique,"Sanitation Services, Access, percent of population",0.9x,Sanitation,,5.67
-Mozambique,"Sanitation Services, Access, percent of population",1.05x,Sanitation,,-1.0
-Mozambique,"Sanitation Services, Access, percent of population",1.1x,Sanitation,,-3.33
-Mozambique,"Sanitation Services, Access, percent of population",2x,Sanitation,,-34.67
-Mozambique,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,Sanitation,2030,-241.33
-Mozambique,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,Sanitation,2050,-85.67
+Mozambique,"Sanitation Services, Access, percent of population",0.5x,Sanitation,,-7.9
+Mozambique,"Sanitation Services, Access, percent of population",0.95x,Sanitation,,-1.0
+Mozambique,"Sanitation Services, Access, percent of population",0.9x,Sanitation,,-1.7
+Mozambique,"Sanitation Services, Access, percent of population",1.05x,Sanitation,,0.3
+Mozambique,"Sanitation Services, Access, percent of population",1.1x,Sanitation,,1.0
+Mozambique,"Sanitation Services, Access, percent of population",2x,Sanitation,,10.4
+Mozambique,"Sanitation Services, Access, percent of population",Full sanitation access in 2030,Sanitation,2030,72.4
+Mozambique,"Sanitation Services, Access, percent of population",Full sanitation access in 2050,Sanitation,2050,25.7
 Mozambique,"Water Services, Access, percent of population",0.5x,Water,,-6.33
 Mozambique,"Water Services, Access, percent of population",0.95x,Water,,0.42
 Mozambique,"Water Services, Access, percent of population",0.9x,Water,,-0.25

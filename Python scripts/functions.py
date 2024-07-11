@@ -273,10 +273,14 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
             base_progress_rate = base_df[(base_df['Country'] == row['Country']) & (base_df['Indicator'] == row['Indicator'])]['ProgressRate'].values
             if len(base_progress_rate) > 0:
                 base_progress_rate = base_progress_rate[0]
-                if base_progress_rate == 0:
-                    factor_diff = float('inf') if row['ProgressRate'] > 0 else float('-inf')
+                adjusted_base_progress_rate = max(base_progress_rate, 0.1)  # Ensure base progress rate is at least 0.1
+                
+                # Calculate the factor difference
+                if adjusted_base_progress_rate != 0:
+                    factor_diff = (row['ProgressRate'] / adjusted_base_progress_rate)
                 else:
-                    factor_diff = (row['ProgressRate'] / base_progress_rate)
+                    factor_diff = float('inf') if row['ProgressRate'] > 0 else float('-inf')
+                
                 factor_diff = round(factor_diff, 2)  # Round to 2 decimal places
 
                 diff_result = {
@@ -285,7 +289,7 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
                     'Scenario': row['Scenario'],
                     'Type': row['Type'],
                     'Year_filter': row['Year_filter'],
-                    'ProgressRate_Difference': factor_diff
+                    'Factor_Difference': factor_diff
                 }
                 diff_results.append(diff_result)
 
@@ -297,6 +301,7 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
     progress_rates_diff_df.to_csv(progressRates_diff_file_path, index=False)
 
     return progress_rates_df, progress_rates_diff_df
+
 
 
 def get_year_full_values(abs_df, filter_countries, out_folder):
