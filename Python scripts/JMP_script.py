@@ -1,3 +1,4 @@
+
 import pandas as pd
 from pathlib import Path
 import numpy as np
@@ -49,12 +50,16 @@ for sheet_name in sheets:
     # Filter the DataFrame to include only the specified columns
     filter_columns = [col for col in df.columns if any(fc in col for fc in filter_column_names)]
     df = df[['COUNTRY, AREA OR TERRITORY', 'Year', 'Type'] + filter_columns]
+
     
     # Round numerical values to one decimal place
     df[filter_columns] = df[filter_columns].apply(pd.to_numeric, errors='coerce').round(1)
     
     # Append the current sheet's DataFrame to the combined DataFrame
     combined_df = pd.concat([combined_df, df], ignore_index=True)
+    
+    # change df NaN's to '-'
+    combined_df = combined_df.fillna("-")
 
 # Export the combined DataFrame as a new CSV
 new_file_path = output_folder / 'JMP.csv'
