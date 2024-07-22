@@ -25,7 +25,7 @@ def adjust_scale_based_on_unit(value, unit):
     else:
         return value
 
-def determine_type(scenario):
+def determine_type(scenario, indicator):
     """
     Determines whether the scenario is related to 'Water' or 'Sanitation' or is a 'Base' scenario.
     
@@ -39,9 +39,13 @@ def determine_type(scenario):
         return 'Water'
     elif 'San' in scenario:
         return 'Sanitation'
+    elif 'Wat' in indicator:
+        return 'Water'
+    elif 'San' in indicator:
+        return 'Sanitation'
     else:
         return 'Base'
-    
+
 def determine_2030_2050(scenario):
     """
     Determines whether the scenario is related to '2030' or '2050' or is a 'Base' scenario.
@@ -81,7 +85,7 @@ def remove_WASH_false_doubles(df):
     
     return df
 
-def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countries):
+def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countries, endYear):
     """
     Transforms the IFs data into a single CSV file called 'BasicIndicators_abs.csv'.
     
@@ -158,10 +162,10 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
         
         # Append the filtered data to the final DataFrame
         abs_df = pd.concat([abs_df, filtered_df], ignore_index=True)
+        
+        abs_df = abs_df[abs_df['Year'] <= endYear]
 
-    # Apply the function to the 'Scenario' column to create a new 'Type' column
-    abs_df['Type'] = abs_df['Scenario'].apply(determine_type)
-
+    
     # Load conversion table from CSV and change the Indicator and Scenario names
     conversion_table = pd.read_csv(conversion_table_path / 'conversion_table_indicators.csv')
     conversion_dict_indicator = dict(zip(conversion_table['Indicator'], conversion_table['New_Indicator']))
@@ -174,18 +178,24 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
     
     # Apply the conversion to change indicator names
     abs_df['Indicator'] = abs_df['Indicator'].map(conversion_dict_indicator).fillna(abs_df['Indicator'])
+    
+    
+    abs_df['Type'] = abs_df.apply(lambda row: determine_type(row['Scenario'], row['Indicator']), axis=1)
+    
+    # Apply the remove_WASH_false_doubles function to filter the DataFrame
+    abs_df = remove_WASH_false_doubles(abs_df)
+
+
+
     abs_df['Scenario'] = abs_df['Scenario'].map(conversion_dict_scenario).fillna(abs_df['Scenario'])
     abs_df['Country'] = abs_df['Country'].map(conversion_dict_country).fillna(abs_df['Country'])
+
     
     # If still there, remove ';' symbols from text
     abs_df.replace(';', '', regex=True, inplace=True)
     
     # Match the scenarios to the 2030 or 2050 cases
     abs_df['Year_filter'] = abs_df['Scenario'].apply(determine_2030_2050)
-
-
-    # Apply the remove_WASH_false_doubles function to filter the DataFrame
-    abs_df = remove_WASH_false_doubles(abs_df)
     
     # Export CSV: absolute values
     abs_file_path = out_folder / 'BasicIndicators_abs.csv'
@@ -258,6 +268,8 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
     
     # Match the scenarios to the 2030 or 2050 cases
     progress_rates_df['Year_filter'] = progress_rates_df['Scenario'].apply(determine_2030_2050)
+    progress_rates_df['Type'] = progress_rates_df.apply(lambda row: determine_type(row['Indicator'], None), axis=1)
+
 
     # Export the DataFrame to a CSV file
     progressRates_file_path = out_folder / 'progressRates_abs.csv'
@@ -279,7 +291,7 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
                 if adjusted_base_progress_rate != 0:
                     factor_diff = (row['ProgressRate'] / adjusted_base_progress_rate)
                 else:
-                    factor_diff = float('inf') if row['ProgressRate'] > 0 else float('-inf')
+                    factor_diff = float('') if row['ProgressRate'] > 0 else float('')
                 
                 factor_diff = round(factor_diff, 2)  # Round to 2 decimal places
 
@@ -304,7 +316,7 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
 
 
 
-def get_year_full_values(abs_df, filter_countries, out_folder):
+def get_year_full_values(abs_df, filter_countries, conversion_table_path, out_folder):
     """
     Calculates the "Year Full" values for each country and indicator and saves the result to 'YearFull_access.csv'.
     
@@ -350,7 +362,14 @@ def get_year_full_values(abs_df, filter_countries, out_folder):
     year_full_access = all_countries_access[['Country', 'Indicator', 'YearOf99PctAccess']]
     
     # Add Type column based on Indicator name
-    year_full_access['Type'] = year_full_access['Indicator'].apply(determine_type)
+    year_full_access['Type'] = year_full_access.apply(lambda row: determine_type(row['Indicator'], None), axis=1)
+
+    
+    conversion_table = pd.read_csv(conversion_table_path / 'conversion_table_countries.csv')
+    conversion_dict_country = dict(zip(conversion_table['old_name'], conversion_table['new_name']))
+    
+    year_full_access['Country'] = year_full_access['Country'].map(conversion_dict_country).fillna(year_full_access['Country'])
+
 
     # Export CSV: yearFull
     fullAccess_file_path = out_folder / 'YearFull_access.csv'
@@ -379,8 +398,8 @@ def get_difference_values(abs_df, out_folder):
     
     # Define mappings for absolute and relative indicators as per your specification
     relative_indicators = [
-        "GDP (MER) - Billion Dollars",
-        "GDP per Capita (PPP) - Thousand Dollars"
+        # "GDP (MER) - Billion Dollars",
+        # "GDP per Capita (PPP) - Thousand Dollars"
     ]
 
     # Compute differences for each scenario compared to the reference

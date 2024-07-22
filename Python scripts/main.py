@@ -27,10 +27,10 @@ out_folder.mkdir(parents=True, exist_ok=True)
 filter_countries = pd.read_csv(conversion_table_path / 'conversion_table_countries.csv')["old_name"].tolist()
 
 # Transform the IFs data into 1 CSV called 'BasicIndicators.csv'
-abs_df = transform_IFs_data(folder, out_folder, conversion_table_path, filter_countries)
+abs_df = transform_IFs_data(folder, out_folder, conversion_table_path, filter_countries, 2051)
 
 # Get the "Year Full" values (to be updated, so that YearFull.py can be removed)
-year_full_access = get_year_full_values(abs_df, filter_countries, out_folder)
+year_full_access = get_year_full_values(abs_df, filter_countries, conversion_table_path, out_folder)
 
 # Progress rates 
 start_year, end_year = 2020, 2030
