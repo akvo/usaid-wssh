@@ -20,7 +20,9 @@ sheets = ['Water', 'Sanitation']
 combined_df = pd.DataFrame()
 
 filter_column_names = ['TOTAL - Safely managed', 'TOTAL - At least basic', 'TOTAL - Annual rate of change in \nat least basic',
-                       'TOTAL - Annual rate of change in safely managed']
+                       'TOTAL - Annual rate of change in safely managed',
+                       'TOTAL - Annual rate of change SM, manual calculation',
+                       'TOTAL - Annual rate of change ALB, manual calculation']
 
 for sheet_name in sheets:
     df = pd.read_excel(file_path, sheet_name=sheet_name, header=None)
@@ -49,12 +51,22 @@ for sheet_name in sheets:
     # Filter the DataFrame to include only the specified columns
     filter_columns = [col for col in df.columns if any(fc in col for fc in filter_column_names)]
     df = df[['COUNTRY, AREA OR TERRITORY', 'Year', 'Type'] + filter_columns]
+
+    # Convert the necessary columns to numeric values
+    df[filter_columns] = df[filter_columns].apply(pd.to_numeric, errors='coerce')
     
+    # Implementing pseudo code for calculating annual rate of change manually
+    df['TOTAL - Annual rate of change SM, manual calculation'] = df.groupby('COUNTRY, AREA OR TERRITORY')['TOTAL - Safely managed'].diff()
+    df['TOTAL - Annual rate of change ALB, manual calculation'] = df.groupby('COUNTRY, AREA OR TERRITORY')['TOTAL - At least basic'].diff()
+     
     # Round numerical values to one decimal place
-    df[filter_columns] = df[filter_columns].apply(pd.to_numeric, errors='coerce').round(1)
+    df[filter_column_names] = df[filter_column_names].apply(pd.to_numeric, errors='coerce').round(1)
     
     # Append the current sheet's DataFrame to the combined DataFrame
     combined_df = pd.concat([combined_df, df], ignore_index=True)
+    
+    # change df NaN's to '-'
+    combined_df = combined_df.fillna("-")
 
 # Export the combined DataFrame as a new CSV
 new_file_path = output_folder / 'JMP.csv'
