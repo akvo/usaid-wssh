@@ -384,23 +384,32 @@ def get_difference_values(abs_df, out_folder):
     
     Parameters:
     - abs_df (DataFrame): The DataFrame containing the transformed data.
-    - relative_indicators (list): List of indicators that should be calculated as relative differences.
     - out_folder (Path): The directory to save the output CSV files.
     
     Returns:
     - DataFrame: The DataFrame with the difference values.
     """
-    # Assuming the reference scenario is called 'Reference'
+    # Filter for the years 2030 and 2050
+    abs_df = abs_df[abs_df['Year'].isin([2030, 2050])]
+    
+    # Assuming the reference scenario is called 'Base'
     ref_df = abs_df[abs_df['Scenario'] == 'Base']
 
     # Create empty difference dataframe
     diff_df = pd.DataFrame()
     
-    # Define mappings for absolute and relative indicators as per your specification
-    relative_indicators = [
-        # "GDP (MER) - Billion Dollars",
-        # "GDP per Capita (PPP) - Thousand Dollars"
+    # Define indicators that require absolute calculations with Population
+    absolute_indicators = [
+        'Poverty inferior to $1.90 per day, Log Normal - Percent of Population',
+        'Malnourished Children - Percent of children',
+        'Stunting Rate of Children - Percent of age 0-5'
     ]
+    
+    print('testhello')
+    print(abs_df.columns)
+
+    # Load the absolute population values from abs_df (these are not the difference values)
+    population_abs_df = abs_df[abs_df['Indicator'] == 'Population - Millions'][['Value', 'Country', 'Year', 'Scenario', 'Type']].rename(columns={'Value': 'Population_abs'})
 
     # Compute differences for each scenario compared to the reference
     for scenario in abs_df['Scenario'].unique():
@@ -410,39 +419,42 @@ def get_difference_values(abs_df, out_folder):
             scen_df = abs_df[abs_df['Scenario'] == scenario]
             merged_df = pd.merge(scen_df, ref_df, on=['Year', 'Indicator', 'Country', 'Status'], suffixes=('', '_ref'))
 
-            # Initialize 'Difference' column to avoid KeyError
+            # Merge with absolute population data (not the difference population values)
+            merged_df = pd.merge(merged_df, population_abs_df, on=['Country', 'Year', 'Scenario', 'Type'], how='left')
+
+            # Initialize 'Difference', 'Value_type', and 'Change_(Pct_or_Abs)' columns
             merged_df['Difference'] = np.nan
+            merged_df['Value_type'] = ''
+            merged_df['Change_(Pct_or_Abs)'] = ''
 
-            # # Calculate differences
-            # for indicator in merged_df['Indicator'].unique():
-            #     print(indicator)
-            #     condition = merged_df['Indicator'] == indicator
-            #     if indicator in relative_indicators:
-            #         merged_df.loc[condition, 'Difference'] = \
-            #             ((merged_df['Value'] - merged_df['Value_ref']) / merged_df['Value_ref']) * 100
-            #     else:
-            #         merged_df.loc[condition, 'Difference'] = \
-            #             merged_df['Value'] - merged_df['Value_ref']
-                        
-            # Calculate differences
-            for indicator in merged_df['Indicator'].unique():
-                print(indicator)
-                condition = merged_df['Indicator'] == indicator
-                merged_df.loc[condition, 'Difference'] = \
-                    ((merged_df['Value'] - merged_df['Value_ref']) / merged_df['Value_ref']) * 100
+            # Calculate percentage differences
+            merged_df['Difference'] = ((merged_df['Value'] - merged_df['Value_ref']) / merged_df['Value_ref']) * 100
+            merged_df['Value_type'] = 'percentual'
+            merged_df['Change_(Pct_or_Abs)'] = 'percentual'
 
-            # Rename 'Difference' column to 'Value' and reorder columns
-            filtered_dfb = merged_df[['Difference', 'Year', 'Indicator', 'Unit', 'Status', 'Country', 'Scenario', 'Type', 'Year_filter']]
-            filtered_dfb.rename(columns={'Difference': 'Value'}, inplace=True)
+            # Append percentage differences to the diff_df
+            percentage_df = merged_df[['Difference', 'Year', 'Indicator', 'Unit', 'Status', 'Country', 'Scenario', 'Type', 'Year_filter', 'Change_(Pct_or_Abs)']].rename(columns={'Difference': 'Value'})
+            percentage_df['Value'] = percentage_df['Value'].apply(lambda x: round(x, 1))  # Round to 1 decimal place
+            diff_df = pd.concat([diff_df, percentage_df], ignore_index=True)
 
-            # Ensure the Value column has a maximum of 5 digits
-            filtered_dfb['Value'] = filtered_dfb['Value'].apply(lambda x: round(x, 5))
+            # Calculate absolute differences
+            merged_df['Difference'] = merged_df['Value'] - merged_df['Value_ref']
+            merged_df['Value_type'] = 'absolute'
+            merged_df['Change_(Pct_or_Abs)'] = 'absolute'
 
-            # Append to the difference DataFrame
-            diff_df = pd.concat([diff_df, filtered_dfb], ignore_index=True)
+            # For the specified indicators, multiply by the absolute population
+            condition = merged_df['Indicator'].isin(absolute_indicators)
+            merged_df.loc[condition, 'Difference'] = merged_df.loc[condition, 'Difference'] * merged_df.loc[condition, 'Population_abs']
 
-    
+            # Append absolute differences to the diff_df
+            absolute_df = merged_df[['Difference', 'Year', 'Indicator', 'Unit', 'Status', 'Country', 'Scenario', 'Type', 'Year_filter', 'Change_(Pct_or_Abs)']].rename(columns={'Difference': 'Value'})
+            absolute_df['Value'] = absolute_df['Value'].apply(lambda x: round(x, 2))  # Round to 2 decimal place
+            diff_df = pd.concat([diff_df, absolute_df], ignore_index=True)
+
+    # Save the difference DataFrame
     diff_file_path = out_folder / 'BasicIndicators_dif.csv'
     diff_df.to_csv(diff_file_path, index=False)
 
     return diff_df
+
+

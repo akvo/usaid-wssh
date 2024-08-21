@@ -18,7 +18,7 @@ import itertools
 from functions import transform_IFs_data, get_year_full_values, get_difference_values, calculate_progress_rates
 
 # Initialize the file path, and define the filter conditions
-folder = Path(__file__).resolve().parent.parent / "input data/IFs"
+folder = Path(__file__).resolve().parent.parent / "input data/IFs (news)"
 out_folder = Path(__file__).resolve().parent.parent / "output data"
 conversion_table_path = Path(__file__).resolve().parent.parent / "input data"
 
