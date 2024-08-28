@@ -85,6 +85,25 @@ def remove_WASH_false_doubles(df):
     
     return df
 
+def scenario_type(scenario):
+    """
+    Determines whether the scenario is of type 'ALB' or 'SM' based on the scenario name.
+    
+    Parameters:
+    - scenario (str): The scenario description.
+    
+    Returns:
+    - str: 'ALB' or 'SM' based on the scenario name.
+    """
+    if 'ALB' in scenario:
+        return 'ALB'
+    elif 'SM' in scenario:
+        return 'SM'
+    elif 'Base' in scenario:
+        return 'Base'
+    else:
+        return 'Unknown'  # In case neither ALB nor SM is found in the scenario name
+
 def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countries, endYear):
     """
     Transforms the IFs data into a single CSV file called 'BasicIndicators_abs.csv'.
@@ -184,12 +203,12 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
     
     # Apply the remove_WASH_false_doubles function to filter the DataFrame
     abs_df = remove_WASH_false_doubles(abs_df)
-
-
+    
+    # Add the Scenario_type column based on the scenario name
+    abs_df['Scenario_type'] = abs_df['Scenario'].apply(scenario_type)
 
     abs_df['Scenario'] = abs_df['Scenario'].map(conversion_dict_scenario).fillna(abs_df['Scenario'])
     abs_df['Country'] = abs_df['Country'].map(conversion_dict_country).fillna(abs_df['Country'])
-
     
     # If still there, remove ';' symbols from text
     abs_df.replace(';', '', regex=True, inplace=True)
@@ -228,15 +247,15 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
 
     # Focus only on Safely Managed
     df = df[df['Status'].isin(['SafelyManaged'])]
-    df = df.groupby(['Country', 'Indicator', 'Scenario', 'Year', 'Type'])['Value'].sum().reset_index()
+    df = df.groupby(['Country', 'Indicator', 'Scenario', 'Year', 'Type', 'Scenario_type'])['Value'].sum().reset_index()
 
     # Initialize an empty list to store the results
     results = []
 
     # Group the DataFrame by 'Country', 'Indicator', 'Scenario', and 'Type'
-    grouped = df.groupby(['Country', 'Indicator', 'Scenario', 'Type'])
+    grouped = df.groupby(['Country', 'Indicator', 'Scenario', 'Type', 'Scenario_type'])
 
-    for (country, indicator, scenario, type_), group in grouped:
+    for (country, indicator, scenario, type_, scenario_type), group in grouped:
         # Sort the group by year
         group = group.sort_values(by='Year')
 
@@ -258,7 +277,8 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
             'Indicator': indicator,
             'Scenario': scenario,
             'Type': type_,
-            'ProgressRate': progress_rate
+            'ProgressRate': progress_rate,
+            'Scenario_type': scenario_type
         }
         result.update(year_values)
         results.append(result)
@@ -269,7 +289,6 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
     # Match the scenarios to the 2030 or 2050 cases
     progress_rates_df['Year_filter'] = progress_rates_df['Scenario'].apply(determine_2030_2050)
     progress_rates_df['Type'] = progress_rates_df.apply(lambda row: determine_type(row['Indicator'], None), axis=1)
-
 
     # Export the DataFrame to a CSV file
     progressRates_file_path = out_folder / 'progressRates_abs.csv'
@@ -301,6 +320,7 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
                     'Scenario': row['Scenario'],
                     'Type': row['Type'],
                     'Year_filter': row['Year_filter'],
+                    'Scenario_type': row['Scenario_type'],
                     'Factor_Difference': factor_diff
                 }
                 diff_results.append(diff_result)
@@ -313,7 +333,6 @@ def calculate_progress_rates(df, start_year, end_year, out_folder):
     progress_rates_diff_df.to_csv(progressRates_diff_file_path, index=False)
 
     return progress_rates_df, progress_rates_diff_df
-
 
 
 def get_year_full_values(abs_df, filter_countries, conversion_table_path, out_folder):
@@ -404,12 +423,9 @@ def get_difference_values(abs_df, out_folder):
         'Malnourished Children - Percent of children',
         'Stunting Rate of Children - Percent of age 0-5'
     ]
-    
-    print('testhello')
-    print(abs_df.columns)
 
     # Load the absolute population values from abs_df (these are not the difference values)
-    population_abs_df = abs_df[abs_df['Indicator'] == 'Population - Millions'][['Value', 'Country', 'Year', 'Scenario', 'Type']].rename(columns={'Value': 'Population_abs'})
+    population_abs_df = abs_df[abs_df['Indicator'] == 'Population - Millions'][['Value', 'Country', 'Year', 'Scenario', 'Type', 'Scenario_type']].rename(columns={'Value': 'Population_abs'})
 
     # Compute differences for each scenario compared to the reference
     for scenario in abs_df['Scenario'].unique():
@@ -417,10 +433,10 @@ def get_difference_values(abs_df, out_folder):
             print(scenario)
 
             scen_df = abs_df[abs_df['Scenario'] == scenario]
-            merged_df = pd.merge(scen_df, ref_df, on=['Year', 'Indicator', 'Country', 'Status'], suffixes=('', '_ref'))
+            merged_df = pd.merge(scen_df, ref_df, on=['Year', 'Indicator', 'Country', 'Status', 'Scenario_type'], suffixes=('', '_ref'))
 
             # Merge with absolute population data (not the difference population values)
-            merged_df = pd.merge(merged_df, population_abs_df, on=['Country', 'Year', 'Scenario', 'Type'], how='left')
+            merged_df = pd.merge(merged_df, population_abs_df, on=['Country', 'Year', 'Scenario', 'Type', 'Scenario_type'], how='left')
 
             # Initialize 'Difference', 'Value_type', and 'Change_(Pct_or_Abs)' columns
             merged_df['Difference'] = np.nan
@@ -433,7 +449,7 @@ def get_difference_values(abs_df, out_folder):
             merged_df['Change_(Pct_or_Abs)'] = 'percentual'
 
             # Append percentage differences to the diff_df
-            percentage_df = merged_df[['Difference', 'Year', 'Indicator', 'Unit', 'Status', 'Country', 'Scenario', 'Type', 'Year_filter', 'Change_(Pct_or_Abs)']].rename(columns={'Difference': 'Value'})
+            percentage_df = merged_df[['Difference', 'Year', 'Indicator', 'Unit', 'Status', 'Country', 'Scenario', 'Type', 'Scenario_type', 'Year_filter', 'Change_(Pct_or_Abs)']].rename(columns={'Difference': 'Value'})
             percentage_df['Value'] = percentage_df['Value'].apply(lambda x: round(x, 1))  # Round to 1 decimal place
             diff_df = pd.concat([diff_df, percentage_df], ignore_index=True)
 
@@ -451,10 +467,11 @@ def get_difference_values(abs_df, out_folder):
             absolute_df['Value'] = absolute_df['Value'].apply(lambda x: round(x, 2))  # Round to 2 decimal place
             diff_df = pd.concat([diff_df, absolute_df], ignore_index=True)
 
+    # Add the Scenario_type column to the difference DataFrame
+    diff_df['Scenario_type'] = diff_df['Scenario'].apply(scenario_type)
+
     # Save the difference DataFrame
     diff_file_path = out_folder / 'BasicIndicators_dif.csv'
     diff_df.to_csv(diff_file_path, index=False)
 
     return diff_df
-
-
