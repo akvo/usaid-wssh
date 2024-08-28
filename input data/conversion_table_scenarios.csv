@@ -1,18 +1,14 @@
 Scenario,New_Scenario
 Base,Base
-FullSan_2030,Full sanitation access in 2030
-FullSan_2050,Full sanitation access in 2050
-FullWat_2030,Full water access in 2030
-FullWat_2050,Full water access in 2050
-SanInc_0_5x,0.5x
-SanInc_0_95x,0.95x
-SanInc_0_9x,0.9x
-SanInc_1_05x,1.05x
-SanInc_1_1x,1.1x
-SanInc_2x,2x
-WatInc_0_5x,0.5x
-WatInc_0_95x,0.95x
-WatInc_0_9x,0.9x
-WatInc_1_05x,1.05x
-WatInc_1_1x,1.1x
-WatInc_2x,2x
+FS_ALB_2030,Full sanitation access in 2030
+FS_ALB_2050,Full sanitation access in 2050
+FS_SM_2030,Full sanitation access in 2030
+FS_SM_2050,Full sanitation access in 2050
+FW_ALB_2030,Full water access in 2030
+FW_ALB_2050,Full water access in 2050
+FW_SM_2030,Full water access in 2030
+FW_SM_2050,Full water access in 2050
+FWS_ALB_2030,Full water and sanitation access 2030
+FWS_ALB_2050,Full water and sanitation access 2050
+FWS_SM_2030,Full water and sanitation access 2030
+FWS_SM_2050,Full water and sanitation access 2050
