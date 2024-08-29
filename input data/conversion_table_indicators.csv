@@ -18,3 +18,5 @@ PovPerc190HF,"Poverty inferior to $1.90 per day, Log Normal - Percent of Populat
 SAM National Burden (millions),"SAM National Burden, Total Cases "
 SFINSTABALL,State Failure Instability Event - IFs Index
 HLSTUNTCHL,Stunting Rate of Children - Percent of age 0-5
+MALNCHIL,"Malnourished Children, Headcount - Millions"
+POP0TO5,"Population under 5 Years, Headcount - Millions"

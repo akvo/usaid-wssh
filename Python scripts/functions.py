@@ -113,7 +113,8 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
     - out_folder (Path): The directory to save the output CSV files.
     - conversion_table_path (Path): The path to the conversion table CSV file.
     - filter_countries (list): List of countries to filter.
-    
+    - endYear (int): The last year to include in the output.
+
     Returns:
     - DataFrame: The transformed data.
     """
@@ -161,12 +162,6 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
         melted = csv_transposed.melt(var_name='Row', value_name='Value')
         melted.drop('Row', axis=1, inplace=True)  # Drop the Row column if not needed
         
-        # Check if data is correct
-        values = melted['Value']
-        print("76th Percentile of all values:", values.quantile(q=0.25))
-        print("Mean of all values:", values.mean())
-        print("98th Percentile of all values:", values.quantile(q=0.75))
-                
         # Now, add the metadata as new columns. This assumes each value corresponds correctly.
         # Adjust as needed based on actual data structure
         melted['Year'] = pd.Series(file_years).repeat(len(file_indicators)).tolist()
@@ -184,7 +179,6 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
         
         abs_df = abs_df[abs_df['Year'] <= endYear]
 
-    
     # Load conversion table from CSV and change the Indicator and Scenario names
     conversion_table = pd.read_csv(conversion_table_path / 'conversion_table_indicators.csv')
     conversion_dict_indicator = dict(zip(conversion_table['Indicator'], conversion_table['New_Indicator']))
@@ -197,7 +191,6 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
     
     # Apply the conversion to change indicator names
     abs_df['Indicator'] = abs_df['Indicator'].map(conversion_dict_indicator).fillna(abs_df['Indicator'])
-    
     
     abs_df['Type'] = abs_df.apply(lambda row: determine_type(row['Scenario'], row['Indicator']), axis=1)
     
@@ -215,6 +208,22 @@ def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countri
     
     # Match the scenarios to the 2030 or 2050 cases
     abs_df['Year_filter'] = abs_df['Scenario'].apply(determine_2030_2050)
+
+    # Calculate cumulative sums for specific indicators
+    cumulative_indicators = [
+        "Sanitation Services, Expenditure, Capital",
+        "Water Services, Expenditure, Capital",
+        "GDP (MER)",
+        "GDP (PPP)"
+    ]
+
+    abs_df['Cumulative_Value'] = abs_df.groupby(['Country', 'Indicator', 'Scenario'])['Value'].cumsum()
+
+    # Apply cumulative only to the specified indicators
+    abs_df['Value'] = np.where(abs_df['Indicator'].isin(cumulative_indicators), abs_df['Cumulative_Value'], abs_df['Value'])
+
+    # Drop the temporary Cumulative_Value column
+    abs_df.drop(columns=['Cumulative_Value'], inplace=True)
     
     # Export CSV: absolute values
     abs_file_path = out_folder / 'BasicIndicators_abs.csv'
