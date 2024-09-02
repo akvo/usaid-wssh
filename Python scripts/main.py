@@ -40,4 +40,4 @@ progress_rates, progress_rates_diff = calculate_progress_rates(abs_df, start_yea
 abs_df = abs_df[abs_df['Year'] <= 2050]
 
 # Get difference values between each Scenario and the Base scenario
-diff_df, a, b= get_difference_values(abs_df, out_folder)
+diff_df = get_difference_values(abs_df, out_folder)

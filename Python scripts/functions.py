@@ -426,6 +426,16 @@ def get_difference_values(abs_df, out_folder):
     # Assuming the reference scenario is called 'Base'
     ref_df = abs_df[abs_df['Scenario'] == 'Base']
     
+    # Duplicate rows: one with 'Scenario_type' as 'alb' and the other as 'sm'
+    ref_alb_df = ref_df.copy()
+    ref_alb_df['Scenario_type'] = 'ALB'
+    
+    ref_sm_df = ref_df.copy()
+    ref_sm_df['Scenario_type'] = 'SM'
+    
+    # Combine the duplicated rows
+    ref_df = pd.concat([ref_alb_df, ref_sm_df], ignore_index=True)
+    
     # Create empty difference dataframe
     diff_df = pd.DataFrame()
     
@@ -445,6 +455,11 @@ def get_difference_values(abs_df, out_folder):
             print(f'Processing scenario: {scenario}')
             
             scen_df = abs_df[abs_df['Scenario'] == scenario]
+            
+            # Debugging: Check if merge was successful
+            if scen_df.empty:
+                print(f'Warning: Scenario dataframe is empty for scenario: {scenario}')
+                continue  # Skip to the next scenario
 
             # Perform the merge
             merged_df = pd.merge(scen_df, ref_df, on=['Year', 'Indicator', 'Country', 'Status', 'Scenario_type'], suffixes=('', '_ref'))
@@ -468,7 +483,7 @@ def get_difference_values(abs_df, out_folder):
             merged_df['Change_(Pct_or_Abs)'] = 'percentual'
 
             # Append percentage differences to the diff_df
-            percentage_df = merged_df[['Difference', 'Year', 'Indicator', 'Unit', 'Status', 'Country', 'Scenario', 'Type', 'Scenario_type', 'Year_filter', 'Change_(Pct_or_Abs)']].rename(columns={'Difference': 'Value'})
+            percentage_df = merged_df[['Difference', 'Year', 'Indicator', 'Unit', 'Status', 'Country', 'Scenario', 'Type', 'Year_filter', 'Scenario_type', 'Change_(Pct_or_Abs)']].rename(columns={'Difference': 'Value'})
             percentage_df['Value'] = percentage_df['Value'].apply(lambda x: round(x, 1))  # Round to 1 decimal place
             diff_df = pd.concat([diff_df, percentage_df], ignore_index=True)
 
@@ -482,13 +497,12 @@ def get_difference_values(abs_df, out_folder):
             merged_df.loc[condition, 'Difference'] = merged_df.loc[condition, 'Difference'] * merged_df.loc[condition, 'Population_abs']
 
             # Append absolute differences to the diff_df
-            absolute_df = merged_df[['Difference', 'Year', 'Indicator', 'Unit', 'Status', 'Country', 'Scenario', 'Type', 'Scenario_type','Year_filter', 'Change_(Pct_or_Abs)']].rename(columns={'Difference': 'Value'})
+            absolute_df = merged_df[['Difference', 'Year', 'Indicator', 'Unit', 'Status', 'Country', 'Scenario', 'Type','Year_filter',  'Scenario_type', 'Change_(Pct_or_Abs)']].rename(columns={'Difference': 'Value'})
             absolute_df['Value'] = absolute_df['Value'].apply(lambda x: round(x, 2))  # Round to 2 decimal place
             diff_df = pd.concat([diff_df, absolute_df], ignore_index=True)
-            
+                
     # Save the difference DataFrame
     diff_file_path = out_folder / 'BasicIndicators_dif.csv'
     diff_df.to_csv(diff_file_path, index=False)
 
     return diff_df
-
