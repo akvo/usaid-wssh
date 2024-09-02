@@ -1,14 +1,38 @@
-Scenario,New_Scenario
-Base,Base
-FS_ALB_2030,Full sanitation access in 2030
-FS_ALB_2050,Full sanitation access in 2050
-FS_SM_2030,Full sanitation access in 2030
-FS_SM_2050,Full sanitation access in 2050
-FW_ALB_2030,Full water access in 2030
-FW_ALB_2050,Full water access in 2050
-FW_SM_2030,Full water access in 2030
-FW_SM_2050,Full water access in 2050
-FWS_ALB_2030,Full water and sanitation access 2030
-FWS_ALB_2050,Full water and sanitation access 2050
-FWS_SM_2030,Full water and sanitation access 2030
-FWS_SM_2050,Full water and sanitation access 2050
+Scenario,New_Scenario,,,,,
+Base,Base,,,,,
+FS_ALB_2030,Full sanitation access in 2030,,,,,
+FS_ALB_2050,Full sanitation access in 2050,,,,,
+FS_SM_2030,Full sanitation access in 2030,,,,,
+FS_SM_2050,Full sanitation access in 2050,,,,,
+FW_ALB_2030,Full water access in 2030,,,,,
+FW_ALB_2050,Full water access in 2050,,,,,
+FW_SM_2030,Full water access in 2030,,,,,
+FW_SM_2050,Full water access in 2050,,,,,
+FWS_ALB_2030,Full water and sanitation access 2030,,,,,
+FWS_ALB_2050,Full water and sanitation access 2050,,,,,
+FWS_SM_2030,Full water and sanitation access 2030,,,,,
+FWS_SM_2050,Full water and sanitation access 2050,,,,,
+SI_BS_0_5x,halving,,,,,
+SI_BS_2x,doubling,,,,,
+SI_BS_4x,quadrupling,,,,,
+SI_BS_6x,six-fold,,,,,
+SI_SM_0_5x,halving,,,,,
+SI_SM_2x,doubling,,,,,
+SI_SM_4x,quadrupling,,,,,
+SI_SM_6x,six-fold,,,,,
+WI_BS_0_5x,halving,,,,,
+WI_BS_2x,doubling,,,,,
+WI_BS_4x,quadrupling,,,,,
+WI_BS_6x,six-fold,,,,,
+WI_SM_0_5x,halving,,,,,
+WI_SM_2x,doubling,,,,,
+WI_SM_4x,quadrupling,,,,,
+WI_SM_6x,six-fold,,,,,
+WSI_BS_0_5x,halving,,,,,
+WSI_BS_2x,doubling,,,,,
+WSI_BS_4x,quadrupling,,,,,
+WSI_BS_6x,six-fold,,,,,
+WSI_SM_0_5x,halving,,,,,
+WSI_SM_2x,doubling,,,,,
+WSI_SM_4x,quadrupling,,,,,
+WSI_SM_6x,six-fold,,,,,

@@ -18,7 +18,7 @@ import itertools
 from functions import transform_IFs_data, get_year_full_values, get_difference_values, calculate_progress_rates, scenario_type
 
 # Initialize the file path, and define the filter conditions
-folder = Path(__file__).resolve().parent.parent / "input data/IFs 27 August"
+folder = Path(__file__).resolve().parent.parent / "input data/IFs data for 30 August"
 out_folder = Path(__file__).resolve().parent.parent / "output data"
 conversion_table_path = Path(__file__).resolve().parent.parent / "input data"
 
@@ -40,4 +40,4 @@ progress_rates, progress_rates_diff = calculate_progress_rates(abs_df, start_yea
 abs_df = abs_df[abs_df['Year'] <= 2050]
 
 # Get difference values between each Scenario and the Base scenario
-diff_df = get_difference_values(abs_df, out_folder)
+diff_df, a, b= get_difference_values(abs_df, out_folder)
