@@ -112,7 +112,6 @@ find ../ -type f -name "conversion*"
 ../input data/conversion_table_indicators.csv
 :end:
 
-
 ** Scan All the functions
 
 #+name: Scan all the functions
@@ -314,7 +313,6 @@ cat ../Python\ scripts/functions.py | grep -e diff_file_path
     diff_file_path = out_folder / 'BasicIndicators_dif.csv'
     diff_df.to_csv(diff_file_path, index=False)
 :end:
-
 
 *** Output Files from main.py
 
