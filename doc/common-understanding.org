@@ -1,0 +1,330 @@
+#+PROPERTY: header-args:bash+   :exports both
+#+PROPERTY: header-args:bash+   :results drawer
+#+PROPERTY: header-args:bash+   :noweb strip-export
+#+PROPERTY: header-args:python+  :exports both
+#+PROPERTY: header-args:python+  :tangle example.py
+#+PROPERTY: header-args:python+  :prologue "from tabulate import tabulate\nimport pandas as pd"
+#+PROPERTY: header-args:python+  :results replace
+
+* Init Python
+
+#+name: strip_function
+#+begin_src python :var input_text="input_text" prefix="prefix" :results none
+return f"""
+def the_strip_function(input_text:str, prefix:str):
+    return prefix + " " + "*" + input_text.strip() + "*"
+return the_strip_function({input_text}, {prefix})
+"""
+#+end_src
+
+#+name: pd2org
+#+begin_src python :var df="df" :results none
+return f"return tabulate({df}, headers={df}.columns, tablefmt='orgtbl')"
+#+end_src
+
+* Input Files
+
+** List of Scripts
+
+#+name: List of scripts
+#+begin_src bash
+find .. -type f  -name "*.py"
+#+end_src
+
+#+RESULTS: List of scripts
+:results:
+../Python scripts/JMP_script.py
+../Python scripts/functions.py
+../Python scripts/main.py
+:end:
+
+** Source File to Read
+
+*** Source file to read from JMP_script.py
+#+name: Source file to read from JMP_script.py
+#+begin_src bash
+cat ../Python\ scripts/JMP_script.py | grep -e file_path -e main_folder
+#+end_src
+
+#+RESULTS: Source file to read from JMP_script.py
+:results:
+main_folder = script_dir.parent
+output_folder = main_folder / "output data"
+file_path = main_folder / 'input data' / 'JMP' / 'JMP_2023_WLD.xlsx'
+    df = pd.read_excel(file_path, sheet_name=sheet_name, header=None)
+new_file_path = output_folder / 'JMP.csv'
+combined_df.to_csv(new_file_path, index=False)
+:end:
+
+*** Source file to read from functions.py
+#+name: Source file to read from functions.py
+#+begin_src bash
+cat ../Python\ scripts/functions.py | grep -e pd.read_csv -e conversion_table_path
+#+end_src
+
+#+RESULTS: Source file to read from functions.py
+:results:
+def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countries, endYear):
+    - conversion_table_path (Path): The path to the conversion table CSV file.
+        csv = pd.read_csv(file, header=None)
+    conversion_table = pd.read_csv(conversion_table_path / 'conversion_table_indicators.csv')
+    conversion_table = pd.read_csv(conversion_table_path / 'conversion_table_scenarios.csv')
+    conversion_table = pd.read_csv(conversion_table_path / 'conversion_table_countries.csv')
+def get_year_full_values(abs_df, filter_countries, conversion_table_path, out_folder):
+    conversion_table = pd.read_csv(conversion_table_path / 'conversion_table_countries.csv')
+:end:
+
+- Where is the conversion_table_path?
+
+#+name: Conversion Table Path
+#+begin_src bash
+cat ../Python\ scripts/main.py | grep -e conversion_table_path
+#+end_src
+
+#+RESULTS: Conversion Table Path
+:results:
+conversion_table_path = Path(__file__).resolve().parent.parent / "input data"
+filter_countries = pd.read_csv(conversion_table_path / 'conversion_table_countries.csv')["old_name"].tolist()
+abs_df = transform_IFs_data(folder, out_folder, conversion_table_path, filter_countries, 2051)
+year_full_access = get_year_full_values(abs_df, filter_countries, conversion_table_path, out_folder)
+:end:
+
+*** Source file to read from main.py
+#+name: Source file to read from main.py
+#+begin_src bash
+cat ../Python\ scripts/main.py | grep -e pd.read_csv
+#+end_src
+
+#+RESULTS: Source file to read from main.py
+:results:
+filter_countries = pd.read_csv(conversion_table_path / 'conversion_table_countries.csv')["old_name"].tolist()
+:end:
+
+#+name: Conversion Table
+#+begin_src bash
+find ../ -type f -name "conversion*"
+#+end_src
+
+#+RESULTS: Conversion Table
+:results:
+../input data/conversion_table_scenarios.csv
+../input data/conversion_table_countries.csv
+../input data/conversion_table_indicators.csv
+:end:
+
+
+** Scan All the functions
+
+#+name: Scan all the functions
+#+begin_src bash
+cat ../Python\ scripts/functions.py | grep "def"
+#+end_src
+
+#+RESULTS: Scan all the functions
+:results:
+def adjust_scale_based_on_unit(value, unit):
+def determine_type(scenario):
+def determine_2030_2050(scenario):
+def remove_WASH_false_doubles(df):
+def scenario_type(scenario):
+def transform_IFs_data(folder, out_folder, conversion_table_path, filter_countries, endYear):
+        # Optional: Fill NaN values with a default value, for example, 0
+def calculate_progress_rates(df, start_year, end_year, out_folder):
+def get_year_full_values(abs_df, filter_countries, conversion_table_path, out_folder):
+def get_difference_values(abs_df, out_folder):
+:end:
+
+** IFs Data
+
+#+name: Compare IFs data
+#+begin_src bash
+diff <(ls ../input\ data/IFs) <(ls ../input\ data/IFs\ data\ for\ 30\ August)
+#+end_src
+
+#+RESULTS: Compare IFs data
+:results:
+2c2
+< 02.  Education Years, Mean, 15 to 24 Age Group - Years of Education.csv
+---
+> 02. Education Years, Mean, 15 to 24 Age Group - Years of Education.csv
+10c10
+< 10. DALYs per Capita - Million per million.csv
+---
+> 10. DALYs per Capita - Million per million (2nd Dimensions = Malaria).csv
+13,20c13,26
+< 13. Sanitation Services, Access, percent of population (select Safely Managed + At Least Basic).csv
+< 14. Sanitation Services, Access, Number of people, million (select Safely Managed + At Least Basic).csv
+< 15. Sanitation Services, Expenditure, Capital, Billion $ (select Safely Managed + At Least Basic).csv
+< 16. Sanitation Services, Expenditure, Maintenance, Billion $ (select Safely Managed + At Least Basic).csv
+< 17. Water Services, Access, percent of population (select Safely Managed + At Least Basic).csv
+< 18. Water Services, Access, Number of people, million (select Safely Managed + At Least Basic).csv
+< 19. Water Services, Expenditure, Capital, Billion $ (select Safely Managed + At Least Basic).csv
+< 20. Water Services, Expenditure, Maintenance, Billion $ (select Safely Managed + At Least Basic).csv
+---
+> 13. Sanitation Services, Access, percent of population (2nd Dimensions = Basic + Safely Managed).csv
+> 14. Sanitation Services, Access, Number of people, million (2nd Dimensions = Basic + Safely Managed).csv
+> 15. Sanitation Services, Expenditure, Capital, Billion $ (2nd Dimensions = Basic + Safely Managed).csv
+> 16. Sanitation Services, Expenditure, Maintenance, Billion $ (2nd Dimensions = Basic + Safely Managed).csv
+> 17. Water Services, Access, percent of population (2nd Dimension = Basic + Safely Managed).csv
+> 18. Water Services, Access, Number of people, million (2nd Dimensions = Basic + Safely Managed).csv
+> 19. Water Services, Expenditure, Capital, Billion $ (2nd Dimensions = Basic + Safely Managed).csv
+> 20. Water Services, Expenditure, Maintenance, Billion $ (2nd Dimensions = Basic + Safely Managed).csv
+> 21. Population - Millions.csv
+> 22. GDP (MER) - Billion dollars.csv
+> 23. GDP (PPP) - Billion dollars.csv
+> 24. Stunted children, History and Forecast - Million.csv
+> 25. Population under 5 Years, Headcount - Millions.csv
+> 26. Malnourished Children, Headcount - Millions.csv
+:end:
+
+
+#+name: Latest IFs Data
+#+begin_src bash
+ls ../input\ data/IFs\ data\ for\ 30\ August
+#+end_src
+
+#+RESULTS: Latest IFs Data
+:results:
+01. Deaths by Category of Cause - Millions.csv
+02. Education Years, Mean, 15 to 24 Age Group - Years of Education.csv
+03. GDP per Capita (PPP) - Thousand Dollars.csv
+04. Infrastructure Spending by Destination, Total, Currency - Billion Dollars.csv
+05. Malnourished Children - Percent of children.csv
+06. Poverty less than $1.90 per Day, Log Normal - Percent of population.csv
+07. SAM National Burden, Total Cases - Millions.csv
+08. State Failure Instability Event - IFs Index.csv
+09. Stunting Rate of Children - Percent of age 0-5.csv
+10. DALYs per Capita - Million per million (2nd Dimensions = Malaria).csv
+11. Governance Effectiveness - WB index.csv
+12. Value Added by Sector, Currency - Billion dollars.csv
+13. Sanitation Services, Access, percent of population (2nd Dimensions = Basic + Safely Managed).csv
+14. Sanitation Services, Access, Number of people, million (2nd Dimensions = Basic + Safely Managed).csv
+15. Sanitation Services, Expenditure, Capital, Billion $ (2nd Dimensions = Basic + Safely Managed).csv
+16. Sanitation Services, Expenditure, Maintenance, Billion $ (2nd Dimensions = Basic + Safely Managed).csv
+17. Water Services, Access, percent of population (2nd Dimension = Basic + Safely Managed).csv
+18. Water Services, Access, Number of people, million (2nd Dimensions = Basic + Safely Managed).csv
+19. Water Services, Expenditure, Capital, Billion $ (2nd Dimensions = Basic + Safely Managed).csv
+20. Water Services, Expenditure, Maintenance, Billion $ (2nd Dimensions = Basic + Safely Managed).csv
+21. Population - Millions.csv
+22. GDP (MER) - Billion dollars.csv
+23. GDP (PPP) - Billion dollars.csv
+24. Stunted children, History and Forecast - Million.csv
+25. Population under 5 Years, Headcount - Millions.csv
+26. Malnourished Children, Headcount - Millions.csv
+:end:
+
+
+* Output Files
+
+** Scan All Output Files Produced by The Scripts
+
+*** Output Files from JMP_Script.py
+
+#+name: Output Files from JMP_script.py
+#+begin_src bash
+cat ../Python\ scripts/JMP_script.py | grep -e to_csv -e new_file_path -e output_folder
+#+end_src
+
+#+RESULTS: Output Files from JMP_script.py
+:results:
+output_folder = main_folder / "output data"
+output_folder.mkdir(parents=True, exist_ok=True)
+new_file_path = output_folder / 'JMP.csv'
+combined_df.to_csv(new_file_path, index=False)
+:end:
+
+*** Output Files from functions.py
+
+#+name: Output Files from functions.py
+#+begin_src bash
+cat ../Python\ scripts/functions.py | grep -e to_csv
+#+end_src
+
+#+RESULTS: Output Files from functions.py
+:results:
+    abs_df.to_csv(abs_file_path, index=False)
+    progress_rates_df.to_csv(progressRates_file_path, index=False)
+    progress_rates_diff_df.to_csv(progressRates_diff_file_path, index=False)
+    year_full_access.to_csv(fullAccess_file_path, index=False)
+    diff_df.to_csv(diff_file_path, index=False)
+:end:
+
+
+**** abs_file_path
+
+#+name: Abs File Path
+#+begin_src bash
+cat ../Python\ scripts/functions.py | grep -e abs_file_path
+#+end_src
+
+#+RESULTS: Abs File Path
+:results:
+    abs_file_path = out_folder / 'BasicIndicators_abs.csv'
+    abs_df.to_csv(abs_file_path, index=False)
+:end:
+
+**** progressRates_file_path
+
+#+name: Progress Rates File Path
+#+begin_src bash
+cat ../Python\ scripts/functions.py | grep -e progressRates_file_path
+#+end_src
+
+#+RESULTS: Progress Rates File Path
+:results:
+    progressRates_file_path = out_folder / 'progressRates_abs.csv'
+    progress_rates_df.to_csv(progressRates_file_path, index=False)
+:end:
+
+**** progressRates_diff_file_path
+#+name: Progress Rates Diff File Path
+#+begin_src bash
+cat ../Python\ scripts/functions.py | grep -e progressRates_diff_file_path
+#+end_src
+
+#+RESULTS: Progress Rates Diff File Path
+:results:
+    progressRates_diff_file_path = out_folder / 'progressRates_dif.csv'
+    progress_rates_diff_df.to_csv(progressRates_diff_file_path, index=False)
+:end:
+
+**** fullAccess_file_path
+#+name: Full Access File Path
+#+begin_src bash
+cat ../Python\ scripts/functions.py | grep -e fullAccess_file_path
+#+end_src
+
+#+RESULTS: Full Access File Path
+:results:
+    fullAccess_file_path = out_folder / 'YearFull_access.csv'
+    year_full_access.to_csv(fullAccess_file_path, index=False)
+:end:
+
+**** diff_file_path
+
+#+name: Diff File Path
+#+begin_src bash
+cat ../Python\ scripts/functions.py | grep -e diff_file_path
+#+end_src
+
+#+RESULTS: Diff File Path
+:results:
+    progressRates_diff_file_path = out_folder / 'progressRates_dif.csv'
+    progress_rates_diff_df.to_csv(progressRates_diff_file_path, index=False)
+    diff_file_path = out_folder / 'BasicIndicators_dif.csv'
+    diff_df.to_csv(diff_file_path, index=False)
+:end:
+
+
+*** Output Files from main.py
+
+#+name: Output Files from main.py
+#+begin_src bash
+cat ../Python\ scripts/main.py | grep -e to_csv
+#+end_src
+
+#+RESULTS: Output Files from main.py
+:results:
+:end:
+
+Nothing
