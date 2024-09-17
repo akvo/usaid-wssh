@@ -76,6 +76,16 @@ def get_year_full_values(abs_df, filter_countries, conversion_table_path, out_fo
 
 - Where is the conversion_table_path?
 
+#+begin_src bash
+cat ../Python\ scripts/main.py | grep -e 30
+#+end_src
+
+#+RESULTS:
+:results:
+folder = Path(__file__).resolve().parent.parent / "input data/IFs data for 30 August"
+start_year, end_year = 2020, 2030
+:end:
+
 #+name: Conversion Table Path
 #+begin_src bash
 cat ../Python\ scripts/main.py | grep -e conversion_table_path
@@ -112,6 +122,7 @@ find ../ -type f -name "conversion*"
 ../input data/conversion_table_indicators.csv
 :end:
 
+
 ** Scan All the functions
 
 #+name: Scan all the functions
@@ -135,65 +146,25 @@ def get_difference_values(abs_df, out_folder):
 
 ** IFs Data
 
-#+name: Compare IFs data
+#+name: Lastest IFs Data
 #+begin_src bash
-diff <(ls ../input\ data/IFs) <(ls ../input\ data/IFs\ data\ for\ 30\ August)
+ls ../input\ data/IFs
 #+end_src
 
-#+RESULTS: Compare IFs data
+#+RESULTS: Remove is *
 :results:
-2c2
-< 02.  Education Years, Mean, 15 to 24 Age Group - Years of Education.csv
----
-> 02. Education Years, Mean, 15 to 24 Age Group - Years of Education.csv
-10c10
-< 10. DALYs per Capita - Million per million.csv
----
-> 10. DALYs per Capita - Million per million (2nd Dimensions = Malaria).csv
-13,20c13,26
-< 13. Sanitation Services, Access, percent of population (select Safely Managed + At Least Basic).csv
-< 14. Sanitation Services, Access, Number of people, million (select Safely Managed + At Least Basic).csv
-< 15. Sanitation Services, Expenditure, Capital, Billion $ (select Safely Managed + At Least Basic).csv
-< 16. Sanitation Services, Expenditure, Maintenance, Billion $ (select Safely Managed + At Least Basic).csv
-< 17. Water Services, Access, percent of population (select Safely Managed + At Least Basic).csv
-< 18. Water Services, Access, Number of people, million (select Safely Managed + At Least Basic).csv
-< 19. Water Services, Expenditure, Capital, Billion $ (select Safely Managed + At Least Basic).csv
-< 20. Water Services, Expenditure, Maintenance, Billion $ (select Safely Managed + At Least Basic).csv
----
-> 13. Sanitation Services, Access, percent of population (2nd Dimensions = Basic + Safely Managed).csv
-> 14. Sanitation Services, Access, Number of people, million (2nd Dimensions = Basic + Safely Managed).csv
-> 15. Sanitation Services, Expenditure, Capital, Billion $ (2nd Dimensions = Basic + Safely Managed).csv
-> 16. Sanitation Services, Expenditure, Maintenance, Billion $ (2nd Dimensions = Basic + Safely Managed).csv
-> 17. Water Services, Access, percent of population (2nd Dimension = Basic + Safely Managed).csv
-> 18. Water Services, Access, Number of people, million (2nd Dimensions = Basic + Safely Managed).csv
-> 19. Water Services, Expenditure, Capital, Billion $ (2nd Dimensions = Basic + Safely Managed).csv
-> 20. Water Services, Expenditure, Maintenance, Billion $ (2nd Dimensions = Basic + Safely Managed).csv
-> 21. Population - Millions.csv
-> 22. GDP (MER) - Billion dollars.csv
-> 23. GDP (PPP) - Billion dollars.csv
-> 24. Stunted children, History and Forecast - Million.csv
-> 25. Population under 5 Years, Headcount - Millions.csv
-> 26. Malnourished Children, Headcount - Millions.csv
-:end:
-
-
-#+name: Latest IFs Data
-#+begin_src bash
-ls ../input\ data/IFs\ data\ for\ 30\ August
-#+end_src
-
-#+RESULTS: Latest IFs Data
-:results:
-01. Deaths by Category of Cause - Millions.csv
-02. Education Years, Mean, 15 to 24 Age Group - Years of Education.csv
-03. GDP per Capita (PPP) - Thousand Dollars.csv
-04. Infrastructure Spending by Destination, Total, Currency - Billion Dollars.csv
-05. Malnourished Children - Percent of children.csv
-06. Poverty less than $1.90 per Day, Log Normal - Percent of population.csv
-07. SAM National Burden, Total Cases - Millions.csv
+01. Deaths by Category of Cause - Millions (2nd Dimensions = Diarrhea).csv
+01. Deaths by Category of Cause - Millions.csv *
+02. Education Years, Mean, 15 to 24 Age Group - Years of Education.csv *
+03. GDP per Capita (PPP) - Thousand Dollars.csv *
+04. Infrastructure Spending by Destination, Total, Currency - Billion Dollars.csv *
+05. Malnourished Children - Percent of children.csv *
+06. Poverty Headcount less than $2.15 per Day, Log Normal - Millions.csv
+06. Poverty less than $1.90 per Day, Log Normal - Percent of population.csv *
+07. SAM National Burden, Total Cases - Millions.csv *
 08. State Failure Instability Event - IFs Index.csv
-09. Stunting Rate of Children - Percent of age 0-5.csv
-10. DALYs per Capita - Million per million (2nd Dimensions = Malaria).csv
+09. Stunting Rate of Children - Percent of age 0-5.csv *
+10. DALYs per Capita - Million per million (2nd Dimensions = Malaria).csv *
 11. Governance Effectiveness - WB index.csv
 12. Value Added by Sector, Currency - Billion dollars.csv
 13. Sanitation Services, Access, percent of population (2nd Dimensions = Basic + Safely Managed).csv
@@ -205,12 +176,16 @@ ls ../input\ data/IFs\ data\ for\ 30\ August
 19. Water Services, Expenditure, Capital, Billion $ (2nd Dimensions = Basic + Safely Managed).csv
 20. Water Services, Expenditure, Maintenance, Billion $ (2nd Dimensions = Basic + Safely Managed).csv
 21. Population - Millions.csv
-22. GDP (MER) - Billion dollars.csv
+22. GDP (MER) - Billion dollars.csv *
 23. GDP (PPP) - Billion dollars.csv
 24. Stunted children, History and Forecast - Million.csv
 25. Population under 5 Years, Headcount - Millions.csv
 26. Malnourished Children, Headcount - Millions.csv
 :end:
+
+Years to Keep:
+- Population, csv #13, csv #17 [2019 - 2050]
+- Others [2030 and 2050]
 
 
 * Output Files
@@ -262,6 +237,9 @@ cat ../Python\ scripts/functions.py | grep -e abs_file_path
     abs_df.to_csv(abs_file_path, index=False)
 :end:
 
+This is for Page:
+- **Full WASH Access by 2030 and 2050**
+
 **** progressRates_file_path
 
 #+name: Progress Rates File Path
@@ -274,6 +252,10 @@ cat ../Python\ scripts/functions.py | grep -e progressRates_file_path
     progressRates_file_path = out_folder / 'progressRates_abs.csv'
     progress_rates_df.to_csv(progressRates_file_path, index=False)
 :end:
+
+This is for Page:
+- Custom Wash Scenario Page
+- First line for Progress Rates in **Full WASH Access by 2030 and 2050**
 
 **** progressRates_diff_file_path
 #+name: Progress Rates Diff File Path
@@ -326,3 +308,49 @@ cat ../Python\ scripts/main.py | grep -e to_csv
 :end:
 
 Nothing
+
+
+* Pages
+
+** Business As Usual Scenario
+
+*** First Rows uses:
+- Both Boxes uses: JMP.csv
+*** Second Rows uses:
+- First Box: ProgressRates: progressRates_abs.csv
+- Second Box: ProgressRates: progressRates_abs.csv
+- Third Box: YearFull_access.csv
+
+** Full WASH Access By 2030 or 2050
+
+*** Data To Use:
+**** First Row: progressRates_abs.csv
+***** progressRates_abs.csv
+column_name: progressRate and Relative Change, Filter by Full Access Scenario
+for Absolut Change and Relative Change is just progressRate
+**** Second Row - End: BasicIndicators_abs.csv, BasicIndicators_dif.csv
+***** BasicIndicators_diff.csv
+Absolut Change and Relative Change + UNIT
+example filter: All the filters + Full sanitation access in 2030
+***** BasicIndicators_abs.csv
+Full Access Scenario and Business as Usual + UNIT
+*** Years to Keep:
+- Population, csv #13, csv #17 [2019 - 2050]
+- Others [2030 and 2050]
+
+** Custom WASH Scenario
+*** Data to Use:
+***** progressRates_abs.csv
+column_name: progressRate and Relative Change, Filter by Full Access Scenario
+for Absolut Change and Relative Change is just progressRate
+**** Second Row - End: BasicIndicators_abs.csv, BasicIndicators_dif.csv
+***** BasicIndicators_diff.csv
+Absolut Change and Relative Change + UNIT
+example filter: All the filters + Full sanitation access in 2030
+***** BasicIndicators_abs.csv
+Full Access Scenario and Business as Usual + UNIT
+*** Years to Keep:
+- Population, csv #13, csv #17 [2019 - 2050] *THIS IS THE DIFFERENCE FOR THE GRAPH*
+- Others [2030 and 2050]
+
+* Filters
