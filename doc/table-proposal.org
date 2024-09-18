@@ -395,11 +395,11 @@ data = pd.DataFrame(data)
 #+end_src
 
 #+RESULTS: Progress Rates Suggestion Table Structure
-|   | jmp_id | scenario_id | country_id | year | indicator                                  | values | type                   |
-|---+--------+-------------+------------+------+--------------------------------------------+--------+------------------------|
-| 0 |      1 |           1 |          1 | 2002 | Sanitation Services, percent of population |    0.1 | progress_rate          |
-| 1 |      2 |           2 |          2 | 2000 | Water Services                             |    0.2 | factor_difference      |
-| 2 |      3 |           3 |          3 | 2000 | Water Services                             |    0.3 | absolute_progress_rate |
+|   | jmp_id | scenario_id | country_id | year | type                   | indicator                                  | values |
+|---+--------+-------------+------------+------+------------------------+--------------------------------------------+--------|
+| 0 |      1 |           1 |          1 | 2002 | progress_rate          | Sanitation Services, percent of population |    0.1 |
+| 1 |      2 |           2 |          2 | 2000 | factor_difference      | Water Services                             |    0.2 |
+| 2 |      3 |           3 |          3 | 2000 | absolute_progress_rate | Water Services                             |    0.3 |
 
 ** Question:
 
