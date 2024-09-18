@@ -283,6 +283,7 @@ header_names = header_names.sort_values('header_name')
 | 66 | BasicIndicators_abs.csv | Year_filter                                           |                                                nan |
 | 52 | BasicIndicators_dif.csv | Year_filter                                           |                                               2030 |
 
+
 * Suggestion
 
 ** JMP Table
@@ -352,9 +353,9 @@ data = pd.read_csv("../output_data/KEYAccessLevels.csv")
 #+name: Key Access Levels Suggestion Table Structure
 #+begin_src python
 data = {
-    'id': [1, 2, 3],
-    'name': ['B', 'SM', 'ALB'],
-    'long_name': ['Basic', 'Safely Managed', 'At Least Basic']
+    'id': [1, 2],
+    'name': ['SM', 'ALB'],
+    'long_name': ['Safely Managed', 'At Least Basic']
 }
 data = pd.DataFrame(data)
 <<pd2org("data")>>
@@ -363,9 +364,8 @@ data = pd.DataFrame(data)
 #+RESULTS: Key Access Levels Suggestion Table Structure
 |   | id | name | long_name      |
 |---+----+------+----------------|
-| 0 |  1 | B    | Basic          |
-| 1 |  2 | SM   | Safely Managed |
-| 2 |  3 | ALB  | At Least Basic |
+| 0 |  1 | SM   | Safely Managed |
+| 1 |  2 | ALB  | At Least Basic |
 
 Benefits:
 - Consistent data, easy updates, better performance, and easier to read.
@@ -432,9 +432,14 @@ data = pd.DataFrame(data)
 
 *** Is it possible to create a relational table in PowerBI with an id ?
 for example: **category_id** as a reference to the **category** table and use **category_name** from the category table?
-
 *** Why we have column named year filter on some of the tables?
 *** Where we use Status column in Basic Indicators Abs?
+- Status Should only be SM and ALB
+- Currently status is always prioritized, because sometimes it doesn't matched with the scenario_type, Plan: Cleanup the IFS data before transform.
+- How do you identify that the Basic is category to pick in the PowerBI
+- Change the Scenario column name to commitment
+*** Does doubling equal to 2x, etc. Do we really need this values?
+*** Why the Scenario (commitment) does not includes year?
 
 
 * Table Design
