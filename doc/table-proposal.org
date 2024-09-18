@@ -1,0 +1,412 @@
+#+PROPERTY: header-args:python+  :exports both
+#+PROPERTY: header-args:python+  :tangle example.py
+#+PROPERTY: header-args:python+  :prologue "from tabulate import tabulate\nimport pandas as pd"
+#+PROPERTY: header-args:python+  :results value raw
+#+PROPERTY: header-args :noweb strip-export
+
+* Init Python
+
+#+name: strip_function
+#+begin_src python :var input_text="input_text" prefix="prefix" :results none
+return f"""
+def the_strip_function(input_text:str, prefix:str):
+    return prefix + " " + "*" + input_text.strip() + "*"
+return the_strip_function({input_text}, {prefix})
+"""
+#+end_src
+
+#+name: pd2org
+#+begin_src python :var df="df" :results none
+return f"return tabulate({df}, headers={df}.columns, tablefmt='orgtbl')"
+#+end_src
+
+#+name: Output Copy
+#+begin_src python :results output :exports both :results output replace
+print("Notes")
+#+end_src
+
+#+RESULTS: Output Copy
+Notes
+
+
+
+* Identification
+
+** Pages
+
+*** Business As Usual Scenario
+
+**** First Rows uses:
+- Both Boxes uses: JMP.csv
+**** Second Rows uses:
+- First Box: ProgressRates: progressRates_abs.csv
+- Second Box: ProgressRates: progressRates_abs.csv
+- Third Box: YearFull_access.csv
+
+*** Full WASH Access By 2030 or 2050
+
+**** Data To Use:
+***** First Row: progressRates_abs.csv
+****** progressRates_abs.csv
+column_name: progressRate and Relative Change, Filter by Full Access Scenario
+for Absolut Change and Relative Change is just progressRate
+***** Second Row - End: BasicIndicators_abs.csv, BasicIndicators_dif.csv
+****** BasicIndicators_diff.csv
+Absolut Change and Relative Change + UNIT
+example filter: All the filters + Full sanitation access in 2030
+****** BasicIndicators_abs.csv
+Full Access Scenario and Business as Usual + UNIT
+**** Years to Keep:
+- Population, csv #13, csv #17 [2019 - 2050]
+- Others [2030 and 2050]
+
+*** Custom WASH Scenario
+**** Data to Use:
+****** progressRates_abs.csv
+column_name: progressRate and Relative Change, Filter by Full Access Scenario
+for Absolut Change and Relative Change is just progressRate
+***** Second Row - End: BasicIndicators_abs.csv, BasicIndicators_dif.csv
+****** BasicIndicators_diff.csv
+Absolut Change and Relative Change + UNIT
+example filter: All the filters + Full sanitation access in 2030
+****** BasicIndicators_abs.csv
+Full Access Scenario and Business as Usual + UNIT
+**** Years to Keep:
+- Population, csv #13, csv #17 [2019 - 2050] *THIS IS THE DIFFERENCE FOR THE GRAPH*
+- Others [2030 and 2050]
+
+
+** List of Header Names of the Output Files
+
+#+name: List of Output Files
+#+begin_src sh
+ls -l --block-size=1 ../output_data | awk '{print $5, $9}'
+#+end_src
+
+#+RESULTS: List of Output Files
+|          |                         |
+| 73846848 | BasicIndicators_abs.csv |
+|  8449891 | BasicIndicators_dif.csv |
+|   526056 | JMP.csv                 |
+|       64 | KEYAccessLevels.csv     |
+|      278 | KEYCommitments.csv      |
+|      302 | KEYCountries.csv        |
+|       66 | KEYSectors.csv          |
+|      918 | KEYYears.csv            |
+|    91055 | progressRates_abs.csv   |
+|    50129 | progressRates_dif.csv   |
+|     3525 | YearFull_access.csv     |
+
+
+#+name: List of Header
+#+begin_src python
+import os
+
+output_dir = "../output_data"
+files = [f for f in os.listdir(output_dir) if f.endswith('.csv') and os.path.isfile(os.path.join(output_dir, f))]
+header_list = []
+complete_header_list = []
+for f in files:
+    data = pd.read_csv(f"{output_dir}/{f}", nrows=1000, encoding="utf-8")
+    for header_name in list(data):
+        header_list.append({
+            "file_name": f,
+            "header_name": header_name,
+            "example_values": data[header_name][0]
+        })
+        dtype = data[header_name].dropna().dtype
+        complete_header_list.append({
+            "file_name": f,
+            "header_name": header_name,
+            "example_values": data[header_name].dropna().unique() if dtype == 'object' else data[header_name][0],
+            "value_type": data[header_name].dropna().dtype
+        })
+header_list = pd.DataFrame(header_list)
+header_list.to_csv("./output_header_list.csv", index=None)
+complete_header_list = pd.DataFrame(complete_header_list)
+complete_header_list.to_csv("./output_header_list_complete.csv", index=None)
+<<pd2org("header_list")>>
+#+end_src
+
+#+RESULTS: List of Header
+|    | file_name               | header_name                                           |                                     example_values |
+|----+-------------------------+-------------------------------------------------------+----------------------------------------------------|
+|  0 | YearFull_access.csv     | Country                                               |                   Democratic Republic of the Congo |
+|  1 | YearFull_access.csv     | Indicator                                             | Sanitation Services, Access, percent of population |
+|  2 | YearFull_access.csv     | YearOf99PctAccess                                     |                                         after 2100 |
+|  3 | YearFull_access.csv     | Type                                                  |                                         Sanitation |
+|  4 | KEYCountries.csv        | Number                                                |                                                  1 |
+|  5 | KEYCountries.csv        | Country                                               |                   Democratic Republic of the Congo |
+|  6 | KEYSectors.csv          | Number                                                |                                                  1 |
+|  7 | KEYSectors.csv          | Sector                                                |                                               Base |
+|  8 | progressRates_dif.csv   | Country                                               |                   Democratic Republic of the Congo |
+|  9 | progressRates_dif.csv   | Indicator                                             | Sanitation Services, Access, percent of population |
+| 10 | progressRates_dif.csv   | Scenario                                              |                     Full sanitation access in 2030 |
+| 11 | progressRates_dif.csv   | Type                                                  |                                         Sanitation |
+| 12 | progressRates_dif.csv   | Year_filter                                           |                                             2030.0 |
+| 13 | progressRates_dif.csv   | Scenario_type                                         |                                                ALB |
+| 14 | progressRates_dif.csv   | Factor_Difference                                     |                                               7.82 |
+| 15 | progressRates_abs.csv   | Country                                               |                   Democratic Republic of the Congo |
+| 16 | progressRates_abs.csv   | Indicator                                             | Sanitation Services, Access, percent of population |
+| 17 | progressRates_abs.csv   | Scenario                                              |                                               Base |
+| 18 | progressRates_abs.csv   | Type                                                  |                                         Sanitation |
+| 19 | progressRates_abs.csv   | ProgressRate                                          |                                               0.98 |
+| 20 | progressRates_abs.csv   | Scenario_type                                         |                                               Base |
+| 21 | progressRates_abs.csv   | 2020                                                  |                                              16.11 |
+| 22 | progressRates_abs.csv   | 2021                                                  |                                              15.97 |
+| 23 | progressRates_abs.csv   | 2022                                                  |                                              17.05 |
+| 24 | progressRates_abs.csv   | 2023                                                  |                                               19.3 |
+| 25 | progressRates_abs.csv   | 2024                                                  |                                              20.55 |
+| 26 | progressRates_abs.csv   | 2025                                                  |                                              20.82 |
+| 27 | progressRates_abs.csv   | 2026                                                  |                                              21.28 |
+| 28 | progressRates_abs.csv   | 2027                                                  |                                              22.22 |
+| 29 | progressRates_abs.csv   | 2028                                                  |                                              23.32 |
+| 30 | progressRates_abs.csv   | 2029                                                  |                                              24.55 |
+| 31 | progressRates_abs.csv   | 2030                                                  |                                              25.92 |
+| 32 | progressRates_abs.csv   | Year_filter                                           |                                                nan |
+| 33 | JMP.csv                 | COUNTRY, AREA OR TERRITORY                            |                                        Afghanistan |
+| 34 | JMP.csv                 | Year                                                  |                                               2000 |
+| 35 | JMP.csv                 | Type                                                  |                                              Water |
+| 36 | JMP.csv                 | TOTAL - At least basic                                |                                               27.4 |
+| 37 | JMP.csv                 | TOTAL - Annual rate of change in                      |                                                2.5 |
+|    |                         | at least basic                                        |                                                    |
+| 38 | JMP.csv                 | TOTAL - Safely managed                                |                                               11.1 |
+| 39 | JMP.csv                 | TOTAL - Annual rate of change in safely managed       |                                                0.9 |
+| 40 | JMP.csv                 | TOTAL - Annual rate of change SM, manual calculation  |                                              -99.0 |
+| 41 | JMP.csv                 | TOTAL - Annual rate of change ALB, manual calculation |                                              -99.0 |
+| 42 | KEYAccessLevels.csv     | Number                                                |                                                  1 |
+| 43 | KEYAccessLevels.csv     | Access level                                          |                                               Base |
+| 44 | BasicIndicators_dif.csv | Value                                                 |                                               -7.1 |
+| 45 | BasicIndicators_dif.csv | Year                                                  |                                             2030.0 |
+| 46 | BasicIndicators_dif.csv | Indicator                                             |                                          DeathRate |
+| 47 | BasicIndicators_dif.csv | Unit                                                  |                                                nan |
+| 48 | BasicIndicators_dif.csv | Status                                                |                                              Total |
+| 49 | BasicIndicators_dif.csv | Country                                               |                   Democratic Republic of the Congo |
+| 50 | BasicIndicators_dif.csv | Scenario                                              |                     Full sanitation access in 2030 |
+| 51 | BasicIndicators_dif.csv | Type                                                  |                                         Sanitation |
+| 52 | BasicIndicators_dif.csv | Year_filter                                           |                                               2030 |
+| 53 | BasicIndicators_dif.csv | Scenario_type                                         |                                                ALB |
+| 54 | BasicIndicators_dif.csv | Change_(Pct_or_Abs)                                   |                                         percentual |
+| 55 | KEYYears.csv            | Number                                                |                                                  1 |
+| 56 | KEYYears.csv            | Year                                                  |                                               2000 |
+| 57 | BasicIndicators_abs.csv | Value                                                 |                                                0.0 |
+| 58 | BasicIndicators_abs.csv | Year                                                  |                                             1960.0 |
+| 59 | BasicIndicators_abs.csv | Indicator                                             |                                          DeathRate |
+| 60 | BasicIndicators_abs.csv | Unit                                                  |                                                nan |
+| 61 | BasicIndicators_abs.csv | Status                                                |                                              Total |
+| 62 | BasicIndicators_abs.csv | Country                                               |                   Democratic Republic of the Congo |
+| 63 | BasicIndicators_abs.csv | Scenario                                              |                                               Base |
+| 64 | BasicIndicators_abs.csv | Type                                                  |                                               Base |
+| 65 | BasicIndicators_abs.csv | Scenario_type                                         |                                               Base |
+| 66 | BasicIndicators_abs.csv | Year_filter                                           |                                                nan |
+| 67 | KEYCommitments.csv      | Number                                                |                                                  1 |
+| 68 | KEYCommitments.csv      | Commitment                                            |                                               Base |
+
+#+name: Identify Duplicated Columns
+#+begin_src python
+header_names = pd.read_csv("./output_header_list.csv")
+header_names = header_names.sort_values('header_name')
+<<pd2org("header_names")>>
+#+end_src
+
+#+RESULTS: Identify Duplicated Columns
+|    | file_name               | header_name                                           |                                     example_values |
+|----+-------------------------+-------------------------------------------------------+----------------------------------------------------|
+| 21 | progressRates_abs.csv   | 2020                                                  |                                              16.11 |
+| 22 | progressRates_abs.csv   | 2021                                                  |                                              15.97 |
+| 23 | progressRates_abs.csv   | 2022                                                  |                                              17.05 |
+| 24 | progressRates_abs.csv   | 2023                                                  |                                               19.3 |
+| 25 | progressRates_abs.csv   | 2024                                                  |                                              20.55 |
+| 26 | progressRates_abs.csv   | 2025                                                  |                                              20.82 |
+| 27 | progressRates_abs.csv   | 2026                                                  |                                              21.28 |
+| 28 | progressRates_abs.csv   | 2027                                                  |                                              22.22 |
+| 29 | progressRates_abs.csv   | 2028                                                  |                                              23.32 |
+| 30 | progressRates_abs.csv   | 2029                                                  |                                              24.55 |
+| 31 | progressRates_abs.csv   | 2030                                                  |                                              25.92 |
+| 43 | KEYAccessLevels.csv     | Access level                                          |                                               Base |
+| 33 | JMP.csv                 | COUNTRY, AREA OR TERRITORY                            |                                        Afghanistan |
+| 54 | BasicIndicators_dif.csv | Change_(Pct_or_Abs)                                   |                                         percentual |
+| 68 | KEYCommitments.csv      | Commitment                                            |                                               Base |
+| 49 | BasicIndicators_dif.csv | Country                                               |                   Democratic Republic of the Congo |
+| 62 | BasicIndicators_abs.csv | Country                                               |                   Democratic Republic of the Congo |
+|  0 | YearFull_access.csv     | Country                                               |                   Democratic Republic of the Congo |
+| 15 | progressRates_abs.csv   | Country                                               |                   Democratic Republic of the Congo |
+|  5 | KEYCountries.csv        | Country                                               |                   Democratic Republic of the Congo |
+|  8 | progressRates_dif.csv   | Country                                               |                   Democratic Republic of the Congo |
+| 14 | progressRates_dif.csv   | Factor_Difference                                     |                                               7.82 |
+| 46 | BasicIndicators_dif.csv | Indicator                                             |                                          DeathRate |
+| 16 | progressRates_abs.csv   | Indicator                                             | Sanitation Services, Access, percent of population |
+| 59 | BasicIndicators_abs.csv | Indicator                                             |                                          DeathRate |
+|  1 | YearFull_access.csv     | Indicator                                             | Sanitation Services, Access, percent of population |
+|  9 | progressRates_dif.csv   | Indicator                                             | Sanitation Services, Access, percent of population |
+|  4 | KEYCountries.csv        | Number                                                |                                                  1 |
+| 55 | KEYYears.csv            | Number                                                |                                                  1 |
+| 42 | KEYAccessLevels.csv     | Number                                                |                                                  1 |
+|  6 | KEYSectors.csv          | Number                                                |                                                  1 |
+| 67 | KEYCommitments.csv      | Number                                                |                                                  1 |
+| 19 | progressRates_abs.csv   | ProgressRate                                          |                                               0.98 |
+| 63 | BasicIndicators_abs.csv | Scenario                                              |                                               Base |
+| 17 | progressRates_abs.csv   | Scenario                                              |                                               Base |
+| 50 | BasicIndicators_dif.csv | Scenario                                              |                     Full sanitation access in 2030 |
+| 10 | progressRates_dif.csv   | Scenario                                              |                     Full sanitation access in 2030 |
+| 65 | BasicIndicators_abs.csv | Scenario_type                                         |                                               Base |
+| 53 | BasicIndicators_dif.csv | Scenario_type                                         |                                                ALB |
+| 13 | progressRates_dif.csv   | Scenario_type                                         |                                                ALB |
+| 20 | progressRates_abs.csv   | Scenario_type                                         |                                               Base |
+|  7 | KEYSectors.csv          | Sector                                                |                                               Base |
+| 61 | BasicIndicators_abs.csv | Status                                                |                                              Total |
+| 48 | BasicIndicators_dif.csv | Status                                                |                                              Total |
+| 41 | JMP.csv                 | TOTAL - Annual rate of change ALB, manual calculation |                                              -99.0 |
+| 40 | JMP.csv                 | TOTAL - Annual rate of change SM, manual calculation  |                                              -99.0 |
+| 37 | JMP.csv                 | TOTAL - Annual rate of change in                      |                                                2.5 |
+|    |                         | at least basic                                        |                                                    |
+| 39 | JMP.csv                 | TOTAL - Annual rate of change in safely managed       |                                                0.9 |
+| 36 | JMP.csv                 | TOTAL - At least basic                                |                                               27.4 |
+| 38 | JMP.csv                 | TOTAL - Safely managed                                |                                               11.1 |
+| 64 | BasicIndicators_abs.csv | Type                                                  |                                               Base |
+| 18 | progressRates_abs.csv   | Type                                                  |                                         Sanitation |
+|  3 | YearFull_access.csv     | Type                                                  |                                         Sanitation |
+| 11 | progressRates_dif.csv   | Type                                                  |                                         Sanitation |
+| 35 | JMP.csv                 | Type                                                  |                                              Water |
+| 51 | BasicIndicators_dif.csv | Type                                                  |                                         Sanitation |
+| 60 | BasicIndicators_abs.csv | Unit                                                  |                                                nan |
+| 47 | BasicIndicators_dif.csv | Unit                                                  |                                                nan |
+| 57 | BasicIndicators_abs.csv | Value                                                 |                                                0.0 |
+| 44 | BasicIndicators_dif.csv | Value                                                 |                                               -7.1 |
+| 34 | JMP.csv                 | Year                                                  |                                               2000 |
+| 58 | BasicIndicators_abs.csv | Year                                                  |                                             1960.0 |
+| 56 | KEYYears.csv            | Year                                                  |                                               2000 |
+| 45 | BasicIndicators_dif.csv | Year                                                  |                                             2030.0 |
+|  2 | YearFull_access.csv     | YearOf99PctAccess                                     |                                         after 2100 |
+| 32 | progressRates_abs.csv   | Year_filter                                           |                                                nan |
+| 12 | progressRates_dif.csv   | Year_filter                                           |                                             2030.0 |
+| 66 | BasicIndicators_abs.csv | Year_filter                                           |                                                nan |
+| 52 | BasicIndicators_dif.csv | Year_filter                                           |                                               2030 |
+
+* Suggestion
+
+** JMP Table
+
+It is unnecessary to split the total of the JMP categories.
+Perhaps Maurits wanted to reduce the file size, but instead of doing so...
+
+#+name: Current JMP Headers
+#+begin_src python :results output :exports both :results output replace
+jmp_headers = pd.read_csv("../output_data/JMP.csv", nrows=0, encoding='utf-8')
+for jmp_header in jmp_headers:
+    print(jmp_header)
+#+end_src
+
+#+RESULTS: Current JMP Headers
+COUNTRY, AREA OR TERRITORY
+Year
+Type
+TOTAL - At least basic
+TOTAL - Annual rate of change in
+at least basic
+TOTAL - Safely managed
+TOTAL - Annual rate of change in safely managed
+TOTAL - Annual rate of change SM, manual calculation
+TOTAL - Annual rate of change ALB, manual calculation
+
+Maybe new table can be something like this:
+
+#+name: JMP Suggestion Table Structure
+#+begin_src python
+data = {
+    'country': ['Indonesia', 'Malaysia', 'Singapore'],
+    'year': [2000, 2000, 2000],
+    'value' : [34, 30, 35],
+    'type': ['Water', 'Sanitation', 'Santitation'],
+    'category': ['ALB', 'SM', 'SM'],
+    'total': ['Annual rate change', 'Total', 'Total']
+}
+data = pd.DataFrame(data)
+<<pd2org("data")>>
+#+end_src
+
+#+RESULTS: JMP Suggestion Table Structure
+|   | country   | year | value | type        | category | total              |
+|---+-----------+------+-------+-------------+----------+--------------------|
+| 0 | Indonesia | 2000 |    34 | Water       | ALB      | Annual rate change |
+| 1 | Malaysia  | 2000 |    30 | Sanitation  | SM       | Total              |
+| 2 | Singapore | 2000 |    35 | Santitation | SM       | Total              |
+
+** Key or Category Tables
+
+*** Current:
+
+#+name: KeyAccessLevels.csv
+#+begin_src python
+data = pd.read_csv("../output_data/KEYAccessLevels.csv")
+<<pd2org("data")>>
+#+end_src
+
+#+RESULTS: KeyAccessLevels.csv
+|   | Number | Access level   |
+|---+--------+----------------|
+| 0 |      1 | Base           |
+| 1 |      2 | Safely Managed |
+| 2 |      3 | At Least Basic |
+
+#+name: Key Access Levels Suggestion Table Structure
+#+begin_src python
+data = {
+    'id': [1, 2, 3],
+    'name': ['B', 'SM', 'ALB'],
+    'long_name': ['Basic', 'Safely Managed', 'At Least Basic']
+}
+data = pd.DataFrame(data)
+<<pd2org("data")>>
+#+end_src
+
+#+RESULTS: Key Access Levels Suggestion Table Structure
+|   | id | name | long_name      |
+|---+----+------+----------------|
+| 0 |  1 | B    | Basic          |
+| 1 |  2 | SM   | Safely Managed |
+| 2 |  3 | ALB  | At Least Basic |
+
+Benefits:
+- Consistent data, easy updates, better performance, and easier to read.
+- Using ID Instead of repeating KEY names, we can maintain the consistency across the dataset
+- Especially in a large dataset, shorter numeric IDs (like 1, 2, 3) instead of long strings ("Basic", "Safely Managed", "At Least Basic") can drastically reduce the size of the main table.
+
+** Suggestion Progress Rates Table
+
+1. Make year as rows instead of column in [progressRates_abs.csv]
+2. Merge progressRates_abs.csv with progressRates_diff.csv
+   a. We need to reformat the progressRates_abs.csv first
+   b. Create another KEY for rate category
+
+#+name: Progress Rates Suggestion Table Structure
+#+begin_src python
+data = {
+    'jmp_id': [1, 2, 3],
+    'country_id': [1, 2, 3],
+    'year': [2002, 2000, 2000],
+    'indicator': ['Sanitation Services, percent of population', 'Water Services', 'Water Services'],
+    'values': [0.1, 0.2, 0.3],
+    'type': ['progress_rate','factor_difference','factor_difference'],
+    'scenario': ['doubling', 'halving', 'quadrupling'],
+}
+data = pd.DataFrame(data)
+<<pd2org("data")>>
+#+end_src
+
+#+RESULTS: Progress Rates Suggestion Table Structure
+|   | jmp_id | country_id | year | indicator                                  | values | type              | scenario    |
+|---+--------+------------+------+--------------------------------------------+--------+-------------------+-------------|
+| 0 |      1 |          1 | 2002 | Sanitation Services, percent of population |    0.1 | progress_rate     | doubling    |
+| 1 |      2 |          2 | 2000 | Water Services                             |    0.2 | factor_difference | halving     |
+| 2 |      3 |          3 | 2000 | Water Services                             |    0.3 | factor_difference | quadrupling |
+
+** Question:
+
+*** Is it possible to create a relational table in PowerBI with an id ?
+for example: **category_id** as a reference to the **category** table and use **category_name** from the category table?
+
+
+* Table Design
+
+** On Progress

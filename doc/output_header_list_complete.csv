@@ -1,0 +1,122 @@
+file_name,header_name,example_values,value_type
+YearFull_access.csv,Country,"['Democratic Republic of the Congo' 'Ethiopia' 'Ghana' 'Guatemala' 'Haiti'
+ 'India' 'Indonesia' 'Kenya' 'Liberia' 'Madagascar' 'Malawi' 'Mali'
+ 'Mozambique' 'Nepal' 'Nigeria' 'Philippines' 'Rwanda' 'Senegal'
+ 'South Sudan' 'Tanzania' 'Uganda' 'Zambia']",object
+YearFull_access.csv,Indicator,"['Sanitation Services, Access, percent of population'
+ 'Water Services, Access, percent of population']",object
+YearFull_access.csv,YearOf99PctAccess,['after 2100' '2049.0'],object
+YearFull_access.csv,Type,['Sanitation' 'Water'],object
+KEYCountries.csv,Number,1,int64
+KEYCountries.csv,Country,"['Democratic Republic of the Congo' 'Ethiopia' 'Ghana' 'Guatemala' 'Haiti'
+ 'India' 'Indonesia' 'Kenya' 'Liberia' 'Madagascar' 'Malawi' 'Mali'
+ 'Mozambique' 'Nepal' 'Nigeria' 'Philippines' 'Rwanda' 'Senegal'
+ 'South Sudan' 'Tanzania' 'Uganda' 'Zambia']",object
+KEYSectors.csv,Number,1,int64
+KEYSectors.csv,Sector,['Base' 'Sanitation' 'Water' 'Water + Sanitation'],object
+progressRates_dif.csv,Country,"['Democratic Republic of the Congo' 'Ethiopia' 'Ghana' 'Guatemala' 'Haiti'
+ 'India' 'Indonesia' 'Kenya' 'Liberia' 'Madagascar' 'Malawi' 'Mali'
+ 'Mozambique' 'Nepal' 'Nigeria' 'Philippines' 'Rwanda' 'Senegal'
+ 'South Sudan' 'Tanzania' 'Uganda' 'Zambia']",object
+progressRates_dif.csv,Indicator,"['Sanitation Services, Access, percent of population'
+ 'Water Services, Access, percent of population']",object
+progressRates_dif.csv,Scenario,"['Full sanitation access in 2030' 'Full sanitation access in 2050'
+ 'doubling' 'halving' 'quadrupling' 'six-fold' 'Full water access in 2030'
+ 'Full water access in 2050']",object
+progressRates_dif.csv,Type,['Sanitation' 'Water'],object
+progressRates_dif.csv,Year_filter,2030.0,float64
+progressRates_dif.csv,Scenario_type,['ALB' 'SM'],object
+progressRates_dif.csv,Factor_Difference,7.82,float64
+progressRates_abs.csv,Country,"['Democratic Republic of the Congo' 'Ethiopia' 'Ghana' 'Guatemala' 'Haiti'
+ 'India' 'Indonesia' 'Kenya' 'Liberia' 'Madagascar' 'Malawi' 'Mali'
+ 'Mozambique' 'Nepal' 'Nigeria' 'Philippines' 'Rwanda' 'Senegal'
+ 'South Sudan' 'Tanzania' 'Uganda' 'Zambia']",object
+progressRates_abs.csv,Indicator,"['Sanitation Services, Access, percent of population'
+ 'Water Services, Access, percent of population']",object
+progressRates_abs.csv,Scenario,"['Base' 'Full sanitation access in 2030' 'Full sanitation access in 2050'
+ 'doubling' 'halving' 'quadrupling' 'six-fold' 'Full water access in 2030'
+ 'Full water access in 2050']",object
+progressRates_abs.csv,Type,['Sanitation' 'Water'],object
+progressRates_abs.csv,ProgressRate,0.98,float64
+progressRates_abs.csv,Scenario_type,['Base' 'ALB' 'SM'],object
+progressRates_abs.csv,2020,16.11,float64
+progressRates_abs.csv,2021,15.97,float64
+progressRates_abs.csv,2022,17.05,float64
+progressRates_abs.csv,2023,19.3,float64
+progressRates_abs.csv,2024,20.55,float64
+progressRates_abs.csv,2025,20.82,float64
+progressRates_abs.csv,2026,21.28,float64
+progressRates_abs.csv,2027,22.22,float64
+progressRates_abs.csv,2028,23.32,float64
+progressRates_abs.csv,2029,24.55,float64
+progressRates_abs.csv,2030,25.92,float64
+progressRates_abs.csv,Year_filter,,float64
+JMP.csv,"COUNTRY, AREA OR TERRITORY","['Afghanistan' 'Albania' 'Algeria' 'American Samoa' 'Andorra' 'Angola'
+ 'Anguilla' 'Antigua and Barbuda' 'Argentina' 'Armenia' 'Aruba'
+ 'Australia' 'Austria' 'Azerbaijan' 'Bahamas' 'Bahrain' 'Bangladesh'
+ 'Barbados' 'Belarus' 'Belgium' 'Belize' 'Benin' 'Bermuda' 'Bhutan'
+ 'Bolivia (Plurinational State of)' 'Bonaire, Sint Eustatius and Saba'
+ 'Bosnia and Herzegovina' 'Botswana' 'Brazil' 'British Virgin Islands'
+ 'Brunei Darussalam' 'Bulgaria' 'Burkina Faso' 'Burundi' 'Cabo Verde'
+ 'Cambodia' 'Cameroon' 'Canada' 'Cayman Islands'
+ 'Central African Republic' 'Chad' 'Chile' 'China' 'China, Hong Kong SAR']",object
+JMP.csv,Year,2000,int64
+JMP.csv,Type,['Water'],object
+JMP.csv,TOTAL - At least basic,27.4,float64
+JMP.csv,"TOTAL - Annual rate of change in 
+at least basic",2.5,float64
+JMP.csv,TOTAL - Safely managed,11.1,float64
+JMP.csv,TOTAL - Annual rate of change in safely managed,0.9,float64
+JMP.csv,"TOTAL - Annual rate of change SM, manual calculation",-99.0,float64
+JMP.csv,"TOTAL - Annual rate of change ALB, manual calculation",-99.0,float64
+KEYAccessLevels.csv,Number,1,int64
+KEYAccessLevels.csv,Access level,['Base' 'Safely Managed' 'At Least Basic'],object
+BasicIndicators_dif.csv,Value,-7.1,float64
+BasicIndicators_dif.csv,Year,2030.0,float64
+BasicIndicators_dif.csv,Indicator,"['DeathRate'
+ 'Education Years, Mean, 15 to 24 Age Group - Years of Education'
+ 'GDP per Capita (PPP)' 'Infrastructure Spending by Destination, Total'
+ 'Malnourished Children - Percent of children'
+ 'Poverty inferior to $1.90 per day, Log Normal - Percent of Population'
+ 'SAM National Burden, Total Cases '
+ 'State Failure Instability Event - IFs Index'
+ 'Stunting Rate of Children - Percent of age 0-5' 'DALYsPC' 'GOVEFFECT'
+ 'VADD']",object
+BasicIndicators_dif.csv,Unit,"['Years' 'Thousand 2017$' 'Billion dollars' 'Percent'
+ 'Percent of population' 'Millions' 'Index' 'Million per million'
+ 'Index 0-5' 'Trillion $']",object
+BasicIndicators_dif.csv,Status,['Total' 'Malaria'],object
+BasicIndicators_dif.csv,Country,"['Democratic Republic of the Congo' 'Ethiopia' 'Ghana' 'Guatemala' 'Haiti'
+ 'India' 'Indonesia' 'Kenya' 'Liberia' 'Madagascar' 'Malawi' 'Mali'
+ 'Mozambique' 'Nepal' 'Nigeria' 'Philippines' 'Rwanda' 'Senegal'
+ 'South Sudan' 'Tanzania' 'Uganda' 'Zambia']",object
+BasicIndicators_dif.csv,Scenario,['Full sanitation access in 2030'],object
+BasicIndicators_dif.csv,Type,['Sanitation'],object
+BasicIndicators_dif.csv,Year_filter,2030,int64
+BasicIndicators_dif.csv,Scenario_type,['ALB' 'SM'],object
+BasicIndicators_dif.csv,Change_(Pct_or_Abs),['percentual'],object
+KEYYears.csv,Number,1,int64
+KEYYears.csv,Year,2000,int64
+BasicIndicators_abs.csv,Value,0.0,float64
+BasicIndicators_abs.csv,Year,1960.0,float64
+BasicIndicators_abs.csv,Indicator,['DeathRate'],object
+BasicIndicators_abs.csv,Unit,,float64
+BasicIndicators_abs.csv,Status,['Total'],object
+BasicIndicators_abs.csv,Country,"['Democratic Republic of the Congo' 'Ethiopia' 'Ghana' 'Guatemala' 'Haiti'
+ 'India' 'Indonesia' 'Kenya' 'Liberia' 'Madagascar' 'Malawi' 'Mali'
+ 'Mozambique' 'Nepal' 'Nigeria' 'Philippines' 'Rwanda' 'Senegal'
+ 'South Sudan' 'Tanzania' 'Uganda' 'Zambia']",object
+BasicIndicators_abs.csv,Scenario,"['Base' 'Full sanitation access in 2030' 'Full sanitation access in 2050'
+ 'Full water access in 2030' 'Full water access in 2050'
+ 'Full water and sanitation access 2030'
+ 'Full water and sanitation access 2050' 'halving' 'doubling'
+ 'quadrupling' 'six-fold']",object
+BasicIndicators_abs.csv,Type,['Base' 'Sanitation' 'Water' 'Water + Sanitation'],object
+BasicIndicators_abs.csv,Scenario_type,['Base' 'ALB' 'SM'],object
+BasicIndicators_abs.csv,Year_filter,,float64
+KEYCommitments.csv,Number,1,int64
+KEYCommitments.csv,Commitment,"['Base' 'doubling' 'Full sanitation access in 2030'
+ 'Full sanitation access in 2050' 'Full water access in 2030'
+ 'Full water access in 2050' 'Full water and sanitation access 2030'
+ 'Full water and sanitation access 2050' 'halving' 'quadrupling'
+ 'six-fold']",object

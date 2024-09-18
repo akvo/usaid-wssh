@@ -1,0 +1,71 @@
+file_name,header_name,example_values
+YearFull_access.csv,Country,Democratic Republic of the Congo
+YearFull_access.csv,Indicator,"Sanitation Services, Access, percent of population"
+YearFull_access.csv,YearOf99PctAccess,after 2100
+YearFull_access.csv,Type,Sanitation
+KEYCountries.csv,Number,1
+KEYCountries.csv,Country,Democratic Republic of the Congo
+KEYSectors.csv,Number,1
+KEYSectors.csv,Sector,Base
+progressRates_dif.csv,Country,Democratic Republic of the Congo
+progressRates_dif.csv,Indicator,"Sanitation Services, Access, percent of population"
+progressRates_dif.csv,Scenario,Full sanitation access in 2030
+progressRates_dif.csv,Type,Sanitation
+progressRates_dif.csv,Year_filter,2030.0
+progressRates_dif.csv,Scenario_type,ALB
+progressRates_dif.csv,Factor_Difference,7.82
+progressRates_abs.csv,Country,Democratic Republic of the Congo
+progressRates_abs.csv,Indicator,"Sanitation Services, Access, percent of population"
+progressRates_abs.csv,Scenario,Base
+progressRates_abs.csv,Type,Sanitation
+progressRates_abs.csv,ProgressRate,0.98
+progressRates_abs.csv,Scenario_type,Base
+progressRates_abs.csv,2020,16.11
+progressRates_abs.csv,2021,15.97
+progressRates_abs.csv,2022,17.05
+progressRates_abs.csv,2023,19.3
+progressRates_abs.csv,2024,20.55
+progressRates_abs.csv,2025,20.82
+progressRates_abs.csv,2026,21.28
+progressRates_abs.csv,2027,22.22
+progressRates_abs.csv,2028,23.32
+progressRates_abs.csv,2029,24.55
+progressRates_abs.csv,2030,25.92
+progressRates_abs.csv,Year_filter,
+JMP.csv,"COUNTRY, AREA OR TERRITORY",Afghanistan
+JMP.csv,Year,2000
+JMP.csv,Type,Water
+JMP.csv,TOTAL - At least basic,27.4
+JMP.csv,"TOTAL - Annual rate of change in 
+at least basic",2.5
+JMP.csv,TOTAL - Safely managed,11.1
+JMP.csv,TOTAL - Annual rate of change in safely managed,0.9
+JMP.csv,"TOTAL - Annual rate of change SM, manual calculation",-99.0
+JMP.csv,"TOTAL - Annual rate of change ALB, manual calculation",-99.0
+KEYAccessLevels.csv,Number,1
+KEYAccessLevels.csv,Access level,Base
+BasicIndicators_dif.csv,Value,-7.1
+BasicIndicators_dif.csv,Year,2030.0
+BasicIndicators_dif.csv,Indicator,DeathRate
+BasicIndicators_dif.csv,Unit,
+BasicIndicators_dif.csv,Status,Total
+BasicIndicators_dif.csv,Country,Democratic Republic of the Congo
+BasicIndicators_dif.csv,Scenario,Full sanitation access in 2030
+BasicIndicators_dif.csv,Type,Sanitation
+BasicIndicators_dif.csv,Year_filter,2030
+BasicIndicators_dif.csv,Scenario_type,ALB
+BasicIndicators_dif.csv,Change_(Pct_or_Abs),percentual
+KEYYears.csv,Number,1
+KEYYears.csv,Year,2000
+BasicIndicators_abs.csv,Value,0.0
+BasicIndicators_abs.csv,Year,1960.0
+BasicIndicators_abs.csv,Indicator,DeathRate
+BasicIndicators_abs.csv,Unit,
+BasicIndicators_abs.csv,Status,Total
+BasicIndicators_abs.csv,Country,Democratic Republic of the Congo
+BasicIndicators_abs.csv,Scenario,Base
+BasicIndicators_abs.csv,Type,Base
+BasicIndicators_abs.csv,Scenario_type,Base
+BasicIndicators_abs.csv,Year_filter,
+KEYCommitments.csv,Number,1
+KEYCommitments.csv,Commitment,Base
