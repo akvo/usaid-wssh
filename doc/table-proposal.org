@@ -401,12 +401,33 @@ data = pd.DataFrame(data)
 | 1 |      2 |           2 |          2 | 2000 | factor_difference      | Water Services                             |    0.2 |
 | 2 |      3 |           3 |          3 | 2000 | absolute_progress_rate | Water Services                             |    0.3 |
 
+** Suggestion Basic Indicators Table
+
+1. Merge basicIndicators_abs.csv with basicIndicators_diff.csv
+
+#+name: Progress Rates Suggestion Table Structure
+#+begin_src python
+data = {
+    'jmp_id': [1, 2, 3],
+    'scenario_id': [1, 2, 3],
+    'country_id': [1, 2, 3],
+    'year': [2002, 2000, 2000],
+    'type': ['absolute_base','diff_base'],
+    'indicator': ['Sanitation Services, percent of population', 'Water Services', 'Water Services'],
+    'values': [0.1, 0.2, 0.3],
+    'change': ['percentage', 'absolute']
+}
+data = pd.DataFrame(data)
+<<pd2org("data")>>
+#+end_src
+
 ** Question:
 
 *** Is it possible to create a relational table in PowerBI with an id ?
 for example: **category_id** as a reference to the **category** table and use **category_name** from the category table?
 
 *** Why we have column named year filter on some of the tables?
+*** Where we use Status column in Basic Indicators Abs?
 
 
 * Table Design
