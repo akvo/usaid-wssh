@@ -405,21 +405,28 @@ data = pd.DataFrame(data)
 
 1. Merge basicIndicators_abs.csv with basicIndicators_diff.csv
 
-#+name: Progress Rates Suggestion Table Structure
+#+name: Basic Indicators Suggestion Table Structure
 #+begin_src python
 data = {
     'jmp_id': [1, 2, 3],
     'scenario_id': [1, 2, 3],
     'country_id': [1, 2, 3],
     'year': [2002, 2000, 2000],
-    'type': ['absolute_base','diff_base'],
+    'type': ['absolute_base','diff_base', 'diff_base'],
     'indicator': ['Sanitation Services, percent of population', 'Water Services', 'Water Services'],
-    'values': [0.1, 0.2, 0.3],
-    'change': ['percentage', 'absolute']
+    'values': [0.1, 20, 30],
+    'change': ['percentage', 'absolute', 'absolute']
 }
 data = pd.DataFrame(data)
 <<pd2org("data")>>
 #+end_src
+
+#+RESULTS: Basic Indicators Suggestion Table Structure
+|   | jmp_id | scenario_id | country_id | year | type          | indicator                                  | values | change     |
+|---+--------+-------------+------------+------+---------------+--------------------------------------------+--------+------------|
+| 0 |      1 |           1 |          1 | 2002 | absolute_base | Sanitation Services, percent of population |    0.1 | percentage |
+| 1 |      2 |           2 |          2 | 2000 | diff_base     | Water Services                             |     20 | absolute   |
+| 2 |      3 |           3 |          3 | 2000 | diff_base     | Water Services                             |     30 | absolute   |
 
 ** Question:
 
